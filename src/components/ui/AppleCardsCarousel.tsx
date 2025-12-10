@@ -32,13 +32,6 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
   const isInView = useInView(containerRef, { once: true, amount: 0.2 });
   const [canScrollLeft, setCanScrollLeft] = React.useState(false);
   const [canScrollRight, setCanScrollRight] = React.useState(true);
-  const [isDragging, setIsDragging] = useState(false);
-  const [hasMoved, setHasMoved] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeftStart, setScrollLeftStart] = useState(0);
-  const targetScrollRef = useRef(0);
-  const animationRef = useRef<number | null>(null);
-  const dragThreshold = 5;
 
   useEffect(() => {
     if (carouselRef.current) {
@@ -67,104 +60,19 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     }
   };
 
-  const smoothScroll = () => {
-    if (!carouselRef.current) return;
-    const current = carouselRef.current.scrollLeft;
-    const target = targetScrollRef.current;
-    const diff = target - current;
-
-    if (Math.abs(diff) > 0.5) {
-      carouselRef.current.scrollLeft = current + diff * 0.15;
-      animationRef.current = requestAnimationFrame(smoothScroll);
-    } else {
-      carouselRef.current.scrollLeft = target;
-      animationRef.current = null;
-    }
-  };
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (!carouselRef.current) return;
-    if (animationRef.current) {
-      cancelAnimationFrame(animationRef.current);
-      animationRef.current = null;
-    }
-    setIsDragging(true);
-    setHasMoved(false);
-    setStartX(e.clientX);
-    setScrollLeftStart(carouselRef.current.scrollLeft);
-    targetScrollRef.current = carouselRef.current.scrollLeft;
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !carouselRef.current) return;
-    const walk = e.clientX - startX;
-
-    if (Math.abs(walk) > dragThreshold) {
-      setHasMoved(true);
-      e.preventDefault();
-      targetScrollRef.current = scrollLeftStart - walk;
-
-      if (!animationRef.current) {
-        animationRef.current = requestAnimationFrame(smoothScroll);
-      }
-    }
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-    setTimeout(() => setHasMoved(false), 0);
-  };
-
-  const handleMouseLeave = () => {
-    setIsDragging(false);
-    setTimeout(() => setHasMoved(false), 0);
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    if (!carouselRef.current) return;
-    if (animationRef.current) {
-      cancelAnimationFrame(animationRef.current);
-      animationRef.current = null;
-    }
-    setIsDragging(true);
-    setStartX(e.touches[0].clientX);
-    setScrollLeftStart(carouselRef.current.scrollLeft);
-    targetScrollRef.current = carouselRef.current.scrollLeft;
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging || !carouselRef.current) return;
-    const walk = e.touches[0].clientX - startX;
-    targetScrollRef.current = scrollLeftStart - walk;
-
-    if (!animationRef.current) {
-      animationRef.current = requestAnimationFrame(smoothScroll);
-    }
-  };
-
-  const handleTouchEnd = () => {
-    setIsDragging(false);
-  };
-
   return (
     <div
       ref={containerRef}
       className="relative w-full"
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseLeave}
     >
       <div
         className={cn(
-          "flex w-full overflow-x-scroll overscroll-x-auto py-10 [scrollbar-width:none] md:py-20",
-          hasMoved ? "cursor-grabbing scroll-auto [&_*]:pointer-events-none" : "cursor-grab scroll-smooth"
+          "flex w-full overflow-x-auto overscroll-x-auto py-10 [scrollbar-width:none] md:py-20",
+          "scroll-smooth snap-x snap-mandatory",
+          "touch-pan-x"
         )}
         ref={carouselRef}
         onScroll={checkScrollability}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
       >
         {/* Left fade gradient */}
         <motion.div
@@ -200,7 +108,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
                 delay: index * 0.08,
                 ease: "easeOut",
               }}
-              className="rounded-3xl last:pr-[5%] md:last:pr-[33%] select-none"
+              className="rounded-3xl last:pr-[5%] md:last:pr-[33%] select-none snap-start"
             >
               {item}
             </motion.div>

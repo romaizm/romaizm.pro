@@ -26,8 +26,10 @@ export function ContactCTA() {
           <div className="rounded-2xl p-[1.5px] gradient-border-glow">
             <div className="bg-neutral-50 dark:bg-neutral-950 rounded-[calc(1rem-1.5px)] p-fluid-lg">
               <h2 className="text-fluid-h2 font-bold text-neutral-900 dark:text-white mb-fluid-xs">
-                {t("title")}{" "}
-                <TypewriterText words={titleWords} />
+                <span className="block md:inline">{t("title")}</span>{" "}
+                <span className="block md:inline">
+                  <TypewriterText words={titleWords} />
+                </span>
               </h2>
 
               <p className="text-fluid-body-lg text-neutral-600 dark:text-neutral-400 mb-fluid-md">
