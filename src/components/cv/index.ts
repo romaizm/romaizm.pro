@@ -1,0 +1,9 @@
+export { CVHero } from "./CVHero";
+export { TechStack } from "./TechStack";
+export { ExperienceTabs } from "./ExperienceTabs";
+export { ExperienceTabsDesktop } from "./ExperienceTabsDesktop";
+export { ExperienceAccordion } from "./ExperienceAccordion";
+export { CVFeaturedProjects } from "./CVFeaturedProjects";
+export { Education } from "./Education";
+export { CVContact } from "./CVContact";
+export { PDFDownload } from "./PDFDownload";

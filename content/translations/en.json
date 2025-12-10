@@ -1,0 +1,423 @@
+{
+  "metadata": {
+    "title": "Roman Izmestev - Full-Stack Developer",
+    "description": "Full-Stack Developer specializing in WordPress, Shopify, React, and Flutter. Building digital solutions that drive results.",
+    "cv": {
+      "description": "Professional experience, skills and education of Roman Izmestev, Full-Stack Developer."
+    }
+  },
+  "navigation": {
+    "home": "Home",
+    "projects": "Projects",
+    "cv": "CV",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Roman Izmestev",
+    "title": "Full-Stack Developer & eCommerce Expert",
+    "subtitle": "Building digital solutions that drive results. Specializing in website development, eCommerce, mobile and web applications.",
+    "status": "Available for new projects",
+    "cta": "View My Work",
+    "contact": "Get in Touch"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "Hey! I'm Roman, a web developer from Vladivostok, Russia.\n\nI build fullstack apps with React and Next.js, mobile apps with Flutter, and websites of any scale — from simple landing pages to complex e-commerce projects on Shopify and WooCommerce.\n\nI'm big on AI-driven development — it helps me ship faster, write cleaner code, and tackle projects that used to be too big for a solo dev.\n\nI work with clients around the globe. I like clear briefs, honest deadlines, and stuff that just works.",
+    "stack": "Tech Stack",
+    "photoCaption": "Me and my beloved co-worker, French Bulldog named Lulu.",
+    "experience": "Years Experience",
+    "experienceValue": "5+",
+    "projects": "Projects Launched",
+    "projectsValue": "15+",
+    "clients": "Clients Worldwide",
+    "clientsValue": "15+"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A selection of my recent work",
+    "featured": "Featured Work",
+    "viewAll": "View All Projects",
+    "viewProject": "View Project",
+    "visitSite": "Visit Site",
+    "filterBy": "Filter by",
+    "all": "All",
+    "technologies": "Technologies",
+    "client": "Client",
+    "location": "Location",
+    "launched": "Launched",
+    "platform": "Platform",
+    "categories": {
+      "Website": "Website",
+      "eCommerce": "Online Store",
+      "Mobile App": "Mobile App",
+      "Web Application": "Web Application"
+    }
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Digital solutions tailored to your business needs",
+    "hourlyRate": "Starting from $50/hour",
+    "viewAll": "View All Services",
+    "toolsVary": "Tools vary by project",
+    "categories": {
+      "webDev": {
+        "title": "Web Development",
+        "description": "Modern, high-performance websites built with cutting-edge technologies",
+        "items": ["Website Development", "eCommerce Development"],
+        "technologies": ["Next.js", "React", "WordPress", "WooCommerce", "Shopify", "Webflow", "Bitrix"]
+      },
+      "mobileDev": {
+        "title": "Mobile Development",
+        "description": "Native and cross-platform mobile applications for iOS and Android",
+        "items": ["Flutter Cross-platform (iOS / Android)", "Native Development (Swift / Kotlin)"],
+        "technologies": ["Flutter", "Firebase", "Supabase", "RevenueCat", "Sentry", "CodeMagic", "Swift", "Kotlin"]
+      },
+      "webApps": {
+        "title": "Web Applications",
+        "description": "Comprehensive systems and dashboards for your business operations",
+        "items": ["Custom Systems", "Dashboards & Admin Panels", "Internal Business Tools"],
+        "technologies": ["React", "Next.js", "Various CMS", "SQL Databases"]
+      },
+      "otherServices": {
+        "title": "Digital Services",
+        "description": "Boost your online presence and streamline your business",
+        "items": ["SEO Optimization", "Brand Development", "eCommerce Store Management", "Email Marketing Automation"],
+        "technologies": []
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "What kind of projects do you work on?",
+          "answer": "I specialize in building websites, web applications, and mobile apps. This includes custom websites using Next.js and React, eCommerce stores on Shopify and WooCommerce, cross-platform mobile apps with Flutter, and internal business systems. Whether you're launching an online store, business website, or creating a mobile app from scratch — I can help."
+        },
+        {
+          "question": "Do you work with startups or small businesses?",
+          "answer": "Absolutely. I enjoy working with startups and small/medium businesses, helping them launch scalable and efficient digital solutions within reasonable budgets. Every project gets the same level of attention regardless of size."
+        },
+        {
+          "question": "Do you work alone?",
+          "answer": "In most cases, yes — I handle projects end-to-end. However, I collaborate with trusted professionals on certain projects to speed up development and launch. I also leverage AI-driven development tools extensively, which helps me deliver faster while maintaining high code quality."
+        },
+        {
+          "question": "What is your development process like?",
+          "answer": "I follow a clear process: Discovery → Design/Prototype → Development → Testing → Launch → Support. Each stage includes regular communication and feedback loops to ensure we're aligned on goals and expectations."
+        },
+        {
+          "question": "Do you sign NDAs or contracts?",
+          "answer": "Yes, I'm happy to sign NDAs or provide a contract outlining the project scope, deliverables, and payment terms. Protecting your ideas and establishing clear agreements is important for both parties."
+        },
+        {
+          "question": "Do you offer ongoing support and maintenance?",
+          "answer": "Yes, I offer maintenance plans for updates, backups, security patches, and minor content edits. I can also help you get familiar with your freshly launched website or store by providing tailor-made guides and training sessions."
+        },
+        {
+          "question": "How is a project paid?",
+          "answer": "I typically take 50% of the project total upon signing a contract, and 50% after the project is completed and approved. For larger projects, we can discuss milestone-based payments."
+        },
+        {
+          "question": "What do you need to start a project?",
+          "answer": "Ideally, a brief outlining your goals, branding assets (if available), and any reference sites or apps you like. Don't worry if you don't have everything ready — I'll guide you through the rest during our discovery phase."
+        }
+      ]
+    }
+  },
+  "cv": {
+    "title": "Curriculum Vitae",
+    "downloadPdf": "Download PDF",
+    "contactMe": "Contact Me",
+    "hero": {
+      "name": "Roman Izmestev",
+      "title": "Full-Stack Developer",
+      "subtitle": "Product Manager",
+      "stack": "React / Next.js • Flutter • E-commerce",
+      "description": "5+ years building digital products for clients worldwide. I specialize in web development, mobile apps, and eCommerce solutions. Based in Vladivostok, Russia — working with teams across the globe.",
+      "location": "Vladivostok, Russia (UTC+10)"
+    },
+    "techStack": {
+      "title": "Tech Stack & Skills",
+      "categories": {
+        "frontend": "Frontend",
+        "mobile": "Mobile",
+        "web": "Web Dev",
+        "tools": "Tools",
+        "backend": "Backend",
+        "ai": "AI"
+      },
+      "items": {
+        "frontend": ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+        "mobile": ["Flutter", "Dart"],
+        "web": ["Shopify", "Liquid", "WordPress", "WooCommerce"],
+        "tools": ["Git", "VS Code", "Vercel", "Zendesk", "Helpdesk", "YouTrack", "Jira", "Linux", "Photoshop", "Illustrator", "Figma"],
+        "backend": ["Node.js", "REST API", "PostgreSQL", "Firebase"],
+        "ai": ["Claude", "Cursor.ai", "ChatGPT"]
+      }
+    },
+    "experience": {
+      "title": "Work Experience",
+      "present": "Present",
+      "mainSkills": "Key Skills",
+      "positions": [
+        {
+          "id": "freelancer",
+          "company": "Freelancer",
+          "companySlug": "freelancer",
+          "title": "Full-Stack Developer",
+          "period": "2020 — Present",
+          "description": [
+            "More than 15 projects launched",
+            "Clients across Russia, UAE, South Korea, USA",
+            "Specialization in creating websites, eCommerce, web apps & mobile apps"
+          ],
+          "mainSkills": ["Next.js", "React", "Flutter", "Shopify", "WordPress"]
+        },
+        {
+          "id": "yuwab",
+          "company": "Yuwab Consulting",
+          "companySlug": "yuwab",
+          "title": "Main Technical Engineer",
+          "period": "Nov 2024 — Oct 2025",
+          "description": [
+            "Created the whole technical ecosystem of the SaaS platform from scratch",
+            "Developed a cross-platform mobile app for end users",
+            "Collaborated with third-party providers",
+            "Organized internal technical processes"
+          ],
+          "mainSkills": ["Flutter", "Database Design", "REST API", "Product Management"]
+        },
+        {
+          "id": "oloaa",
+          "company": "Oloaa Granola",
+          "companySlug": "oloaa",
+          "title": "eCommerce Store Manager",
+          "period": "Jan 2024 — Jul 2025",
+          "description": [
+            "Increased online store sales from 0 to 5,000 AED+ / month",
+            "Optimized the website speed and flow of purchase to increase conversions",
+            "Re-organized the catalog to make the navigation easier",
+            "Launched automated email marketing and increased loyal customer engagement by 80%"
+          ],
+          "mainSkills": ["Shopify", "Liquid", "Marketing Campaigns", "Email Automation"]
+        },
+        {
+          "id": "ecwid",
+          "company": "Ecwid by Lightspeed",
+          "companySlug": "ecwid",
+          "title": "Customer Support (2nd Line)",
+          "period": "Jan 2020 — Feb 2025",
+          "description": [
+            "Provided second-line support for SaaS platform users via chat, email, and phone (English-speaking customers)",
+            "Service monitoring. Collaborated closely with Dev and DevOps teams to troubleshoot complex issues and resolve incidents",
+            "Onboarded and trained new team members",
+            "Wrote internal documentation and support guides for team members"
+          ],
+          "mainSkills": ["SaaS Support", "ZenDesk", "YouTrack / Jira", "Team Communication"]
+        },
+        {
+          "id": "koreanair",
+          "company": "Korean Air",
+          "companySlug": "korean-air",
+          "title": "Marketing & Advertisement Manager",
+          "period": "Feb 2019 — Aug 2019",
+          "description": [
+            "Planned and executed marketing campaigns",
+            "Managed partnerships and media relations",
+            "Analyzed advertising performance and generated reports"
+          ],
+          "mainSkills": ["Marketing", "Partnership Management", "Analytics"]
+        },
+        {
+          "id": "jti",
+          "company": "JTI (Japan Tobacco International)",
+          "companySlug": "jti",
+          "title": "Intern of Sales Department",
+          "period": "Feb 2018 — Sep 2018",
+          "description": [
+            "Assisted in supply chain operations and procurement",
+            "Supported field sales representatives",
+            "Used SAP and Excel for inventory and shipment tracking"
+          ],
+          "mainSkills": ["B2B Sales", "SAP", "Excel", "ERP"]
+        }
+      ]
+    },
+    "featuredProjects": {
+      "title": "Featured Projects",
+      "subtitle": "Recent work from my portfolio",
+      "viewAll": "See All Projects"
+    },
+    "education": {
+      "title": "Education",
+      "selfStudy": "Self-Education",
+      "ongoing": "Ongoing",
+      "items": [
+        {
+          "degree": "Bachelor in International Economics",
+          "institution": "Far Eastern Federal University",
+          "location": "Vladivostok, Russia",
+          "period": "2014 — 2018",
+          "type": "formal"
+        },
+        {
+          "degree": "Bachelor in Finance",
+          "institution": "University of Maryland Global Campus",
+          "location": "Maryland, USA",
+          "period": "2014 — 2018",
+          "type": "formal"
+        },
+        {
+          "degree": "Self-Education",
+          "institution": "Udemy, YouTube, Documentation",
+          "location": "Online",
+          "period": "Ongoing",
+          "type": "self-study"
+        }
+      ]
+    },
+    "contact": {
+      "title": "Get In Touch",
+      "subtitle": "Feel free to reach out for collaborations or just a friendly hello",
+      "email": "Email",
+      "telegram": "Telegram",
+      "github": "GitHub",
+      "available": "Available for new projects"
+    }
+  },
+  "contact": {
+    "title": "Let's Discuss",
+    "pageTitle": "Get In Touch",
+    "titleWords": ["Your Project", "Your Idea", "Your Startup", "Your Business"],
+    "subtitle": "Have a project in mind? Let's talk about it.",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "placeholders": {
+      "name": "John Doe",
+      "email": "john@example.com",
+      "subject": "Project Inquiry",
+      "message": "Tell me about your project..."
+    },
+    "send": "Send Message",
+    "sendEmail": "Send Email",
+    "sending": "Sending...",
+    "success": "Message sent successfully! I'll get back to you soon.",
+    "error": "Something went wrong. Please try again or contact me directly.",
+    "info": {
+      "title": "Contact Information",
+      "email": "Email",
+      "location": "Location",
+      "timezone": "Timezone",
+      "availability": "Availability"
+    },
+    "available": "Open to new projects"
+  },
+  "footer": {
+    "description": "Full-Stack Developer based in Vladivostok, Russia. Building digital solutions that drive results.",
+    "copyright": "All rights reserved",
+    "madeWith": "Made with",
+    "builtWith": "Built with Next.js & Tailwind CSS",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy"
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "readMore": "Read More",
+    "backToHome": "Back to Home",
+    "backToProjects": "Back to Projects",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "notFound": "Page not found"
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "description": "Terms and conditions for services provided by Roman Izmestev",
+    "lastUpdated": "Last updated",
+    "lastUpdatedDate": "December 2025",
+    "sections": {
+      "acceptance": {
+        "title": "Acceptance of Terms",
+        "content": "By engaging my services or using this website, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use my services."
+      },
+      "services": {
+        "title": "Services",
+        "content": "I provide web development, mobile app development, eCommerce solutions, and related digital services. The specific scope, deliverables, and timeline for each project will be outlined in a separate project agreement or proposal."
+      },
+      "intellectualProperty": {
+        "title": "Intellectual Property",
+        "content": "Upon full payment, you will own the final deliverables created specifically for your project. I retain the right to use general techniques, skills, and knowledge gained during the project. Third-party assets (fonts, images, plugins) may be subject to their own licenses."
+      },
+      "payment": {
+        "title": "Payment Terms",
+        "content": "Payment terms are typically 50% upfront and 50% upon project completion, unless otherwise agreed in writing. Invoices are due within 14 days of receipt. Late payments may result in project delays or suspension of services."
+      },
+      "confidentiality": {
+        "title": "Confidentiality",
+        "content": "I agree to keep confidential any proprietary information shared during our engagement. I am happy to sign a Non-Disclosure Agreement (NDA) upon request."
+      },
+      "liability": {
+        "title": "Limitation of Liability",
+        "content": "My liability is limited to the amount paid for services. I am not liable for any indirect, incidental, or consequential damages arising from the use of deliverables or services provided."
+      },
+      "termination": {
+        "title": "Termination",
+        "content": "Either party may terminate the agreement with written notice. Upon termination, payment is due for all work completed up to the termination date."
+      },
+      "changes": {
+        "title": "Changes to Terms",
+        "content": "I reserve the right to update these terms at any time. Significant changes will be communicated to active clients."
+      },
+      "contact": {
+        "title": "Contact",
+        "content": "For questions about these Terms of Service, please contact me at romikizm@gmail.com."
+      }
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "description": "How Roman Izmestev collects, uses, and protects your personal information",
+    "lastUpdated": "Last updated",
+    "lastUpdatedDate": "December 2025",
+    "sections": {
+      "introduction": {
+        "title": "Introduction",
+        "content": "This Privacy Policy explains how I collect, use, and protect your personal information when you visit this website or engage my services. Your privacy is important to me."
+      },
+      "dataCollection": {
+        "title": "Information I Collect",
+        "content": "I may collect personal information you provide directly, such as your name, email address, and project details when you contact me through the contact form. I also collect basic analytics data about website visits to improve user experience."
+      },
+      "dataUse": {
+        "title": "How I Use Your Information",
+        "content": "I use your information to respond to inquiries, provide services, communicate about projects, and improve this website. I will never sell your personal information to third parties."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "content": "This website uses minimal cookies for essential functionality such as theme preferences. No tracking cookies are used for advertising purposes."
+      },
+      "thirdParty": {
+        "title": "Third-Party Services",
+        "content": "I may use third-party services (such as email providers and analytics tools) that have their own privacy policies. I recommend reviewing their policies as well."
+      },
+      "dataSecurity": {
+        "title": "Data Security",
+        "content": "I implement reasonable security measures to protect your personal information. However, no method of transmission over the internet is 100% secure."
+      },
+      "rights": {
+        "title": "Your Rights",
+        "content": "You have the right to access, correct, or delete your personal information. To exercise these rights, please contact me directly."
+      },
+      "changes": {
+        "title": "Changes to This Policy",
+        "content": "I may update this Privacy Policy from time to time. Changes will be posted on this page with an updated revision date."
+      },
+      "contact": {
+        "title": "Contact",
+        "content": "If you have questions about this Privacy Policy, please contact me at romikizm@gmail.com."
+      }
+    }
+  }
+}

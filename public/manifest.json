@@ -1,0 +1,21 @@
+{
+  "name": "Roman Izmestev - Full-Stack Developer",
+  "short_name": "Roman Izmestev",
+  "description": "Full-Stack Developer specializing in WordPress, Shopify, React, and Flutter",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#06b6d4",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    }
+  ]
+}
