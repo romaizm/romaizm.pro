@@ -81,7 +81,7 @@ export function CVContact() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
                     transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
-                    className="flex items-center gap-3 px-5 py-3 rounded-xl bg-white/50 dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-800 hover:border-primary-500 dark:hover:border-primary-500 transition-colors group"
+                    className="flex items-center gap-3 px-5 py-3 rounded-xl bg-white/50 dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-800 hover:border-primary-500 dark:hover:border-primary-500 transition-colors group w-full sm:w-auto"
                   >
                     <span className="text-neutral-500 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                       {link.icon}

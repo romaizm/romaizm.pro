@@ -68,8 +68,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
       <div
         className={cn(
           "flex w-full overflow-x-auto overscroll-x-auto py-10 [scrollbar-width:none] md:py-20",
-          "scroll-smooth snap-x snap-mandatory",
-          "touch-pan-x"
+          "scroll-smooth snap-x snap-mandatory"
         )}
         ref={carouselRef}
         onScroll={checkScrollability}
@@ -79,14 +78,14 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: canScrollLeft ? 1 : 0 } : { opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="pointer-events-none absolute left-0 top-0 z-[100] h-full w-16 md:w-32 bg-gradient-to-r from-white dark:from-neutral-950 to-transparent"
+          className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 md:w-32 bg-gradient-to-r from-white dark:from-neutral-950 to-transparent"
         />
         {/* Right fade gradient */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: canScrollRight ? 1 : 0 } : { opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="pointer-events-none absolute right-0 top-0 z-[100] h-full w-16 md:w-32 bg-gradient-to-l from-white dark:from-neutral-950 to-transparent"
+          className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 md:w-32 bg-gradient-to-l from-white dark:from-neutral-950 to-transparent"
         />
 
         <div
@@ -121,7 +120,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
         initial={{ opacity: 0, y: 10 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
         transition={{ duration: 0.4, delay: 0.3 }}
-        className="mr-10 flex justify-end gap-2 relative z-[200]"
+        className="mr-10 flex justify-end gap-2 relative z-20"
       >
         <motion.button
           whileHover={{ scale: 1.05 }}
