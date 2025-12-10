@@ -26,7 +26,7 @@ export function CVHero({ pdfUrl }: CVHeroProps) {
             >
               <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900">
                 <Image
-                  src="/images/roman-photo.jpg"
+                  src="/images/roman-photo.webp"
                   alt={t("hero.name")}
                   fill
                   className="object-cover"

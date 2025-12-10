@@ -7,7 +7,7 @@ export function getPersonSchema(locale: string) {
     name: "Roman Izmestev",
     alternateName: locale === "ru" ? "Роман Изместьев" : undefined,
     url: baseUrl,
-    image: `${baseUrl}/images/roman-photo.jpg`,
+    image: `${baseUrl}/images/roman-photo.webp`,
     jobTitle:
       locale === "ru" ? "Full-Stack Разработчик" : "Full-Stack Developer",
     worksFor: {

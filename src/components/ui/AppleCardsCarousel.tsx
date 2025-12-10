@@ -108,7 +108,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
                 delay: index * 0.08,
                 ease: "easeOut",
               }}
-              className="rounded-3xl last:pr-[5%] md:last:pr-[33%] select-none snap-start"
+              className="rounded-3xl first:pl-[5%] md:first:pl-[10%] last:pr-[5%] md:last:pr-[33%] select-none snap-center"
             >
               {item}
             </motion.div>

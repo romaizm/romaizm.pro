@@ -81,7 +81,7 @@ export function AboutPreview() {
             <div className="rounded-2xl bg-neutral-50 dark:bg-neutral-900 p-fluid-xs h-full">
               <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden">
                 <Image
-                  src="/images/photo.jpg"
+                  src="/images/photo.webp"
                   alt="Roman Izmestev"
                   fill
                   className="object-cover"
