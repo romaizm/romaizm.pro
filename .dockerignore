@@ -1,0 +1,38 @@
+# Dependencies
+node_modules
+
+# Build output
+.next
+out
+
+# Development
+.env*.local
+.env.local
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# Git
+.git
+.gitignore
+
+# Documentation
+README.md
+docs/
+specs/
+
+# Claude
+.claude/
+PROJECT.md
+initial-requirements.md
+
+# Scripts (not needed in container)
+scripts/
+
+# Misc
+*.log
+.DS_Store
+Thumbs.db
