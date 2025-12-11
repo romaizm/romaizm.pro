@@ -1,5 +1,5 @@
 romaizm.pro {
-    reverse_proxy app:3000
+    reverse_proxy localhost:3000
 }
 
 www.romaizm.pro {
