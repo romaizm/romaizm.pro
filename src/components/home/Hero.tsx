@@ -1,10 +1,16 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { Link } from "@/lib/i18n/navigation";
 import { Button } from "@/components/ui/Button";
-import { SparklesCore } from "@/components/ui/SparklesCore";
+
+// Lazy load SparklesCore to avoid blocking initial render
+const SparklesCore = dynamic(
+  () => import("@/components/ui/SparklesCore").then((mod) => mod.SparklesCore),
+  { ssr: false }
+);
 
 export function Hero() {
   const t = useTranslations("hero");

@@ -21,6 +21,16 @@ export function ContactForm() {
 
   return (
     <form action={formAction} className="space-y-6">
+      {/* Honeypot field - hidden from users, bots will fill it */}
+      <div className="absolute -left-[9999px]" aria-hidden="true">
+        <input
+          type="text"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       <Input
         name="name"
         label={t("name")}
