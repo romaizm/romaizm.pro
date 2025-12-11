@@ -56,6 +56,8 @@ public/workbox-*.js
 specs/
 initial-requirements.md
 PROJECT.md
+docs/
+CLAUDE.md
 
 # Claude plans and session files
 .claude/
