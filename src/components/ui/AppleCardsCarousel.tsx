@@ -128,6 +128,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
           className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800 disabled:opacity-50 transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-700"
           onClick={scrollLeft}
           disabled={!canScrollLeft}
+          aria-label="Previous slide"
         >
           <IconArrowNarrowLeft className="h-6 w-6 text-neutral-500 dark:text-neutral-400" />
         </motion.button>
@@ -137,6 +138,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
           className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800 disabled:opacity-50 transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-700"
           onClick={scrollRight}
           disabled={!canScrollRight}
+          aria-label="Next slide"
         >
           <IconArrowNarrowRight className="h-6 w-6 text-neutral-500 dark:text-neutral-400" />
         </motion.button>
