@@ -1,7 +1,0 @@
-romaizm.pro {
-    reverse_proxy localhost:3000
-}
-
-www.romaizm.pro {
-    redir https://romaizm.pro{uri} permanent
-}
