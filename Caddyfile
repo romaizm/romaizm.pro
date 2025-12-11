@@ -1,0 +1,7 @@
+romaizm.pro {
+    reverse_proxy app:3000
+}
+
+www.romaizm.pro {
+    redir https://romaizm.pro{uri} permanent
+}
