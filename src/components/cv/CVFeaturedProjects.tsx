@@ -57,10 +57,10 @@ export function CVFeaturedProjects({ projects }: CVFeaturedProjectsProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={isButtonInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center mt-fluid-md"
+          className="flex justify-center mt-fluid-md"
         >
-          <Link href="/projects">
-            <Button variant="outline" size="lg">
+          <Link href="/projects" className="w-full sm:w-auto">
+            <Button variant="outline" size="lg" className="w-full sm:w-auto">
               {t("viewAll")}
             </Button>
           </Link>

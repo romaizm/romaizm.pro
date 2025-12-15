@@ -86,7 +86,7 @@ export function Services() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-fluid-grid-sm mb-fluid-lg">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-fluid-lg">
           {categoryKeys.map((key, index) => (
             <ServiceCard key={key} categoryKey={key} index={index} />
           ))}
@@ -97,11 +97,19 @@ export function Services() {
           initial={{ opacity: 0, y: 20 }}
           animate={isButtonInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center"
+          className="flex flex-col sm:flex-row gap-fluid-xs justify-center"
         >
-          <Link href="/services">
-            <Button variant="outline" size="lg">
+          <Link href="/services" className="w-full sm:w-auto">
+            <Button variant="outline" size="lg" className="w-full sm:w-auto">
               {t("viewAll")}
+            </Button>
+          </Link>
+          <Link href="/referral" className="w-full sm:w-auto">
+            <Button variant="ghost" size="lg" className="w-full sm:w-auto gap-2">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              {t("referralLink")}
             </Button>
           </Link>
         </motion.div>

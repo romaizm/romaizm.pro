@@ -179,16 +179,18 @@ export function ExperienceAccordion({ positions }: ExperienceAccordionProps) {
   };
 
   return (
-    <div className="bg-neutral-50 dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-4 md:p-6">
-      {positions.map((position, index) => (
-        <ExperienceAccordionItem
-          key={position.id}
-          position={position}
-          isOpen={openIndex === index}
-          onToggle={() => handleToggle(index)}
-          index={index}
-        />
-      ))}
+    <div className="rounded-xl gradient-border-hover transition-shadow duration-300 hover:shadow-lg">
+      <div className="rounded-xl bg-neutral-50 dark:bg-neutral-900 p-4 md:p-6">
+        {positions.map((position, index) => (
+          <ExperienceAccordionItem
+            key={position.id}
+            position={position}
+            isOpen={openIndex === index}
+            onToggle={() => handleToggle(index)}
+            index={index}
+          />
+        ))}
+      </div>
     </div>
   );
 }

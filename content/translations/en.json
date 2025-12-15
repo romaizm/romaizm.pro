@@ -60,6 +60,7 @@
     "subtitle": "Digital solutions tailored to your business needs",
     "hourlyRate": "Starting from $50/hour",
     "viewAll": "View All Services",
+    "referralLink": "Referral Program",
     "toolsVary": "Tools vary by project",
     "categories": {
       "webDev": {
@@ -282,8 +283,7 @@
       "subtitle": "Feel free to reach out for collaborations or just a friendly hello",
       "email": "Email",
       "telegram": "Telegram",
-      "github": "GitHub",
-      "available": "Available for new projects"
+      "github": "GitHub"
     }
   },
   "contact": {
@@ -321,7 +321,8 @@
     "madeWith": "Made with",
     "builtWith": "Built with Next.js & Tailwind CSS",
     "terms": "Terms of Service",
-    "privacy": "Privacy Policy"
+    "privacy": "Privacy Policy",
+    "referral": "Referral Program"
   },
   "common": {
     "learnMore": "Learn More",
@@ -418,6 +419,121 @@
         "title": "Contact",
         "content": "If you have questions about this Privacy Policy, please contact me at romikizm@gmail.com."
       }
+    }
+  },
+  "referral": {
+    "title": "Referral Program",
+    "description": "Know someone who needs a website or an app? Refer a client — earn up to 10% of the project value.",
+    "subtitle": "Know someone who needs a website or an app? Refer a client — earn up to 10% of the project value. Straightforward terms, fully transparent.",
+    "howItWorks": {
+      "title": "How it works",
+      "steps": {
+        "recommend": {
+          "title": "Make a recommendation",
+          "description": "Tell a colleague, friend, or business contact about my services."
+        },
+        "contact": {
+          "title": "They get in touch",
+          "description": "Your referral contacts me and mentions your name. Or give me a heads-up yourself."
+        },
+        "work": {
+          "title": "We do the project",
+          "description": "I deliver the work, the client approves and pays."
+        },
+        "commission": {
+          "title": "You receive commission",
+          "description": "As soon as the payment clears, I send your reward — however you prefer."
+        }
+      }
+    },
+    "terms": {
+      "title": "Terms",
+      "items": {
+        "commission": {
+          "icon": "money",
+          "label": "Commission",
+          "value": "10% on the first $5,000\n5% on anything above"
+        },
+        "minimum": {
+          "icon": "document",
+          "label": "Minimum project",
+          "value": "$2,000"
+        },
+        "qualifies": {
+          "icon": "check",
+          "label": "What qualifies",
+          "value": "Websites, apps, e-commerce, one-off development tasks"
+        },
+        "recurring": {
+          "icon": "refresh",
+          "label": "Recurring services",
+          "value": "Commission paid once for the first month"
+        },
+        "repeat": {
+          "icon": "repeat",
+          "label": "Repeat business",
+          "value": "Client returns with a new project — you earn again"
+        },
+        "expiration": {
+          "icon": "clock",
+          "label": "No expiration",
+          "value": "Your referral stays valid, even if they reach out months later"
+        }
+      }
+    },
+    "calculator": {
+      "sectionTitle": "Commission",
+      "title": "Calculate your commission",
+      "placeholder": "Enter project value",
+      "minimumHint": "Minimum project value: {amount}",
+      "belowMinimum": "Project value is below the minimum of {amount}",
+      "result": "Your commission",
+      "breakdown": "Breakdown",
+      "currency": "Currency",
+      "firstTier": "First {amount} at 10%",
+      "secondTier": "Remaining {amount} at 5%",
+      "total": "Total commission"
+    },
+    "examples": {
+      "title": "Commission examples",
+      "columns": {
+        "project": "Project value",
+        "calculation": "Calculation",
+        "commission": "Your commission"
+      },
+      "rows": [
+        { "project": "$2,000", "calculation": "$2,000 × 10%", "commission": "$200" },
+        { "project": "$3,000", "calculation": "$3,000 × 10%", "commission": "$300" },
+        { "project": "$5,000", "calculation": "$5,000 × 10%", "commission": "$500" },
+        { "project": "$8,000", "calculation": "$5,000 × 10% + $3,000 × 5%", "commission": "$650" },
+        { "project": "$10,000", "calculation": "$5,000 × 10% + $5,000 × 5%", "commission": "$750" }
+      ]
+    },
+    "faq": {
+      "title": "FAQ",
+      "items": [
+        {
+          "question": "Do I need to register?",
+          "answer": "No. Just let me know the client is coming from you — before or when they reach out."
+        },
+        {
+          "question": "How is the commission paid?",
+          "answer": "Bank transfer, crypto, or cash — your choice."
+        },
+        {
+          "question": "What if the client doesn't order right away?",
+          "answer": "The referral stays linked to you, even if they come back months later. The rate applied will be the one in effect when the contract is signed."
+        },
+        {
+          "question": "Can I refer multiple clients?",
+          "answer": "Absolutely. No limits."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Have someone in mind?",
+      "subtitle": "Get in touch — let's talk.",
+      "button": "Contact me"
     }
   }
 }

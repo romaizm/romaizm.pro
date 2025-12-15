@@ -134,51 +134,63 @@ export function Header() {
       {/* Mobile Menu Dropdown */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.95 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-            className={cn(
-              "md:hidden mt-2 mx-auto origin-top",
-              isCompact ? "max-w-4xl" : "max-w-7xl"
-            )}
-          >
-            <div className="bg-neutral-50/95 dark:bg-neutral-900/95 backdrop-blur-md rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-xl p-4">
-              <nav className="flex flex-col gap-1">
-                {navItems.map((item, index) => (
-                  <motion.div
-                    key={item.key}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05, duration: 0.2 }}
-                  >
-                    <Link
-                      href={item.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className={cn(
-                        "block px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200",
-                        "hover:bg-neutral-100 dark:hover:bg-neutral-800",
-                        pathname === item.href
-                          ? "text-neutral-900 dark:text-white bg-neutral-100 dark:bg-neutral-800"
-                          : "text-neutral-900 dark:text-white"
-                      )}
+          <>
+            {/* Backdrop overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[-1] md:hidden"
+              onClick={() => setMobileMenuOpen(false)}
+              aria-hidden="true"
+            />
+            <motion.div
+              initial={{ opacity: 0, y: -10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.95 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className={cn(
+                "md:hidden mt-2 mx-auto origin-top",
+                isCompact ? "max-w-4xl" : "max-w-7xl"
+              )}
+            >
+              <div className="bg-neutral-50/95 dark:bg-neutral-900/95 backdrop-blur-md rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-xl p-4">
+                <nav className="flex flex-col gap-1">
+                  {navItems.map((item, index) => (
+                    <motion.div
+                      key={item.key}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05, duration: 0.2 }}
                     >
-                      {t(item.key)}
-                    </Link>
+                      <Link
+                        href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={cn(
+                          "block px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200",
+                          "hover:bg-neutral-100 dark:hover:bg-neutral-800",
+                          pathname === item.href
+                            ? "text-neutral-900 dark:text-white bg-neutral-100 dark:bg-neutral-800"
+                            : "text-neutral-900 dark:text-white"
+                        )}
+                      >
+                        {t(item.key)}
+                      </Link>
+                    </motion.div>
+                  ))}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.2, duration: 0.2 }}
+                    className="pt-3 mt-2 border-t border-neutral-200 dark:border-neutral-800"
+                  >
+                    <LanguageSwitcher />
                   </motion.div>
-                ))}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.2, duration: 0.2 }}
-                  className="pt-3 mt-2 border-t border-neutral-200 dark:border-neutral-800"
-                >
-                  <LanguageSwitcher />
-                </motion.div>
-              </nav>
-            </div>
-          </motion.div>
+                </nav>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>

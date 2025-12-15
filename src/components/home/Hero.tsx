@@ -18,7 +18,7 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen pt-24 pb-16 overflow-hidden">
-      <div className="container mx-auto px-4 relative z-20">
+      <div className="container mx-auto px-fluid-container relative z-20">
         <div className="flex justify-center items-center min-h-[calc(100vh-10rem)]">
           <div className="max-w-3xl text-center">
             {/* Status indicator */}

@@ -65,6 +65,21 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
       ref={containerRef}
       className="relative w-full"
     >
+      {/* Left fade gradient */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: canScrollLeft ? 1 : 0 } : { opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        className="pointer-events-none absolute left-0 top-0 z-20 h-full w-16 md:w-32 bg-gradient-to-r from-white dark:from-neutral-950 to-transparent"
+      />
+      {/* Right fade gradient */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: canScrollRight ? 1 : 0 } : { opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        className="pointer-events-none absolute right-0 top-0 z-20 h-full w-16 md:w-32 bg-gradient-to-l from-white dark:from-neutral-950 to-transparent"
+      />
+
       <div
         className={cn(
           "flex w-full overflow-x-auto overscroll-x-auto py-10 [scrollbar-width:none] md:py-20",
@@ -73,21 +88,6 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
         ref={carouselRef}
         onScroll={checkScrollability}
       >
-        {/* Left fade gradient */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: canScrollLeft ? 1 : 0 } : { opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 md:w-32 bg-gradient-to-r from-white dark:from-neutral-950 to-transparent"
-        />
-        {/* Right fade gradient */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: canScrollRight ? 1 : 0 } : { opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 md:w-32 bg-gradient-to-l from-white dark:from-neutral-950 to-transparent"
-        />
-
         <div
           className={cn(
             "flex flex-row justify-start gap-4 pl-4",
@@ -120,7 +120,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
         initial={{ opacity: 0, y: 10 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
         transition={{ duration: 0.4, delay: 0.3 }}
-        className="mr-10 flex justify-end gap-2 relative z-20"
+        className="mr-10 flex justify-end gap-2 relative z-30"
       >
         <motion.button
           whileHover={{ scale: 1.05 }}
@@ -189,18 +189,31 @@ export const Card = ({
 
       {/* Bottom tags */}
       {card.tags && card.tags.length > 0 && (
-        <div className="relative z-40 p-6 md:p-8 w-full">
-          <div className="flex flex-nowrap gap-1.5 overflow-hidden">
-            {card.tags.slice(0, 3).map((tag) => (
+        <div className="relative z-40 p-4 md:p-8 w-full">
+          <div className="flex flex-wrap gap-1 md:gap-1.5">
+            {card.tags.slice(0, 2).map((tag) => (
               <span
                 key={tag}
-                className="text-xs text-white bg-black/30 backdrop-blur-sm px-2.5 py-1 rounded-full border border-white/10 whitespace-nowrap"
+                className="text-[10px] md:text-xs text-white bg-black/30 backdrop-blur-sm px-2 md:px-2.5 py-0.5 md:py-1 rounded-full border border-white/10 whitespace-nowrap md:hidden"
               >
                 {tag}
               </span>
             ))}
+            {card.tags.slice(0, 3).map((tag) => (
+              <span
+                key={tag}
+                className="hidden md:inline-block text-xs text-white bg-black/30 backdrop-blur-sm px-2.5 py-1 rounded-full border border-white/10 whitespace-nowrap"
+              >
+                {tag}
+              </span>
+            ))}
+            {card.tags.length > 2 && (
+              <span className="text-[10px] md:text-xs text-white bg-black/30 backdrop-blur-sm px-2 md:px-2.5 py-0.5 md:py-1 rounded-full border border-white/10 whitespace-nowrap md:hidden">
+                +{card.tags.length - 2}
+              </span>
+            )}
             {card.tags.length > 3 && (
-              <span className="text-xs text-white bg-black/30 backdrop-blur-sm px-2.5 py-1 rounded-full border border-white/10 whitespace-nowrap">
+              <span className="hidden md:inline-block text-xs text-white bg-black/30 backdrop-blur-sm px-2.5 py-1 rounded-full border border-white/10 whitespace-nowrap">
                 +{card.tags.length - 3}
               </span>
             )}

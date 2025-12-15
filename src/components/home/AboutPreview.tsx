@@ -31,7 +31,7 @@ export function AboutPreview() {
         </motion.div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-fluid-grid-sm auto-rows-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 auto-rows-auto">
           {/* Card 1: About Text + Stats (spans 2 columns on lg) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

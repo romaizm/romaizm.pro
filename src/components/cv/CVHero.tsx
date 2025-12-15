@@ -108,7 +108,7 @@ export function CVHero({ pdfUrl }: CVHeroProps) {
                 <a
                   href={pdfUrl}
                   download
-                  className="inline-flex items-center justify-center gap-2 font-medium transition-all duration-300 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 border border-neutral-300 text-neutral-700 hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 text-sm px-5 py-2.5"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-medium transition-all duration-300 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 border border-neutral-300 text-neutral-700 hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 text-sm px-5 py-2.5"
                 >
                   <svg
                     className="w-4 h-4"
@@ -127,7 +127,7 @@ export function CVHero({ pdfUrl }: CVHeroProps) {
                 </a>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 font-medium transition-all duration-300 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 bg-neutral-900 text-white hover:bg-neutral-700 active:bg-neutral-600 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200 dark:active:bg-neutral-300 text-sm px-5 py-2.5"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-medium transition-all duration-300 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 bg-neutral-900 text-white hover:bg-neutral-700 active:bg-neutral-600 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200 dark:active:bg-neutral-300 text-sm px-5 py-2.5"
                 >
                   <svg
                     className="w-4 h-4"

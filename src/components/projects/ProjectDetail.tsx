@@ -79,8 +79,9 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="block w-full sm:w-auto"
                 >
-                  <Button>
+                  <Button className="w-full sm:w-auto">
                     {t("visitSite")}
                     <svg
                       className="w-4 h-4 ml-2"

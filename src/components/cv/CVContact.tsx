@@ -97,10 +97,6 @@ export function CVContact() {
                   </motion.a>
                 ))}
               </div>
-
-              <p className="mt-fluid-md text-fluid-body-sm text-gradient font-medium">
-                {t("available")}
-              </p>
             </div>
           </div>
         </motion.div>

@@ -8,7 +8,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-neutral-200/50 dark:border-neutral-800/50">
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-fluid-container py-16">
         <div className="max-w-sm">
           <Link
             href="/"
@@ -55,6 +55,12 @@ export function Footer() {
             &copy; {currentYear} Roman Izmestev. {tFooter("copyright")}.
           </p>
           <div className="flex items-center gap-4">
+            <Link
+              href="/referral"
+              className="text-xs text-neutral-400 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors"
+            >
+              {tFooter("referral")}
+            </Link>
             <Link
               href="/terms"
               className="text-xs text-neutral-400 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors"

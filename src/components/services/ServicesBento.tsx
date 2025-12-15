@@ -57,7 +57,7 @@ function ServiceCard({ categoryKey, className, index }: ServiceCardProps) {
         className
       )}
     >
-      <div className="rounded-2xl p-6 md:p-8 bg-neutral-50 dark:bg-neutral-900 flex flex-col h-full">
+      <div className="rounded-2xl p-fluid-sm md:p-fluid-md bg-neutral-50 dark:bg-neutral-900 flex flex-col h-full">
         <div className="icon-gradient mb-4">
         {serviceIcons[categoryKey as keyof typeof serviceIcons]}
       </div>
@@ -120,7 +120,7 @@ export function ServicesBento() {
     <section className="py-fluid-section">
       <div className="container mx-auto px-fluid-container">
         {/* Bento Grid Layout - 3 columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {/* Web Development */}
           <ServiceCard categoryKey="webDev" index={0} />
 

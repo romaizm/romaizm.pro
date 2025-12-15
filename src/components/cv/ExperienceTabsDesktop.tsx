@@ -73,7 +73,8 @@ export function ExperienceTabsDesktop({ positions }: ExperienceTabsDesktopProps)
     <div className="flex gap-6 items-stretch">
       {/* Tabs - Left side */}
       <div className="w-72 flex-shrink-0">
-        <div className="bg-neutral-50 dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-2 space-y-1 h-full">
+        <div className="rounded-xl gradient-border-hover transition-shadow duration-300 hover:shadow-lg h-full">
+          <div className="rounded-xl bg-neutral-50 dark:bg-neutral-900 p-2 space-y-1 h-full">
           {positions.map((position, index) => (
             <button
               key={position.id}
@@ -110,20 +111,22 @@ export function ExperienceTabsDesktop({ positions }: ExperienceTabsDesktopProps)
               )}
             </button>
           ))}
+          </div>
         </div>
       </div>
 
       {/* Content - Right side */}
       <div className="flex-1 min-w-0">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activePosition.id}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.3 }}
-            className="bg-white dark:bg-neutral-800 rounded-2xl border border-neutral-200 dark:border-neutral-700 p-6 h-full"
-          >
+        <div className="rounded-xl gradient-border-hover transition-shadow duration-300 hover:shadow-lg h-full">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activePosition.id}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+              className="rounded-xl bg-neutral-50 dark:bg-neutral-900 p-6 h-full"
+            >
             <div className="mb-4">
               <h3 className="text-fluid-h4 font-bold text-neutral-900 dark:text-white">
                 {activePosition.title}
@@ -168,8 +171,9 @@ export function ExperienceTabsDesktop({ positions }: ExperienceTabsDesktopProps)
                 ))}
               </div>
             </div>
-          </motion.div>
-        </AnimatePresence>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   );

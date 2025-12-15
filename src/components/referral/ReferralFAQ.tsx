@@ -74,8 +74,8 @@ function FAQItem({ question, answer, isOpen, onToggle, index }: FAQItemProps) {
   );
 }
 
-export function FAQ() {
-  const t = useTranslations("services");
+export function ReferralFAQ() {
+  const t = useTranslations("referral");
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const titleRef = useRef(null);
   const isTitleInView = useInView(titleRef, { once: true, amount: 0.1 });
