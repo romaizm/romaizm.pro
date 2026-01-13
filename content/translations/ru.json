@@ -326,7 +326,9 @@
     "builtWith": "Создано на Next.js и Tailwind CSS",
     "terms": "Условия использования",
     "privacy": "Политика конфиденциальности",
-    "referral": "Реферальная программа"
+    "referral": "Реферальная программа",
+    "openSource": "Исходный код на",
+    "viewOnGitHub": "Смотреть на GitHub"
   },
   "common": {
     "learnMore": "Подробнее",

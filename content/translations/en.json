@@ -322,7 +322,9 @@
     "builtWith": "Built with Next.js & Tailwind CSS",
     "terms": "Terms of Service",
     "privacy": "Privacy Policy",
-    "referral": "Referral Program"
+    "referral": "Referral Program",
+    "openSource": "Open-source on",
+    "viewOnGitHub": "View on GitHub"
   },
   "common": {
     "learnMore": "Learn More",
