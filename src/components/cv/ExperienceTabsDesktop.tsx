@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
@@ -28,6 +28,8 @@ const logoExtensions: Record<string, string> = {
 
 function CompanyLogo({ slug, company }: { slug: string; company: string }) {
   const ext = logoExtensions[slug];
+  const [imgError, setImgError] = useState(false);
+  const handleError = useCallback(() => setImgError(true), []);
 
   if (ext === "text") {
     return (
@@ -39,6 +41,14 @@ function CompanyLogo({ slug, company }: { slug: string; company: string }) {
     );
   }
 
+  if (imgError) {
+    return (
+      <div className="w-10 h-10 rounded-lg overflow-hidden bg-white dark:bg-white/90 flex-shrink-0 shadow-sm flex items-center justify-center">
+        <span className="text-lg font-bold text-neutral-400">{company[0]}</span>
+      </div>
+    );
+  }
+
   return (
     <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-white dark:bg-white/90 flex-shrink-0 shadow-sm">
       <Image
@@ -46,18 +56,7 @@ function CompanyLogo({ slug, company }: { slug: string; company: string }) {
         alt={company}
         fill
         className="object-contain p-1.5"
-        onError={(e) => {
-          const target = e.target as HTMLImageElement;
-          target.style.display = "none";
-          const parent = target.parentElement;
-          if (parent) {
-            const fallback = document.createElement("span");
-            fallback.className = "text-lg font-bold text-neutral-400";
-            fallback.textContent = company[0];
-            parent.appendChild(fallback);
-            parent.classList.add("flex", "items-center", "justify-center");
-          }
-        }}
+        onError={handleError}
       />
     </div>
   );
