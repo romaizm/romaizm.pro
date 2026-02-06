@@ -26,7 +26,7 @@ export function ExperienceTabs() {
   const positions = t.raw("positions") as Position[];
 
   useEffect(() => {
-    setMounted(true);
+    setMounted(true); // eslint-disable-line react-hooks/set-state-in-effect -- SSR hydration guard
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener("resize", checkMobile);

@@ -48,6 +48,8 @@
     "location": "Location",
     "launched": "Launched",
     "platform": "Platform",
+    "noProjects": "No projects found.",
+    "clientDetails": "Client Details",
     "categories": {
       "Website": "Website",
       "eCommerce": "Online Store",

@@ -60,7 +60,7 @@ export function CVFeaturedProjects({ projects }: CVFeaturedProjectsProps) {
           className="flex justify-center mt-fluid-md"
         >
           <Link href="/projects" className="w-full sm:w-auto">
-            <Button variant="outline" size="lg" className="w-full sm:w-auto">
+            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
               {t("viewAll")}
             </Button>
           </Link>

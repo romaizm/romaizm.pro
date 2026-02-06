@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: ContactPageProps) {
   return {
     title,
     description,
-    alternates: getAlternates("/contact"),
+    alternates: getAlternates("/contact", locale),
     openGraph: {
       title,
       description,

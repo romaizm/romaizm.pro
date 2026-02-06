@@ -39,7 +39,7 @@ export async function generateMetadata({
       template: `%s | Roman Izmestev`,
     },
     description,
-    alternates: getAlternates(""),
+    alternates: getAlternates("", locale),
     openGraph: {
       type: "website",
       locale: locale === "ru" ? "ru_RU" : "en_US",

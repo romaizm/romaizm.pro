@@ -81,7 +81,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                   rel="noopener noreferrer"
                   className="block w-full sm:w-auto"
                 >
-                  <Button className="w-full sm:w-auto">
+                  <Button asChild className="w-full sm:w-auto">
                     {t("visitSite")}
                     <svg
                       className="w-4 h-4 ml-2"
@@ -186,7 +186,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             >
               <div className="bg-neutral-50 dark:bg-neutral-800 rounded-xl p-6">
                 <h3 className="font-semibold text-neutral-900 dark:text-white mb-4">
-                  {t("client")} Details
+                  {t("clientDetails")}
                 </h3>
 
                 <dl className="space-y-4">

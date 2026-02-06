@@ -1,5 +1,6 @@
 "use server";
 
+import { headers } from "next/headers";
 import { Resend } from "resend";
 import { z } from "zod";
 
@@ -27,6 +28,15 @@ function isRateLimited(ip: string): boolean {
   return false;
 }
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
@@ -46,8 +56,12 @@ export async function sendContactEmail(
   _prevState: ContactFormState,
   formData: FormData
 ): Promise<ContactFormState> {
-  // Get client IP for rate limiting (simplified - in production use headers)
-  const clientIp = formData.get("_ip") as string || "unknown";
+  // Get client IP from request headers
+  const headersList = await headers();
+  const clientIp =
+    headersList.get("x-forwarded-for")?.split(",")[0].trim() ||
+    headersList.get("x-real-ip") ||
+    "unknown";
 
   // Check rate limit
   if (isRateLimited(clientIp)) {
@@ -87,8 +101,15 @@ export async function sendContactEmail(
 
   const { name, email, subject, message } = validatedFields.data;
 
-  // If no API key, simulate success for development
+  // If no API key, fail in production but simulate success in dev
   if (!process.env.RESEND_API_KEY) {
+    if (process.env.NODE_ENV === "production") {
+      console.error("RESEND_API_KEY is not set in production — email not sent");
+      return {
+        success: false,
+        message: "Failed to send message. Please try again.",
+      };
+    }
     console.log("Contact form submission (dev mode):", { name, email, subject, message });
     return {
       success: true,
@@ -101,7 +122,7 @@ export async function sendContactEmail(
       from: "Roman Izmestev <hello@romaizm.pro>",
       to: "romikizm@gmail.com",
       replyTo: email,
-      subject: `[Portfolio] ${subject}`,
+      subject: `[Portfolio] ${escapeHtml(subject)}`,
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #171717; border-bottom: 2px solid #06b6d4; padding-bottom: 10px;">
@@ -110,20 +131,20 @@ export async function sendContactEmail(
           <table style="width: 100%; border-collapse: collapse;">
             <tr>
               <td style="padding: 8px 0; color: #525252; width: 100px;"><strong>Name:</strong></td>
-              <td style="padding: 8px 0; color: #171717;">${name}</td>
+              <td style="padding: 8px 0; color: #171717;">${escapeHtml(name)}</td>
             </tr>
             <tr>
               <td style="padding: 8px 0; color: #525252;"><strong>Email:</strong></td>
-              <td style="padding: 8px 0; color: #171717;"><a href="mailto:${email}" style="color: #06b6d4;">${email}</a></td>
+              <td style="padding: 8px 0; color: #171717;"><a href="mailto:${escapeHtml(email)}" style="color: #06b6d4;">${escapeHtml(email)}</a></td>
             </tr>
             <tr>
               <td style="padding: 8px 0; color: #525252;"><strong>Subject:</strong></td>
-              <td style="padding: 8px 0; color: #171717;">${subject}</td>
+              <td style="padding: 8px 0; color: #171717;">${escapeHtml(subject)}</td>
             </tr>
           </table>
           <div style="margin-top: 20px; padding: 16px; background: #f5f5f5; border-radius: 8px;">
             <p style="margin: 0 0 8px 0; color: #525252;"><strong>Message:</strong></p>
-            <p style="margin: 0; color: #171717; white-space: pre-wrap;">${message}</p>
+            <p style="margin: 0; color: #171717; white-space: pre-wrap;">${escapeHtml(message)}</p>
           </div>
           <p style="margin-top: 20px; font-size: 12px; color: #a3a3a3;">
             Sent from romaizm.pro contact form

@@ -14,7 +14,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    setMounted(true); // eslint-disable-line react-hooks/set-state-in-effect -- SSR hydration guard
   }, []);
 
   if (!mounted) {

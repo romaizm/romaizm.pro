@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, usePathname } from "@/lib/i18n/navigation";
@@ -21,7 +21,7 @@ export function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isCompact, setIsCompact] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollYRef = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +32,7 @@ export function Header() {
         setIsCompact(false);
       }
       // Scrolling down - compact
-      else if (currentScrollY > lastScrollY) {
+      else if (currentScrollY > lastScrollYRef.current) {
         setIsCompact(true);
       }
       // Scrolling up - expanded
@@ -40,12 +40,12 @@ export function Header() {
         setIsCompact(false);
       }
 
-      setLastScrollY(currentScrollY);
+      lastScrollYRef.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4">

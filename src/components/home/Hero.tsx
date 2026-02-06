@@ -73,12 +73,12 @@ export function Hero() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row justify-center gap-fluid-xs">
               <Link href="/projects" className="w-full sm:w-auto">
-                <Button size="lg" className="rounded-full px-8 w-full sm:w-auto">
+                <Button asChild size="lg" className="rounded-full px-8 w-full sm:w-auto">
                   {t("cta")}
                 </Button>
               </Link>
               <Link href="/contact" className="w-full sm:w-auto">
-                <Button size="lg" variant="outline" className="rounded-full px-8 w-full sm:w-auto">
+                <Button asChild size="lg" variant="outline" className="rounded-full px-8 w-full sm:w-auto">
                   {t("contact")}
                 </Button>
               </Link>

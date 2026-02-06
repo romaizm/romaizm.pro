@@ -51,7 +51,10 @@ function CompanyLogo({ slug, company }: { slug: string; company: string }) {
           target.style.display = "none";
           const parent = target.parentElement;
           if (parent) {
-            parent.innerHTML = `<span class="text-lg font-bold text-neutral-400">${company[0]}</span>`;
+            const fallback = document.createElement("span");
+            fallback.className = "text-lg font-bold text-neutral-400";
+            fallback.textContent = company[0];
+            parent.appendChild(fallback);
             parent.classList.add("flex", "items-center", "justify-center");
           }
         }}

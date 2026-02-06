@@ -54,7 +54,7 @@ export function ReferralHero() {
 
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-fluid-xs">
           <Link href="/contact" className="w-full sm:w-auto">
-            <Button size="lg" className="gap-2 w-full sm:w-auto">
+            <Button asChild size="lg" className="gap-2 w-full sm:w-auto">
               <svg
                 className="w-5 h-5"
                 fill="none"
@@ -72,7 +72,7 @@ export function ReferralHero() {
             </Button>
           </Link>
           <Link href="#how-it-works" className="w-full sm:w-auto">
-            <Button variant="outline" size="lg" className="w-full sm:w-auto">
+            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
               {t("howItWorks.title")}
               <svg
                 className="w-4 h-4 ml-2"

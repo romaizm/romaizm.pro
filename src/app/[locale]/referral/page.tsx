@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: ReferralPageProps) {
   return {
     title,
     description,
-    alternates: getAlternates("/referral"),
+    alternates: getAlternates("/referral", locale),
     openGraph: {
       title,
       description,

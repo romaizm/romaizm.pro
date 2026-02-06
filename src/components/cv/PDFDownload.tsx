@@ -10,7 +10,7 @@ interface PDFDownloadProps {
 export function PDFDownload({ url, label }: PDFDownloadProps) {
   return (
     <a href={url} download>
-      <Button variant="outline">
+      <Button asChild variant="outline">
         <svg
           className="w-4 h-4 mr-2"
           fill="none"

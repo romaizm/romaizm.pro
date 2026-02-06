@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: PrivacyPageProps) {
   return {
     title: t("title"),
     description: t("description"),
-    alternates: getAlternates("/privacy"),
+    alternates: getAlternates("/privacy", locale),
   };
 }
 

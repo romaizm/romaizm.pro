@@ -48,6 +48,8 @@
     "location": "Локация",
     "launched": "Запущен",
     "platform": "Платформа",
+    "noProjects": "Проекты не найдены.",
+    "clientDetails": "Данные о клиенте",
     "categories": {
       "Website": "Веб-сайт",
       "eCommerce": "Интернет-магазин",

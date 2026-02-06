@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: CVPageProps) {
   return {
     title,
     description,
-    alternates: getAlternates("/cv"),
+    alternates: getAlternates("/cv", locale),
     openGraph: {
       title,
       description,

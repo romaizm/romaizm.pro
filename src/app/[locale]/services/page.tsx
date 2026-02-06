@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: ServicesPageProps) {
   return {
     title,
     description,
-    alternates: getAlternates("/services"),
+    alternates: getAlternates("/services", locale),
     openGraph: {
       title,
       description,

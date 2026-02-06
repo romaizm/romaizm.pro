@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: TermsPageProps) {
   return {
     title: t("title"),
     description: t("description"),
-    alternates: getAlternates("/terms"),
+    alternates: getAlternates("/terms", locale),
   };
 }
 
