@@ -1,0 +1,64 @@
+# Roman Izmestev — Full-Stack Developer
+
+> Roman Izmestev is a full-stack developer based in Vladivostok, Russia, specializing in web development, eCommerce, and mobile applications. He builds digital products for clients worldwide using React, Next.js, Flutter, Shopify, and WordPress.
+
+## About
+
+Roman Izmestev has 5+ years of experience building digital products. He has launched 15+ projects for clients across Russia, UAE, South Korea, and the USA. He works as a freelance developer and leverages AI-driven development tools to ship faster and maintain high code quality.
+
+- Location: Vladivostok, Russia (UTC+10)
+- Languages: English, Russian
+- Contact: romikizm@gmail.com
+- Telegram: https://t.me/romaizm
+- GitHub: https://github.com/romaizm
+
+## Services
+
+- Web Development: Custom websites using Next.js, React, WordPress, Webflow, and Bitrix
+- eCommerce Development: Online stores on Shopify (Liquid) and WooCommerce
+- Mobile Development: Cross-platform apps with Flutter for iOS and Android
+- Web Applications: Custom dashboards, admin panels, and internal business tools
+- Digital Services: SEO optimization, brand development, email marketing automation
+
+Hourly rate starts from $50/hour.
+
+## Tech Stack
+
+- Frontend: React, Next.js, TypeScript, Tailwind CSS
+- Mobile: Flutter, Dart
+- eCommerce: Shopify, Liquid, WordPress, WooCommerce
+- Backend: Node.js, REST API, PostgreSQL, Firebase
+- AI Tools: Claude, Cursor.ai, ChatGPT
+- DevOps: Git, Vercel, Linux
+
+## Selected Projects
+
+- Oloaa Granola (UAE) — Shopify eCommerce store, grew sales from 0 to 5,000+ AED/month
+- Yuwab Coaching (South Korea) — Flutter mobile app + SaaS platform built from scratch
+- FreyCouture (UAE) — Shopify fashion eCommerce store
+- CGPC (South Korea) — WordPress business website
+- Hikor (Russia) — WooCommerce eCommerce store
+- JPLab Shop (Russia) — Shopify cosmetics eCommerce store
+- AutoZakaz (Russia) — Custom auction platform + business website
+
+## Education
+
+- Bachelor in International Economics — Far Eastern Federal University (2014-2018)
+- Bachelor in Finance — University of Maryland Global Campus (2014-2018)
+
+## Work History
+
+- Full-Stack Developer, Freelance (2020 — Present)
+- Main Technical Engineer, Yuwab Consulting (Nov 2024 — Oct 2025)
+- eCommerce Store Manager, Oloaa Granola (Jan 2024 — Jul 2025)
+- Customer Support 2nd Line, Ecwid by Lightspeed (Jan 2020 — Feb 2025)
+- Marketing Manager, Korean Air (Feb 2019 — Aug 2019)
+
+## Links
+
+- Website: https://romaizm.pro
+- Projects: https://romaizm.pro/en/projects
+- Services: https://romaizm.pro/en/services
+- CV: https://romaizm.pro/en/cv
+- Contact: https://romaizm.pro/en/contact
+- Referral Program: https://romaizm.pro/en/referral

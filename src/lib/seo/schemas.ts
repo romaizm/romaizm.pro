@@ -31,6 +31,10 @@ export function getPersonSchema(locale: string) {
       "TypeScript",
       "Node.js",
     ],
+    description:
+      locale === "ru"
+        ? "Full-stack разработчик с 5+ лет опыта. Создаю сайты, интернет-магазины, веб-приложения и мобильные приложения для клиентов по всему миру."
+        : "Full-stack developer with 5+ years of experience building websites, eCommerce stores, web apps, and mobile apps for clients worldwide.",
   };
 }
 
@@ -90,5 +94,52 @@ export function getBreadcrumbSchema(
       name: item.name,
       item: `${baseUrl}${item.url}`,
     })),
+  };
+}
+
+export function getFAQPageSchema(
+  items: Array<{ question: string; answer: string }>
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
+export function getWebPageSchema(options: {
+  name: string;
+  description: string;
+  url: string;
+  locale: string;
+  datePublished?: string;
+  dateModified?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: options.name,
+    description: options.description,
+    url: `${baseUrl}${options.url}`,
+    inLanguage: options.locale === "ru" ? "ru" : "en",
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Roman Izmestev",
+      url: baseUrl,
+    },
+    author: {
+      "@type": "Person",
+      name: "Roman Izmestev",
+      url: baseUrl,
+    },
+    ...(options.datePublished && { datePublished: options.datePublished }),
+    ...(options.dateModified && { dateModified: options.dateModified }),
   };
 }

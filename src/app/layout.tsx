@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s | Roman Izmestev",
   },
   description:
-    "Full-Stack Developer specializing in WordPress, Shopify, React, and Flutter. Building digital solutions that drive results.",
+    "Roman Izmestev is a full-stack developer specializing in React, Next.js, Shopify, WordPress, and Flutter. 5+ years building websites, eCommerce stores, web apps, and mobile apps for clients worldwide.",
   keywords: [
     "web developer",
     "full-stack developer",
@@ -39,13 +39,13 @@ export const metadata: Metadata = {
     siteName: "Roman Izmestev",
     title: "Roman Izmestev - Full-Stack Developer",
     description:
-      "Full-Stack Developer specializing in WordPress, Shopify, React, and Flutter.",
+      "Roman Izmestev is a full-stack developer specializing in React, Next.js, Shopify, WordPress, and Flutter. 5+ years building websites, eCommerce stores, web apps, and mobile apps for clients worldwide.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Roman Izmestev - Full-Stack Developer",
     description:
-      "Full-Stack Developer specializing in WordPress, Shopify, React, and Flutter.",
+      "Roman Izmestev is a full-stack developer specializing in React, Next.js, Shopify, WordPress, and Flutter. 5+ years building websites, eCommerce stores, web apps, and mobile apps for clients worldwide.",
   },
   robots: {
     index: true,

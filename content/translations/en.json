@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Roman Izmestev - Full-Stack Developer",
-    "description": "Full-Stack Developer specializing in WordPress, Shopify, React, and Flutter. Building digital solutions that drive results.",
+    "description": "Roman Izmestev is a full-stack developer specializing in React, Next.js, Shopify, WordPress, and Flutter. 5+ years building websites, eCommerce stores, web apps, and mobile apps for clients worldwide.",
     "cv": {
       "description": "Professional experience, skills and education of Roman Izmestev, Full-Stack Developer."
     }
@@ -58,6 +58,7 @@
   "services": {
     "title": "Services",
     "subtitle": "Digital solutions tailored to your business needs",
+    "metaDescription": "Web development, eCommerce, and mobile app services by Roman Izmestev. Custom websites with React and Next.js, Shopify stores, Flutter apps, web applications, and more.",
     "hourlyRate": "Starting from $50/hour",
     "viewAll": "View All Services",
     "referralLink": "Referral Program",

@@ -5,6 +5,12 @@ import { FeaturedProjects } from "@/components/home/FeaturedProjects";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { getAllProjects } from "@/lib/mdx/projects";
 import { getAlternates, getOgImageUrl } from "@/lib/seo/alternates";
+import { JsonLd } from "@/components/seo/JsonLd";
+import {
+  getBreadcrumbSchema,
+  getFAQPageSchema,
+  getWebPageSchema,
+} from "@/lib/seo/schemas";
 
 interface ServicesPageProps {
   params: Promise<{ locale: string }>;
@@ -15,7 +21,7 @@ export async function generateMetadata({ params }: ServicesPageProps) {
   const t = await getTranslations({ locale, namespace: "services" });
 
   const title = t("title");
-  const description = t("subtitle");
+  const description = t("metaDescription");
 
   return {
     title,
@@ -43,8 +49,30 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
   const projects = await getAllProjects(locale);
   const featuredProjects = projects.filter((p) => p.featured).slice(0, 6);
 
+  const faqItems = t.raw("faq.items") as Array<{
+    question: string;
+    answer: string;
+  }>;
+
   return (
     <>
+      <JsonLd
+        data={getWebPageSchema({
+          name: t("title"),
+          description: t("metaDescription"),
+          url: `/${locale}/services`,
+          locale,
+          dateModified: "2025-12-01",
+        })}
+      />
+      <JsonLd
+        data={getBreadcrumbSchema([
+          { name: locale === "ru" ? "Главная" : "Home", url: `/${locale}` },
+          { name: t("title"), url: `/${locale}/services` },
+        ])}
+      />
+      <JsonLd data={getFAQPageSchema(faqItems)} />
+
       {/* Hero Section */}
       <section className="pt-32 pb-fluid-md">
         <div className="container mx-auto px-fluid-container text-center">
