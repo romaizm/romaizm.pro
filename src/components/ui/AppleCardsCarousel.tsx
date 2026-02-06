@@ -4,6 +4,7 @@ import React, {
   useRef,
   useState,
 } from "react";
+import Image from "next/image";
 import {
   IconArrowNarrowLeft,
   IconArrowNarrowRight,
@@ -240,27 +241,19 @@ export const BlurImage = ({
   alt: string;
 }) => {
   const [isLoading, setLoading] = useState(true);
-  const imgRef = React.useRef<HTMLImageElement>(null);
-
-  React.useEffect(() => {
-    if (imgRef.current?.complete) {
-      setLoading(false);
-    }
-  }, []);
 
   return (
-    <img
-      ref={imgRef}
+    <Image
       className={cn(
-        "h-full w-full transition duration-300",
+        "transition duration-300",
         isLoading ? "blur-sm" : "blur-0",
         className
       )}
       onLoad={() => setLoading(false)}
       src={src}
-      loading="lazy"
-      decoding="async"
       alt={alt}
+      fill
+      sizes="(max-width: 768px) 100vw, 33vw"
     />
   );
 };

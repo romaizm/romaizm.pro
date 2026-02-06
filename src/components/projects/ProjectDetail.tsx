@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { Link } from "@/lib/i18n/navigation";
@@ -164,11 +165,15 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
               className="mb-8"
             >
               {project.images && project.images.length > 0 ? (
-                <img
-                  src={project.images[0]}
-                  alt={project.title}
-                  className="w-full aspect-[4/3] object-cover rounded-xl"
-                />
+                <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
+                  <Image
+                    src={project.images[0]}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                </div>
               ) : (
                 <div className="aspect-[4/3] bg-gradient-to-br from-primary-500/20 to-primary-700/20 rounded-xl flex items-center justify-center">
                   <span className="text-8xl font-bold text-primary-500/30 dark:text-primary-400/30">

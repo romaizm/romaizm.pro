@@ -9,7 +9,7 @@ export function Footer() {
   return (
     <footer className="border-t border-neutral-200/50 dark:border-neutral-800/50">
       <div className="container mx-auto px-fluid-container py-16">
-        <div className="max-w-sm text-center md:text-left mx-auto md:mx-0">
+        <div className="max-w-sm text-center mx-auto">
           <Link
             href="/"
             className="text-xl font-semibold text-neutral-900 dark:text-white"
@@ -19,7 +19,7 @@ export function Footer() {
           <p className="mt-4 text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
             {tFooter("description")}
           </p>
-          <div className="flex items-center justify-center md:justify-start gap-4 mt-6">
+          <div className="flex items-center justify-center gap-4 mt-6">
             <a
               href="https://github.com/romaizm"
               target="_blank"
