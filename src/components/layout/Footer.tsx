@@ -83,7 +83,7 @@ export function Footer() {
           </div>
 
           {/* Built with & Open Source */}
-          <div className="flex flex-col sm:flex-row items-center gap-3 text-xs text-neutral-400 dark:text-neutral-500">
+          <div className="flex flex-col sm:flex-row items-center gap-3 text-xs text-neutral-500 dark:text-neutral-400">
             <span>{tFooter("builtWith")}</span>
             <span className="hidden sm:inline">·</span>
             <div className="flex items-center gap-2">
@@ -107,7 +107,7 @@ export function Footer() {
           </div>
 
           {/* Copyright */}
-          <p className="text-xs text-neutral-400 dark:text-neutral-500">
+          <p className="text-xs text-neutral-500 dark:text-neutral-400">
             &copy; {currentYear} Roman Izmestev. {tFooter("copyright")}.
           </p>
         </div>
