@@ -27,7 +27,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
         >
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+            className="inline-flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-primary-700 dark:hover:text-primary-400 transition-colors"
           >
             <svg
               className="w-4 h-4"

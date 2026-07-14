@@ -53,12 +53,12 @@ function ServiceCard({ categoryKey, className, index }: ServiceCardProps) {
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className={cn(
-        "rounded-2xl gradient-border-hover h-full",
+        "rounded-2xl card-line h-full",
         className
       )}
     >
       <div className="rounded-2xl p-fluid-sm md:p-fluid-md bg-neutral-50 dark:bg-neutral-900 flex flex-col h-full">
-        <div className="icon-gradient mb-4">
+        <div className="text-primary-700 dark:text-primary-400 mb-4">
         {serviceIcons[categoryKey as keyof typeof serviceIcons]}
       </div>
 
@@ -77,7 +77,7 @@ function ServiceCard({ categoryKey, className, index }: ServiceCardProps) {
             className="flex items-center gap-2 text-fluid-body-sm text-neutral-700 dark:text-neutral-300"
           >
             <svg
-              className="w-4 h-4 text-gradient-cyan flex-shrink-0"
+              className="w-4 h-4 text-primary-700 dark:text-primary-400 flex-shrink-0"
               fill="currentColor"
               viewBox="0 0 20 20"
             >
@@ -103,7 +103,7 @@ function ServiceCard({ categoryKey, className, index }: ServiceCardProps) {
             </span>
           ))
         ) : (
-          <span className="text-xs text-neutral-500 dark:text-neutral-500 italic">
+          <span className="text-xs text-neutral-500 dark:text-neutral-400 italic">
             {t("toolsVary")}
           </span>
         )}

@@ -61,8 +61,8 @@ export function CVContact() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <div className="rounded-2xl p-[1.5px] gradient-border-glow">
-            <div className="bg-neutral-50 dark:bg-neutral-950 rounded-[calc(1rem-1.5px)] p-fluid-lg">
+          <div className="rounded-2xl card-line">
+            <div className="bg-neutral-50 dark:bg-neutral-950 rounded-2xl p-fluid-lg">
               <h2 className="text-fluid-h2 font-bold text-neutral-900 dark:text-white mb-fluid-xs">
                 {t("title")}
               </h2>
@@ -83,7 +83,7 @@ export function CVContact() {
                     transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
                     className="flex items-center gap-3 px-5 py-3 rounded-xl bg-white/50 dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-800 hover:border-primary-500 dark:hover:border-primary-500 transition-colors group w-full sm:w-auto"
                   >
-                    <span className="text-neutral-500 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                    <span className="text-neutral-500 group-hover:text-primary-700 dark:group-hover:text-primary-400 transition-colors">
                       {link.icon}
                     </span>
                     <div className="text-left">

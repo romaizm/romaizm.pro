@@ -108,7 +108,7 @@ export function CommissionCalculator() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="rounded-xl gradient-border-hover transition-shadow duration-300 hover:shadow-lg h-full"
+            className="rounded-xl card-line h-full"
           >
             <div className="h-full rounded-xl bg-neutral-50 dark:bg-neutral-900 p-fluid-sm flex flex-col">
               <h3 className="text-fluid-h6 font-semibold text-neutral-900 dark:text-white mb-fluid-xs">
@@ -137,7 +137,7 @@ export function CommissionCalculator() {
 
               {/* Input */}
               <div className="relative mb-2">
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400 dark:text-neutral-500 text-lg">
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500 dark:text-neutral-400 text-lg">
                   {SYMBOLS[currency]}
                 </span>
                 <input
@@ -182,7 +182,7 @@ export function CommissionCalculator() {
                       <p className="text-fluid-body-sm text-neutral-600 dark:text-neutral-400 mb-1">
                         {t("calculator.result")}
                       </p>
-                      <p className="text-3xl font-bold text-gradient">
+                      <p className="text-3xl font-bold text-primary-700 dark:text-primary-400">
                         {formatCurrency(commission.total, currency)}
                       </p>
                     </div>
@@ -236,7 +236,7 @@ export function CommissionCalculator() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="rounded-xl gradient-border-hover transition-shadow duration-300 hover:shadow-lg h-full"
+            className="rounded-xl card-line h-full"
           >
             <div className="h-full rounded-xl bg-neutral-50 dark:bg-neutral-900 p-fluid-sm flex flex-col">
               <h3 className="text-fluid-h6 font-semibold text-neutral-900 dark:text-white mb-fluid-xs">
@@ -273,7 +273,7 @@ export function CommissionCalculator() {
                         <td className="py-3 px-4 text-fluid-body-sm text-neutral-500 dark:text-neutral-400 hidden sm:table-cell">
                           {row.calculation}
                         </td>
-                        <td className="py-3 px-4 text-right text-fluid-body-sm font-semibold text-cyan-600 dark:text-cyan-400">
+                        <td className="py-3 px-4 text-right text-fluid-body-sm font-semibold text-primary-700 dark:text-primary-400">
                           {row.commission}
                         </td>
                       </motion.tr>

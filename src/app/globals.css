@@ -3,15 +3,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* HomePod-inspired gradient colors */
-  --color-gradient-cyan: #00d4ff;
-  --color-gradient-teal: #00b89c;
-  --color-gradient-green: #7dd3a8;
-  --color-gradient-pink: #ff9ecd;
-  --color-gradient-magenta: #e879c7;
-  --color-gradient-blue: #4facfe;
-
-  /* Primary colors - Now using gradient-friendly teal/cyan as base */
+  /* Primary colors - teal/cyan accent scale */
   --color-primary-50: #ecfeff;
   --color-primary-100: #cffafe;
   --color-primary-200: #a5f3fc;
@@ -38,7 +30,7 @@
 
   /* Font families */
   --font-sans: ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", monospace;
 
   /*
    * Fluid Typography System
@@ -49,7 +41,7 @@
    */
 
   /* Display - Hero headlines */
-  --text-display: clamp(2.5rem, 2rem + 2.5vw, 4.5rem);        /* 40px → 72px */
+  --text-display: clamp(2.75rem, 2.1rem + 3.25vw, 5.5rem);    /* 44px → 88px */
 
   /* Headings */
   --text-h1: clamp(2rem, 1.5rem + 2.5vw, 3.5rem);             /* 32px → 56px */
@@ -104,13 +96,11 @@
   --space-grid-lg: clamp(2rem, 1.5rem + 2.5vw, 4rem);           /* 32px → 64px */
 
   /* Custom animations */
-  --animate-fade-in: fade-in 0.6s ease-out forwards;
-  --animate-slide-up: slide-up 0.6s ease-out forwards;
-  --animate-slide-left: slide-left 0.6s ease-out forwards;
+  --animate-fade-in: fade-in 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  --animate-slide-up: slide-up 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  --animate-slide-left: slide-left 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
   --animate-float: float 3s ease-in-out infinite;
   --animate-pulse-slow: pulse-slow 2s ease-in-out infinite;
-  --animate-gradient-rotate: gradient-rotate 4s linear infinite;
-  --animate-gradient-shift-slow: gradient-shift 8s ease infinite;
 }
 
 @keyframes fade-in {
@@ -125,7 +115,7 @@
 @keyframes slide-up {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -159,18 +149,6 @@
   }
   50% {
     opacity: 0.5;
-  }
-}
-
-@keyframes gradient-wave {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
   }
 }
 
@@ -262,50 +240,34 @@ body {
 }
 
 /*
- * Gradient Text - matches animated border colors
+ * Touch-target helper: expands the clickable area of a small control
+ * to at least 44x44px (WCAG 2.5.5) without changing its visual size.
  */
-.text-gradient {
-  background: linear-gradient(
-    90deg,
-    var(--color-gradient-cyan),
-    var(--color-gradient-teal),
-    var(--color-gradient-green),
-    var(--color-gradient-pink),
-    var(--color-gradient-magenta),
-    var(--color-gradient-blue)
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+.hit-target {
+  position: relative;
 }
 
-.text-gradient-animated {
-  background: linear-gradient(
-    90deg,
-    var(--color-gradient-cyan),
-    var(--color-gradient-teal),
-    var(--color-gradient-green),
-    var(--color-gradient-pink),
-    var(--color-gradient-magenta),
-    var(--color-gradient-blue),
-    var(--color-gradient-cyan)
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-wave 6s ease infinite;
+.hit-target::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100%, 44px);
+  height: max(100%, 44px);
+  transform: translate(-50%, -50%);
 }
 
-/* Icon gradient - uses CSS filter for color effect */
-.icon-gradient {
-  color: var(--color-gradient-cyan);
-  filter: drop-shadow(0 0 8px var(--color-gradient-cyan));
+/*
+ * Quiet card surface - hairline border with a subtle hover shift.
+ * Replaces the former animated gradient borders.
+ */
+.card-line {
+  @apply border border-neutral-200 dark:border-neutral-800;
+  transition: border-color 0.3s ease;
 }
 
-.icon-gradient-hover:hover {
-  color: var(--color-gradient-cyan);
-  filter: drop-shadow(0 0 8px var(--color-gradient-cyan));
+.card-line:hover {
+  @apply border-neutral-300 dark:border-neutral-700;
 }
 
 /*
@@ -411,231 +373,6 @@ body {
   @apply bg-neutral-400 dark:bg-neutral-600;
 }
 
-/* Glassmorphism utilities */
-.glass {
-  @apply bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md;
-}
-
-.glass-border {
-  @apply border border-neutral-200/50 dark:border-neutral-800/50;
-}
-
-/* Gradient hover effect */
-.gradient-hover {
-  position: relative;
-  overflow: hidden;
-}
-
-.gradient-hover::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    -45deg,
-    #ff6b6b,
-    #feca57,
-    #48dbfb,
-    #ff9ff3,
-    #54a0ff
-  );
-  background-size: 400% 400%;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: -1;
-}
-
-.gradient-hover:hover::before {
-  opacity: 0.1;
-  animation: gradient-shift 3s ease infinite;
-}
-
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Status dot animation */
-.status-dot {
-  @apply relative;
-}
-
-.status-dot::after {
-  content: "";
-  @apply absolute inset-0 rounded-full bg-green-500 animate-ping;
-}
-
-/* Noise texture overlay */
-.noise-overlay::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  opacity: 0.03;
-  pointer-events: none;
-  z-index: 1000;
-}
-
-/* Animated Wave Gradient Border - HomePod inspired */
-.gradient-border {
-  position: relative;
-  background: transparent;
-  z-index: 0;
-}
-
-.gradient-border::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 1.5px;
-  border-radius: inherit;
-  background: linear-gradient(
-    90deg,
-    var(--color-gradient-cyan),
-    var(--color-gradient-teal),
-    var(--color-gradient-green),
-    var(--color-gradient-pink),
-    var(--color-gradient-magenta),
-    var(--color-gradient-blue),
-    var(--color-gradient-cyan)
-  );
-  background-size: 200% 100%;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  animation: gradient-wave 6s ease infinite;
-  z-index: -1;
-}
-
-/* Animated wave gradient border with glow effect */
-.gradient-border-glow {
-  position: relative;
-  background: transparent;
-  z-index: 0;
-}
-
-.gradient-border-glow::before,
-.gradient-border-glow::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(
-    90deg,
-    var(--color-gradient-cyan),
-    var(--color-gradient-teal),
-    var(--color-gradient-green),
-    var(--color-gradient-pink),
-    var(--color-gradient-magenta),
-    var(--color-gradient-blue),
-    var(--color-gradient-cyan)
-  );
-  background-size: 200% 100%;
-  animation: gradient-wave 6s ease infinite;
-}
-
-.gradient-border-glow::before {
-  padding: 1.5px;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  z-index: -1;
-}
-
-.gradient-border-glow::after {
-  inset: -8px;
-  filter: blur(20px);
-  opacity: 0.5;
-  z-index: -2;
-}
-
-/* Mesh gradient background - HomePod inspired */
-.mesh-gradient {
-  background:
-    radial-gradient(ellipse at 0% 0%, var(--color-gradient-cyan) 0%, transparent 50%),
-    radial-gradient(ellipse at 100% 0%, var(--color-gradient-teal) 0%, transparent 50%),
-    radial-gradient(ellipse at 100% 100%, var(--color-gradient-pink) 0%, transparent 50%),
-    radial-gradient(ellipse at 0% 100%, var(--color-gradient-magenta) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, var(--color-gradient-blue) 0%, transparent 70%);
-  background-size: 200% 200%;
-  animation: gradient-shift 8s ease infinite;
-}
-
-/* Mesh gradient text */
-.mesh-gradient-text {
-  background: linear-gradient(
-    135deg,
-    var(--color-gradient-cyan) 0%,
-    var(--color-gradient-teal) 25%,
-    var(--color-gradient-pink) 50%,
-    var(--color-gradient-magenta) 75%,
-    var(--color-gradient-cyan) 100%
-  );
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-shift 4s ease infinite;
-}
-
-/* Static mesh gradient for buttons and accents */
-.mesh-gradient-static {
-  background: linear-gradient(
-    135deg,
-    var(--color-gradient-cyan) 0%,
-    var(--color-gradient-teal) 50%,
-    var(--color-gradient-pink) 100%
-  );
-}
-
-/* Hover state animated gradient border */
-.gradient-border-hover {
-  position: relative;
-  isolation: isolate;
-}
-
-.gradient-border-hover::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: inherit;
-  background: linear-gradient(
-    90deg,
-    var(--color-gradient-cyan),
-    var(--color-gradient-teal),
-    var(--color-gradient-green),
-    var(--color-gradient-pink),
-    var(--color-gradient-magenta),
-    var(--color-gradient-blue),
-    var(--color-gradient-cyan)
-  );
-  background-size: 200% 100%;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: -1;
-  animation: gradient-wave 6s ease infinite;
-}
-
-.gradient-border-hover:hover::before {
-  opacity: 1;
-}
-
 /*
  * Reduced Motion Support (Accessibility)
  * Respects user's prefers-reduced-motion setting
@@ -645,6 +382,7 @@ body {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
@@ -654,17 +392,6 @@ body {
   .animate-pulse,
   .animate-bounce,
   .animate-spin {
-    animation: none !important;
-  }
-
-  .text-gradient-animated,
-  .mesh-gradient,
-  .mesh-gradient-text,
-  .gradient-border::before,
-  .gradient-border-glow::before,
-  .gradient-border-glow::after,
-  .gradient-border-hover::before,
-  .gradient-hover::before {
     animation: none !important;
   }
 }

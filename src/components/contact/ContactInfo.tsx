@@ -86,7 +86,7 @@ export function ContactInfo() {
             <motion.div
               whileHover={{ scale: 1.1, rotate: 5 }}
               transition={{ type: "spring", stiffness: 400 }}
-              className="text-primary-600 dark:text-primary-400 mt-0.5"
+              className="text-primary-700 dark:text-primary-400 mt-0.5"
             >
               {item.icon}
             </motion.div>
@@ -97,7 +97,7 @@ export function ContactInfo() {
               {item.href ? (
                 <a
                   href={item.href}
-                  className="text-neutral-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                  className="text-neutral-900 dark:text-white hover:text-primary-700 dark:hover:text-primary-400 transition-colors"
                 >
                   {item.value}
                 </a>
@@ -119,11 +119,7 @@ export function ContactInfo() {
           {t("availability")}
         </p>
         <div className="flex items-center gap-2 text-green-600 dark:text-green-400">
-          <motion.span
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-2 h-2 bg-green-500 rounded-full"
-          />
+          <span className="w-2 h-2 bg-green-500 rounded-full" aria-hidden="true" />
           <span className="text-sm font-medium">
             {useTranslations("contact")("available")}
           </span>

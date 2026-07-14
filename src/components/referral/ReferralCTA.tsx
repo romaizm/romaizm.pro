@@ -22,8 +22,8 @@ export function ReferralCTA() {
           transition={{ duration: 0.5 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <div className="rounded-2xl p-[1.5px] gradient-border-glow">
-            <div className="bg-neutral-50 dark:bg-neutral-950 rounded-[calc(1rem-1.5px)] p-fluid-lg">
+          <div className="rounded-2xl card-line">
+            <div className="bg-neutral-50 dark:bg-neutral-950 rounded-2xl p-fluid-lg">
               <h2 className="text-fluid-h2 font-bold text-neutral-900 dark:text-white mb-fluid-xs">
                 {t("cta.title")}
               </h2>
@@ -51,7 +51,7 @@ export function ReferralCTA() {
                 </a>
               </div>
 
-              <p className="mt-fluid-sm text-fluid-body-sm text-gradient font-medium">
+              <p className="mt-fluid-sm text-fluid-body-sm text-primary-700 dark:text-primary-400 font-medium">
                 {tContact("available")}
               </p>
             </div>

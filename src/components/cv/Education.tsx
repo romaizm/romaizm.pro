@@ -22,11 +22,11 @@ function EducationCard({ item, index }: { item: EducationItem; index: number }) 
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="rounded-xl gradient-border-hover transition-shadow duration-300 hover:shadow-lg h-full"
+      className="rounded-xl card-line h-full"
     >
       <div className="rounded-xl bg-neutral-50 dark:bg-neutral-900 p-5 h-full flex items-center">
         <div className="flex items-center gap-4 w-full">
-          <div className="icon-gradient flex-shrink-0">
+          <div className="text-primary-700 dark:text-primary-400 flex-shrink-0">
             {item.type === "self-study" ? (
               <svg
                 className="w-10 h-10"
@@ -64,7 +64,7 @@ function EducationCard({ item, index }: { item: EducationItem; index: number }) 
           <p className="text-fluid-body-sm text-neutral-600 dark:text-neutral-400 mt-1">
             {item.institution}
           </p>
-          <p className="text-fluid-caption text-neutral-500 dark:text-neutral-500 mt-1">
+          <p className="text-fluid-caption text-neutral-500 dark:text-neutral-400 mt-1">
             {item.location} &bull; {item.period}
           </p>
           </div>

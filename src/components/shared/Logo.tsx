@@ -10,11 +10,11 @@ export function Logo({ className }: LogoProps) {
     <Link
       href="/"
       className={cn(
-        "text-xl font-bold text-neutral-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors",
+        "text-xl font-bold text-neutral-900 dark:text-white hover:text-primary-700 dark:hover:text-primary-400 transition-colors",
         className
       )}
     >
-      Roman<span className="text-gradient">.</span>
+      Roman<span className="text-primary-700 dark:text-primary-400">.</span>
     </Link>
   );
 }
