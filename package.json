@@ -12,8 +12,6 @@
   "dependencies": {
     "@swc/helpers": "0.5.23",
     "@tabler/icons-react": "^3.44.0",
-    "@upstash/ratelimit": "^2.0.8",
-    "@upstash/redis": "^1.38.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.42.2",
     "gray-matter": "^4.0.3",
