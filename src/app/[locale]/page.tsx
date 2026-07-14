@@ -24,10 +24,13 @@ export default async function HomePage({ params }: HomePageProps) {
       <JsonLd data={getPersonSchema(locale)} />
       <JsonLd data={getWebsiteSchema()} />
       <Hero />
-      <AboutPreview />
-      <FeaturedProjects projects={featuredProjects} />
-      <Services />
-      <ContactCTA />
+      {/* Opaque sheet that slides over the pinned hero on scroll */}
+      <div className="relative z-10 bg-white dark:bg-neutral-950 rounded-t-3xl border-t border-neutral-200 dark:border-neutral-800">
+        <AboutPreview />
+        <FeaturedProjects projects={featuredProjects} />
+        <Services />
+        <ContactCTA />
+      </div>
     </>
   );
 }

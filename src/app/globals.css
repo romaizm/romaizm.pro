@@ -345,6 +345,109 @@ body {
 .gap-fluid-grid-md { gap: var(--space-grid-md); }
 .gap-fluid-grid-lg { gap: var(--space-grid-lg); }
 
+/*
+ * Hero entrance: transform-only settle. Text is fully painted at first
+ * frame (opacity never drops below 1), so LCP is not delayed.
+ */
+@keyframes hero-settle {
+  from {
+    transform: translateY(14px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.hero-settle {
+  animation: hero-settle 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: var(--settle-delay, 0s);
+}
+
+/*
+ * Hero exit: scroll-driven. The hero is pinned (position: sticky) while
+ * the rest of the page slides over it; these animations add depth by
+ * drifting each layer up at its own speed and easing the whole block
+ * back. Browsers without scroll-timeline support still get the curtain
+ * effect from sticky positioning alone.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .hero-exit {
+      animation: hero-exit linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0px 90svh;
+    }
+
+    .hero-drift {
+      animation: hero-drift linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0px 90svh;
+    }
+
+    .hero-cue-fade {
+      animation: hero-cue-fade linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0px 25svh;
+    }
+  }
+}
+
+@keyframes hero-exit {
+  to {
+    transform: scale(0.94);
+    opacity: 0;
+  }
+}
+
+@keyframes hero-drift {
+  to {
+    transform: translateY(var(--drift, -3rem));
+  }
+}
+
+@keyframes hero-cue-fade {
+  to {
+    opacity: 0;
+  }
+}
+
+/* Scroll cue: a hairline with a slow traveling highlight */
+.hero-cue-line {
+  position: relative;
+  width: 1px;
+  height: 3rem;
+  overflow: hidden;
+  background-color: var(--color-neutral-300);
+}
+
+.dark .hero-cue-line {
+  background-color: var(--color-neutral-700);
+}
+
+.hero-cue-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 40%;
+  background-color: var(--color-neutral-900);
+  animation: hero-cue-drop 2.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.dark .hero-cue-line::after {
+  background-color: var(--color-neutral-100);
+}
+
+@keyframes hero-cue-drop {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(250%);
+  }
+}
+
 /* Selection */
 ::selection {
   @apply bg-primary-500/20;
