@@ -46,6 +46,7 @@
     "typescript": "^5.9.3"
   },
   "overrides": {
-    "postcss": "$postcss"
+    "postcss": "$postcss",
+    "@swc/helpers": "0.5.23"
   }
 }
