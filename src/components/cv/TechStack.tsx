@@ -63,13 +63,13 @@ function TechCard({ techKey, colSpan, index }: { techKey: string; colSpan: strin
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
       className={cn(
-        "rounded-xl gradient-border-hover transition-shadow duration-300 hover:shadow-lg",
+        "rounded-xl card-line",
         colSpan
       )}
     >
       <div className="rounded-xl bg-neutral-50 dark:bg-neutral-900 p-fluid-sm h-full">
         <div className="flex items-center gap-2 mb-2">
-          <span className="text-primary-600 dark:text-primary-400">
+          <span className="text-primary-700 dark:text-primary-400">
             {categoryIcons[techKey]}
           </span>
           <h3 className="text-sm font-semibold text-neutral-900 dark:text-white">

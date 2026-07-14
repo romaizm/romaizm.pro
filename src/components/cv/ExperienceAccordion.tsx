@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useId } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import Image from "next/image";
@@ -35,7 +35,7 @@ function CompanyLogo({ slug, company }: { slug: string; company: string }) {
     return (
       <div className="w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center flex-shrink-0">
         <span className="text-sm font-bold text-neutral-900 dark:text-white">
-          R<span className="text-gradient">.</span>
+          R<span className="text-primary-700 dark:text-primary-400">.</span>
         </span>
       </div>
     );
@@ -44,7 +44,7 @@ function CompanyLogo({ slug, company }: { slug: string; company: string }) {
   if (imgError) {
     return (
       <div className="w-10 h-10 rounded-lg overflow-hidden bg-white dark:bg-white/90 flex-shrink-0 shadow-sm flex items-center justify-center">
-        <span className="text-lg font-bold text-neutral-400">{company[0]}</span>
+        <span className="text-lg font-bold text-neutral-500 dark:text-neutral-400">{company[0]}</span>
       </div>
     );
   }
@@ -78,6 +78,8 @@ function ExperienceAccordionItem({
   const t = useTranslations("cv.experience");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const buttonId = useId();
+  const panelId = useId();
 
   return (
     <motion.div
@@ -88,14 +90,16 @@ function ExperienceAccordionItem({
       className="border-b border-neutral-200 dark:border-neutral-700 last:border-b-0"
     >
       <button
+        id={buttonId}
         onClick={onToggle}
         className="w-full py-4 flex items-center justify-between text-left gap-4 group"
         aria-expanded={isOpen}
+        aria-controls={panelId}
       >
         <div className="flex items-center gap-3">
           <CompanyLogo slug={position.companySlug} company={position.company} />
           <div>
-            <span className="text-fluid-body font-medium text-neutral-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors block">
+            <span className="text-fluid-body font-medium text-neutral-900 dark:text-white group-hover:text-primary-700 dark:group-hover:text-primary-400 transition-colors block">
               {position.company}
             </span>
             <span className="text-fluid-caption text-neutral-500 dark:text-neutral-400">
@@ -128,6 +132,9 @@ function ExperienceAccordionItem({
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
+            id={panelId}
+            role="region"
+            aria-labelledby={buttonId}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -135,7 +142,7 @@ function ExperienceAccordionItem({
             className="overflow-hidden"
           >
             <div className="pb-5 pl-13">
-              <p className="text-fluid-body-sm font-medium text-primary-600 dark:text-primary-400 mb-2">
+              <p className="text-fluid-body-sm font-medium text-primary-700 dark:text-primary-400 mb-2">
                 {position.title}
               </p>
               <ul className="space-y-1.5 mb-4">
@@ -181,7 +188,7 @@ export function ExperienceAccordion({ positions }: ExperienceAccordionProps) {
   };
 
   return (
-    <div className="rounded-xl gradient-border-hover transition-shadow duration-300 hover:shadow-lg">
+    <div className="rounded-xl card-line">
       <div className="rounded-xl bg-neutral-50 dark:bg-neutral-900 p-4 md:p-6">
         {positions.map((position, index) => (
           <ExperienceAccordionItem

@@ -14,7 +14,7 @@ export function Footer() {
             href="/"
             className="text-xl font-semibold text-neutral-900 dark:text-white"
           >
-            Roman<span className="text-gradient">.</span>
+            Roman<span className="text-primary-700 dark:text-primary-400">.</span>
           </Link>
           <p className="mt-4 text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
             {tFooter("description")}
@@ -24,7 +24,7 @@ export function Footer() {
               href="https://github.com/romaizm"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
+              className="hit-target inline-flex text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
               aria-label="GitHub"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -39,7 +39,7 @@ export function Footer() {
               href="https://t.me/romaizm"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
+              className="hit-target inline-flex text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
               aria-label="Telegram"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

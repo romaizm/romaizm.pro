@@ -51,12 +51,13 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4">
       {/* Floating centered navigation bar */}
       <nav
+        aria-label="Primary"
         className={cn(
           "mx-auto rounded-full px-4 py-2 transition-all duration-500",
           "bg-white/90 dark:bg-neutral-900/90 backdrop-blur-md",
-          "gradient-border",
+          "border border-neutral-200/60 dark:border-neutral-800/60",
           isCompact
-            ? "max-w-4xl shadow-xl shadow-neutral-900/10"
+            ? "max-w-4xl shadow-xl shadow-neutral-900/10 dark:shadow-black/40"
             : "max-w-7xl"
         )}
       >
@@ -70,6 +71,7 @@ export function Header() {
               <Link
                 key={item.key}
                 href={item.href}
+                aria-current={pathname === item.href ? "page" : undefined}
                 className={cn(
                   "px-4 py-2 text-sm font-medium rounded-full transition-all duration-200",
                   "hover:bg-neutral-100 dark:hover:bg-neutral-800",
@@ -96,6 +98,8 @@ export function Header() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-neutral-900 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-full transition-colors"
               aria-label="Toggle menu"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-menu"
             >
               {mobileMenuOpen ? (
                 <svg
@@ -155,8 +159,11 @@ export function Header() {
                 isCompact ? "max-w-4xl" : "max-w-7xl"
               )}
             >
-              <div className="bg-neutral-50/95 dark:bg-neutral-900/95 backdrop-blur-md rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-xl p-4">
-                <nav className="flex flex-col gap-1">
+              <div
+                id="mobile-menu"
+                className="bg-neutral-50/95 dark:bg-neutral-900/95 backdrop-blur-md rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-xl p-4"
+              >
+                <nav aria-label="Mobile" className="flex flex-col gap-1">
                   {navItems.map((item, index) => (
                     <motion.div
                       key={item.key}
@@ -167,6 +174,7 @@ export function Header() {
                       <Link
                         href={item.href}
                         onClick={() => setMobileMenuOpen(false)}
+                        aria-current={pathname === item.href ? "page" : undefined}
                         className={cn(
                           "block px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200",
                           "hover:bg-neutral-100 dark:hover:bg-neutral-800",

@@ -57,10 +57,10 @@ function TermCard({ termKey, index }: { termKey: (typeof termKeys)[number]; inde
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="rounded-xl gradient-border-hover transition-shadow duration-300 hover:shadow-lg h-full"
+      className="rounded-xl card-line h-full"
     >
       <div className="h-full rounded-xl bg-neutral-50 dark:bg-neutral-900 p-fluid-sm flex flex-col">
-        <div className="icon-gradient mb-fluid-xs">
+        <div className="text-primary-700 dark:text-primary-400 mb-fluid-xs">
           {termIcons[termKey]}
         </div>
 

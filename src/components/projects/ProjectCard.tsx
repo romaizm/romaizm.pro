@@ -10,7 +10,7 @@ interface ProjectCardProps {
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link href={`/projects/${project.slug}`} className="block h-full">
-      <article className="group relative h-full rounded-2xl gradient-border-hover transition-all duration-300 hover:shadow-xl hover:shadow-neutral-900/5 dark:hover:shadow-neutral-900/20">
+      <article className="group relative h-full rounded-2xl card-line transition-all duration-300 hover:shadow-xl hover:shadow-neutral-900/5 dark:hover:shadow-neutral-900/20">
         <div className="relative h-full rounded-2xl overflow-hidden bg-neutral-50 dark:bg-neutral-900 flex flex-col">
           {/* Thumbnail */}
           <div className="aspect-[16/10] bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900 relative overflow-hidden">
@@ -54,11 +54,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 {project.platform}
               </span>
               <span className="w-1 h-1 rounded-full bg-neutral-300 dark:bg-neutral-700 flex-shrink-0" />
-              <span className="text-fluid-caption text-neutral-400 dark:text-neutral-500">
+              <span className="text-fluid-caption text-neutral-500 dark:text-neutral-400">
                 {project.clientLocation}
               </span>
               <span className="w-1 h-1 rounded-full bg-neutral-300 dark:bg-neutral-700 flex-shrink-0" />
-              <span className="text-fluid-caption text-neutral-400 dark:text-neutral-500">
+              <span className="text-fluid-caption text-neutral-500 dark:text-neutral-400">
                 {project.launchDate}
               </span>
             </div>

@@ -10,6 +10,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/lib/i18n/routing";
 import { getAlternates, getOgImageUrl } from "@/lib/seo/alternates";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { MotionProvider } from "@/components/providers/MotionProvider";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
@@ -78,6 +79,7 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
   const messages = await getMessages();
+  const t = await getTranslations("navigation");
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -97,13 +99,21 @@ export default async function LocaleLayout({
       </head>
       <body>
         <ThemeProvider>
+          <MotionProvider>
           <NextIntlClientProvider messages={messages}>
             <div className="flex min-h-screen flex-col">
+              <a
+                href="#main"
+                className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-white focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-neutral-900 focus:shadow-lg dark:focus:bg-neutral-900 dark:focus:text-white"
+              >
+                {t("skipToContent")}
+              </a>
               <Header />
-              <main className="flex-1">{children}</main>
+              <main id="main" className="flex-1">{children}</main>
               <Footer />
             </div>
           </NextIntlClientProvider>
+          </MotionProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -20,6 +20,9 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   output: "standalone",
   poweredByHeader: false,
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
   experimental: {
     inlineCss: true,
     optimizePackageImports: ["framer-motion", "@tabler/icons-react"],

@@ -95,11 +95,13 @@ export function ReferralHero() {
       {/* Overlay using standard background colors */}
       <div className="absolute inset-0 z-10 h-full w-full bg-white/90 dark:bg-neutral-950/85" />
 
-      {/* 3D Marquee background */}
-      <ThreeDMarquee
-        className="pointer-events-none absolute inset-0 h-full w-full"
-        images={projectImages}
-      />
+      {/* 3D Marquee background - purely decorative */}
+      <div aria-hidden="true" className="absolute inset-0">
+        <ThreeDMarquee
+          className="pointer-events-none absolute inset-0 h-full w-full"
+          images={projectImages}
+        />
+      </div>
     </div>
   );
 }

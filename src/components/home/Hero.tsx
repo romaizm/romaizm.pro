@@ -1,20 +1,9 @@
-"use client";
-
-import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
-import { useTheme } from "next-themes";
 import { Link } from "@/lib/i18n/navigation";
 import { Button } from "@/components/ui/Button";
 
-// Lazy load SparklesCore to avoid blocking initial render
-const SparklesCore = dynamic(
-  () => import("@/components/ui/SparklesCore").then((mod) => mod.SparklesCore),
-  { ssr: false }
-);
-
 export function Hero() {
   const t = useTranslations("hero");
-  const { resolvedTheme } = useTheme();
 
   return (
     <section className="relative min-h-screen pt-24 pb-16 overflow-hidden">
@@ -22,56 +11,43 @@ export function Hero() {
         <div className="flex justify-center items-center min-h-[calc(100vh-10rem)]">
           <div className="max-w-3xl text-center">
             {/* Status indicator */}
-            <div className="flex items-center justify-center gap-fluid-2xs mb-fluid-md">
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-              </span>
+            <div className="flex items-center justify-center gap-fluid-2xs mb-fluid-md opacity-0 animate-fade-in">
+              <span className="inline-flex rounded-full h-2.5 w-2.5 bg-green-500" aria-hidden="true"></span>
               <span className="text-sm text-neutral-600 dark:text-neutral-400">
                 {t("status")}
               </span>
             </div>
 
             {/* Main heading */}
-            <h1 className="text-fluid-display font-bold text-neutral-900 dark:text-white mb-fluid-sm">
+            <h1
+              className="text-fluid-display font-bold text-neutral-900 dark:text-white mb-fluid-sm opacity-0 animate-slide-up"
+              style={{ animationDelay: "0.08s" }}
+            >
               {t("name")}
+              <span className="text-primary-700 dark:text-primary-400">.</span>
             </h1>
 
             {/* Title */}
-            <p className="text-fluid-h3 text-neutral-600 dark:text-white relative z-20">
+            <p
+              className="text-fluid-h3 text-neutral-600 dark:text-white mb-fluid-md opacity-0 animate-slide-up"
+              style={{ animationDelay: "0.16s" }}
+            >
               {t("title")}
             </p>
 
-            {/* Sparkles under title */}
-            <div className="w-full max-w-2xl mx-auto h-24 relative mt-4 mb-fluid-xs origin-center">
-              {/* Gradient lines */}
-              <div className="absolute inset-x-10 top-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent h-[2px] w-3/4 blur-sm origin-center" />
-              <div className="absolute inset-x-10 top-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent h-px w-3/4 origin-center" />
-              <div className="absolute inset-x-32 top-0 bg-gradient-to-r from-transparent via-teal-500 to-transparent h-[5px] w-1/4 blur-sm origin-center" />
-              <div className="absolute inset-x-32 top-0 bg-gradient-to-r from-transparent via-teal-500 to-transparent h-px w-1/4 origin-center" />
-
-              {/* Sparkles */}
-              <SparklesCore
-                id="hero-sparkles"
-                background="transparent"
-                minSize={0.4}
-                maxSize={1}
-                particleDensity={1200}
-                className="w-full h-full"
-                particleColor={resolvedTheme === "dark" ? "#FFFFFF" : "#0891b2"}
-              />
-
-              {/* Radial gradient mask */}
-              <div className="absolute inset-0 w-full h-full bg-white dark:bg-neutral-950 [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]" />
-            </div>
-
             {/* Subtitle */}
-            <p className="text-fluid-body-lg text-neutral-500 dark:text-neutral-300 mb-fluid-lg">
+            <p
+              className="text-fluid-body-lg text-neutral-500 dark:text-neutral-300 mb-fluid-lg opacity-0 animate-slide-up"
+              style={{ animationDelay: "0.24s" }}
+            >
               {t("subtitle")}
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row justify-center gap-fluid-xs">
+            <div
+              className="flex flex-col sm:flex-row justify-center gap-fluid-xs opacity-0 animate-slide-up"
+              style={{ animationDelay: "0.32s" }}
+            >
               <Link href="/projects" className="w-full sm:w-auto">
                 <Button asChild size="lg" className="rounded-full px-8 w-full sm:w-auto">
                   {t("cta")}
@@ -85,12 +61,15 @@ export function Hero() {
             </div>
 
             {/* Social links */}
-            <div className="flex items-center justify-center gap-fluid-sm mt-fluid-lg">
+            <div
+              className="flex items-center justify-center gap-fluid-sm mt-fluid-lg opacity-0 animate-fade-in"
+              style={{ animationDelay: "0.45s" }}
+            >
               <a
                 href="https://github.com/romaizm"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors"
+                className="hit-target inline-flex text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors"
                 aria-label="GitHub"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -105,7 +84,7 @@ export function Hero() {
                 href="https://t.me/romaizm"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors"
+                className="hit-target inline-flex text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors"
                 aria-label="Telegram"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

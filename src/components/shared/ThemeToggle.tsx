@@ -20,7 +20,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
   if (!mounted) {
     return (
       <div className={className}>
-        <label className={styles.switch}>
+        <label className={`${styles.switch} hit-target`}>
           <div className={styles.slider} />
         </label>
       </div>
@@ -37,7 +37,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
 
   return (
     <div className={className}>
-      <label className={styles.switch}>
+      <label className={`${styles.switch} hit-target`}>
         <input
           className={styles.input}
           type="checkbox"

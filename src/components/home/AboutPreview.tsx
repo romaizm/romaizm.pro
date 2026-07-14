@@ -1,9 +1,7 @@
-"use client";
-
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { AnimatedTooltip } from "@/components/ui/AnimatedTooltip";
+import { Reveal } from "@/components/ui/Reveal";
 
 const stats = [
   { key: "experience", valueKey: "experienceValue" },
@@ -18,28 +16,17 @@ export function AboutPreview() {
     <section className="py-fluid-section">
       <div className="container mx-auto px-fluid-container">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-fluid-xl"
-        >
+        <Reveal className="text-center mb-fluid-xl">
           <h2 className="text-fluid-h2 font-bold text-neutral-900 dark:text-white">
             {t("title")}
+            <span className="text-primary-700 dark:text-primary-400">.</span>
           </h2>
-        </motion.div>
+        </Reveal>
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 auto-rows-auto">
           {/* Card 1: About Text + Stats (spans 2 columns on lg) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="lg:col-span-2 rounded-2xl gradient-border-hover"
-          >
+          <Reveal delay={0.1} className="lg:col-span-2 rounded-2xl card-line">
             <div className="rounded-2xl bg-neutral-50 dark:bg-neutral-900 p-fluid-lg h-full">
               <div className="text-fluid-body-lg text-neutral-600 dark:text-neutral-400 space-y-4">
               {t("description").split("\n\n").map((paragraph, index) => (
@@ -50,34 +37,25 @@ export function AboutPreview() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-fluid-md mt-16 pt-16 border-t border-neutral-200 dark:border-neutral-700">
               {stats.map((stat, index) => (
-                <motion.div
+                <Reveal
                   key={stat.key}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
+                  delay={0.2 + index * 0.1}
                   className="text-center"
                 >
-                  <div className="text-fluid-h2 font-bold text-gradient">
+                  <div className="text-fluid-h2 font-bold text-neutral-900 dark:text-white">
                     {t(stat.valueKey)}
                   </div>
                   <div className="text-fluid-body-sm text-neutral-500 dark:text-neutral-400">
                     {t(stat.key)}
                   </div>
-                </motion.div>
+                </Reveal>
               ))}
               </div>
             </div>
-          </motion.div>
+          </Reveal>
 
           {/* Card 2: Photo */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="rounded-2xl gradient-border-hover"
-          >
+          <Reveal delay={0.2} className="rounded-2xl card-line">
             <div className="rounded-2xl bg-neutral-50 dark:bg-neutral-900 p-fluid-xs h-full">
               <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden">
                 <Image
@@ -92,23 +70,17 @@ export function AboutPreview() {
                 {t("photoCaption")}
               </p>
             </div>
-          </motion.div>
+          </Reveal>
 
           {/* Card 3: Tech Stack (full width) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="lg:col-span-3 rounded-2xl gradient-border-hover"
-          >
+          <Reveal delay={0.3} className="lg:col-span-3 rounded-2xl card-line">
             <div className="rounded-2xl bg-neutral-50 dark:bg-neutral-900 p-fluid-lg h-full">
               <h3 className="text-fluid-h5 font-semibold text-neutral-900 dark:text-white mb-fluid-md">
                 {t("stack")}
               </h3>
               <TechStackInline />
             </div>
-          </motion.div>
+          </Reveal>
         </div>
       </div>
     </section>

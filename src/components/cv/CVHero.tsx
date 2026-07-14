@@ -44,8 +44,9 @@ export function CVHero({ pdfUrl }: CVHeroProps) {
               >
                 <h1 className="text-fluid-h1 font-bold text-neutral-900 dark:text-white">
                   {t("hero.name")}
+                  <span className="text-primary-700 dark:text-primary-400">.</span>
                 </h1>
-                <p className="text-fluid-h4 text-gradient font-semibold mt-1">
+                <p className="text-fluid-h4 text-primary-700 dark:text-primary-400 font-semibold mt-1">
                   {t("hero.title")}
                 </p>
                 <p className="text-fluid-body-lg text-neutral-600 dark:text-neutral-400 mt-1">

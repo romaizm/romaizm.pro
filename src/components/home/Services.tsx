@@ -1,10 +1,7 @@
-"use client";
-
-import { useRef } from "react";
 import { useTranslations } from "next-intl";
-import { motion, useInView } from "framer-motion";
 import { Link } from "@/lib/i18n/navigation";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 
 const serviceIcons = {
   webDev: (
@@ -33,19 +30,11 @@ const categoryKeys = ["webDev", "mobileDev", "webApps", "otherServices"] as cons
 
 function ServiceCard({ categoryKey, index }: { categoryKey: string; index: number }) {
   const t = useTranslations("services");
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="rounded-xl gradient-border-hover transition-shadow duration-300 hover:shadow-lg"
-    >
+    <Reveal delay={index * 0.1} className="rounded-xl card-line">
       <div className="h-full rounded-xl bg-neutral-50 dark:bg-neutral-900 p-fluid-sm">
-        <div className="icon-gradient mb-fluid-xs">
+        <div className="text-primary-700 dark:text-primary-400 mb-fluid-xs">
           {serviceIcons[categoryKey as keyof typeof serviceIcons]}
         </div>
 
@@ -57,34 +46,25 @@ function ServiceCard({ categoryKey, index }: { categoryKey: string; index: numbe
           {t(`categories.${categoryKey}.description`)}
         </p>
       </div>
-    </motion.div>
+    </Reveal>
   );
 }
 
 export function Services() {
   const t = useTranslations("services");
-  const titleRef = useRef(null);
-  const buttonRef = useRef(null);
-  const isTitleInView = useInView(titleRef, { once: true, amount: 0.1 });
-  const isButtonInView = useInView(buttonRef, { once: true, amount: 0.1 });
 
   return (
     <section className="py-fluid-section">
       <div className="container mx-auto px-fluid-container">
-        <motion.div
-          ref={titleRef}
-          initial={{ opacity: 0, y: 20 }}
-          animate={isTitleInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-fluid-xl"
-        >
+        <Reveal className="text-center mb-fluid-xl">
           <h2 className="text-fluid-h2 font-bold text-neutral-900 dark:text-white mb-fluid-xs">
             {t("title")}
+            <span className="text-primary-700 dark:text-primary-400">.</span>
           </h2>
           <p className="text-fluid-body-lg text-neutral-600 dark:text-neutral-400">
             {t("subtitle")}
           </p>
-        </motion.div>
+        </Reveal>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-fluid-lg">
           {categoryKeys.map((key, index) => (
@@ -92,11 +72,8 @@ export function Services() {
           ))}
         </div>
 
-        <motion.div
-          ref={buttonRef}
-          initial={{ opacity: 0, y: 20 }}
-          animate={isButtonInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+        <Reveal
+          delay={0.2}
           className="flex flex-col sm:flex-row gap-fluid-xs justify-center"
         >
           <Link href="/services" className="w-full sm:w-auto">
@@ -112,7 +89,7 @@ export function Services() {
               {t("referralLink")}
             </Button>
           </Link>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

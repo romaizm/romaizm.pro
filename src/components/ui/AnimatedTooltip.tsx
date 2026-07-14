@@ -88,7 +88,7 @@ export const AnimatedTooltip = ({
           </AnimatePresence>
           <div
             onMouseMove={handleMouseMove}
-            className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-600 transition-all cursor-pointer hover:scale-110 icon-gradient-hover"
+            className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-600 transition-all cursor-pointer hover:scale-110 hover:text-primary-700 dark:hover:text-primary-400"
           >
             {item.icon}
           </div>
