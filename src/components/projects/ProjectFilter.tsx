@@ -21,6 +21,7 @@ export function ProjectFilter({
       <div className="flex flex-wrap gap-fluid-2xs">
         <button
           onClick={() => onFilterChange(null)}
+          aria-pressed={activeFilter === null}
           className={cn(
             "hit-target px-4 py-2 text-sm font-medium rounded-full transition-colors",
             activeFilter === null
@@ -34,6 +35,7 @@ export function ProjectFilter({
           <button
             key={category}
             onClick={() => onFilterChange(category)}
+            aria-pressed={activeFilter === category}
             className={cn(
               "hit-target px-4 py-2 text-sm font-medium rounded-full transition-colors",
               activeFilter === category

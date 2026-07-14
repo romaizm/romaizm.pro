@@ -1,6 +1,6 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { getAllProjects } from "@/lib/mdx/projects";
-import { getAlternates, getOgImageUrl } from "@/lib/seo/alternates";
+import { getPageMetadata } from "@/lib/seo/alternates";
 import { ProjectsPageClient } from "./ProjectsPageClient";
 
 interface ProjectsPageProps {
@@ -14,22 +14,7 @@ export async function generateMetadata({ params }: ProjectsPageProps) {
   const title = t("title");
   const description = t("subtitle");
 
-  return {
-    title,
-    description,
-    alternates: getAlternates("/projects", locale),
-    openGraph: {
-      title,
-      description,
-      images: [
-        {
-          url: getOgImageUrl(title, description, locale),
-          width: 1200,
-          height: 630,
-        },
-      ],
-    },
-  };
+  return getPageMetadata({ title, description, path: "/projects", locale });
 }
 
 export default async function ProjectsPage({ params }: ProjectsPageProps) {

@@ -96,6 +96,10 @@ Create a `.env.local` file with the following variables:
 # Required for contact form
 RESEND_API_KEY=re_xxxxxxxxxxxxx
 
+# Recommended in production for durable contact-form rate limiting
+UPSTASH_REDIS_REST_URL=https://your-database.upstash.io
+UPSTASH_REDIS_REST_TOKEN=your_token
+
 # Site URL (defaults to https://romaizm.pro)
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
 ```

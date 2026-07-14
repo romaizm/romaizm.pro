@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { getProjectBySlug, getProjectSlugs } from "@/lib/mdx/projects";
-import { getAlternates } from "@/lib/seo/alternates";
+import { getPageMetadata } from "@/lib/seo/alternates";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getProjectSchema } from "@/lib/seo/schemas";
 import { ProjectDetail } from "@/components/projects/ProjectDetail";
@@ -30,23 +30,13 @@ export async function generateMetadata({ params }: ProjectPageProps) {
     };
   }
 
-  return {
+  return getPageMetadata({
     title: project.title,
-    description: project.description,
-    alternates: getAlternates(`/projects/${slug}`, locale),
-    openGraph: {
-      title: project.title,
-      description: project.description,
-      images: [
-        {
-          url: `${baseUrl}${project.thumbnail}`,
-          width: 1200,
-          height: 630,
-        },
-      ],
-      locale: locale === "ru" ? "ru_RU" : "en_US",
-    },
-  };
+    description: project.description || project.title,
+    path: `/projects/${slug}`,
+    locale,
+    image: `${baseUrl}${project.thumbnail}`,
+  });
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {

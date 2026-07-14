@@ -1,5 +1,5 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
-import { getAlternates } from "@/lib/seo/alternates";
+import { getPageMetadata } from "@/lib/seo/alternates";
 
 interface TermsPageProps {
   params: Promise<{ locale: string }>;
@@ -9,11 +9,12 @@ export async function generateMetadata({ params }: TermsPageProps) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "terms" });
 
-  return {
+  return getPageMetadata({
     title: t("title"),
     description: t("description"),
-    alternates: getAlternates("/terms", locale),
-  };
+    path: "/terms",
+    locale,
+  });
 }
 
 export default async function TermsPage({ params }: TermsPageProps) {

@@ -8,7 +8,7 @@ import { CVContact } from "@/components/cv/CVContact";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getPersonSchema } from "@/lib/seo/schemas";
 import { getFeaturedProjects } from "@/lib/mdx/projects";
-import { getAlternates, getOgImageUrl } from "@/lib/seo/alternates";
+import { getPageMetadata } from "@/lib/seo/alternates";
 
 interface CVPageProps {
   params: Promise<{ locale: string }>;
@@ -22,22 +22,7 @@ export async function generateMetadata({ params }: CVPageProps) {
   const title = t("title");
   const description = tMeta("cv.description");
 
-  return {
-    title,
-    description,
-    alternates: getAlternates("/cv", locale),
-    openGraph: {
-      title,
-      description,
-      images: [
-        {
-          url: getOgImageUrl(title, description, locale),
-          width: 1200,
-          height: 630,
-        },
-      ],
-    },
-  };
+  return getPageMetadata({ title, description, path: "/cv", locale });
 }
 
 export default async function CVPage({ params }: CVPageProps) {

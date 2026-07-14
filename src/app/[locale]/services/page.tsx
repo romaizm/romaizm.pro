@@ -4,7 +4,7 @@ import { ServicesBento, FAQ } from "@/components/services";
 import { FeaturedProjects } from "@/components/home/FeaturedProjects";
 import { ContactCTA } from "@/components/home/ContactCTA";
 import { getAllProjects } from "@/lib/mdx/projects";
-import { getAlternates, getOgImageUrl } from "@/lib/seo/alternates";
+import { getPageMetadata } from "@/lib/seo/alternates";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
   getBreadcrumbSchema,
@@ -23,22 +23,7 @@ export async function generateMetadata({ params }: ServicesPageProps) {
   const title = t("title");
   const description = t("metaDescription");
 
-  return {
-    title,
-    description,
-    alternates: getAlternates("/services", locale),
-    openGraph: {
-      title,
-      description,
-      images: [
-        {
-          url: getOgImageUrl(title, description, locale),
-          width: 1200,
-          height: 630,
-        },
-      ],
-    },
-  };
+  return getPageMetadata({ title, description, path: "/services", locale });
 }
 
 export default async function ServicesPage({ params }: ServicesPageProps) {

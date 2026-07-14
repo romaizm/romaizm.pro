@@ -1,5 +1,5 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
-import { getAlternates } from "@/lib/seo/alternates";
+import { getPageMetadata } from "@/lib/seo/alternates";
 
 interface PrivacyPageProps {
   params: Promise<{ locale: string }>;
@@ -9,11 +9,12 @@ export async function generateMetadata({ params }: PrivacyPageProps) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "privacy" });
 
-  return {
+  return getPageMetadata({
     title: t("title"),
     description: t("description"),
-    alternates: getAlternates("/privacy", locale),
-  };
+    path: "/privacy",
+    locale,
+  });
 }
 
 export default async function PrivacyPage({ params }: PrivacyPageProps) {

@@ -117,11 +117,16 @@ export function CommissionCalculator() {
 
               {/* Currency Toggle */}
               <div className="flex justify-center mb-4">
-                <div className="inline-flex rounded-lg bg-neutral-200 dark:bg-neutral-800 p-1">
+                <div
+                  className="inline-flex rounded-lg bg-neutral-200 dark:bg-neutral-800 p-1"
+                  role="group"
+                  aria-label={t("calculator.currency")}
+                >
                   {(["USD", "RUB"] as Currency[]).map((curr) => (
                     <button
                       key={curr}
                       onClick={() => setCurrency(curr)}
+                      aria-pressed={currency === curr}
                       className={cn(
                         "px-4 py-2 text-sm font-medium rounded-md transition-all",
                         currency === curr
@@ -137,21 +142,26 @@ export function CommissionCalculator() {
 
               {/* Input */}
               <div className="relative mb-2">
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500 dark:text-neutral-400 text-lg">
+                <label htmlFor="commission-value" className="sr-only">
+                  {t("calculator.inputLabel")}
+                </label>
+                <span aria-hidden="true" className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500 dark:text-neutral-400 text-lg">
                   {SYMBOLS[currency]}
                 </span>
                 <input
+                  id="commission-value"
                   type="text"
                   inputMode="numeric"
                   value={inputValue}
                   onChange={handleInputChange}
                   placeholder={t("calculator.placeholder")}
-                  className="w-full pl-10 pr-4 py-4 text-lg rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                  aria-describedby="commission-minimum"
+                  className="w-full pl-10 pr-4 py-4 text-lg rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 />
               </div>
 
               {/* Minimum hint */}
-              <p className="text-fluid-body-sm text-neutral-500 dark:text-neutral-400 mb-4 text-center">
+              <p id="commission-minimum" className="text-fluid-body-sm text-neutral-500 dark:text-neutral-400 mb-4 text-center">
                 {t("calculator.minimumHint", { amount: formatCurrency(MINIMUMS[currency], currency) })}
               </p>
 
@@ -178,7 +188,7 @@ export function CommissionCalculator() {
                     className="space-y-3"
                   >
                     {/* Total Commission */}
-                    <div className="p-4 rounded-xl bg-gradient-to-br from-cyan-500/10 to-teal-500/10 dark:from-cyan-500/20 dark:to-teal-500/20 border border-cyan-500/20">
+                    <div className="p-4 rounded-xl bg-primary-50 dark:bg-neutral-800 border border-primary-200 dark:border-neutral-700">
                       <p className="text-fluid-body-sm text-neutral-600 dark:text-neutral-400 mb-1">
                         {t("calculator.result")}
                       </p>

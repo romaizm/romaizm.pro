@@ -5,10 +5,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "https://romaizm.pro"
   ),
-  title: {
-    default: "Roman Izmestev — Team Lead & Full-Stack Developer",
-    template: "%s | Roman Izmestev",
-  },
+  title: "Roman Izmestev — Team Lead & Full-Stack Developer",
   description:
     "Roman Izmestev is a Team Lead / CTO and full-stack developer. Leading a development team on Elixir & Phoenix LiveView, with 6+ years building websites, eCommerce stores, web apps, and mobile apps in React, Next.js, Flutter, and Shopify.",
   keywords: [

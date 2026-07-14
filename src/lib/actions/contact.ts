@@ -3,44 +3,12 @@
 import { headers } from "next/headers";
 import { Resend } from "resend";
 import { z } from "zod";
+import {
+  checkContactRateLimit,
+  createRateLimitIdentifier,
+} from "@/lib/security/rateLimit";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-
-// Simple in-memory rate limiting (resets on server restart)
-const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
-const RATE_LIMIT = 3; // max requests
-const RATE_LIMIT_WINDOW = 60 * 60 * 1000; // 1 hour in ms
-const RATE_LIMIT_MAX_ENTRIES = 10_000; // bound memory against spoofed-IP floods
-
-function isRateLimited(ip: string): boolean {
-  const now = Date.now();
-
-  if (rateLimitMap.size >= RATE_LIMIT_MAX_ENTRIES) {
-    for (const [key, value] of rateLimitMap) {
-      if (now > value.resetTime) {
-        rateLimitMap.delete(key);
-      }
-    }
-    // Still full after evicting expired entries: fail closed for new IPs
-    if (rateLimitMap.size >= RATE_LIMIT_MAX_ENTRIES && !rateLimitMap.has(ip)) {
-      return true;
-    }
-  }
-
-  const record = rateLimitMap.get(ip);
-
-  if (!record || now > record.resetTime) {
-    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
-    return false;
-  }
-
-  if (record.count >= RATE_LIMIT) {
-    return true;
-  }
-
-  record.count++;
-  return false;
-}
 
 function escapeHtml(str: string): string {
   return str
@@ -51,14 +19,48 @@ function escapeHtml(str: string): string {
     .replace(/'/g, "&#39;");
 }
 
-const contactSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Invalid email address"),
-  subject: z.string().min(5, "Subject must be at least 5 characters"),
-  message: z.string().min(20, "Message must be at least 20 characters"),
-  // Honeypot field - should be empty
-  website: z.string().max(0, "Bot detected"),
-});
+const limits = {
+  name: 80,
+  email: 254,
+  subject: 120,
+  message: 5_000,
+} as const;
+
+type Locale = "en" | "ru";
+
+const copy = {
+  en: {
+    rateLimited: "Too many messages were sent from this device. Please try again later.",
+    validation: "Please review the highlighted fields and try again.",
+    sendFailed: "I couldn't send your message. Please try again or email me directly.",
+    success: "Message sent. I'll get back to you soon.",
+    name: `Enter between 2 and ${limits.name} characters.`,
+    email: "Enter a valid email address.",
+    subject: `Enter between 5 and ${limits.subject} characters.`,
+    message: `Enter between 20 and ${limits.message.toLocaleString("en-US")} characters.`,
+  },
+  ru: {
+    rateLimited: "С этого устройства отправлено слишком много сообщений. Попробуйте позже.",
+    validation: "Проверьте выделенные поля и попробуйте снова.",
+    sendFailed: "Не удалось отправить сообщение. Попробуйте ещё раз или напишите мне напрямую.",
+    success: "Сообщение отправлено. Я отвечу в ближайшее время.",
+    name: `Введите от 2 до ${limits.name} символов.`,
+    email: "Введите корректный email-адрес.",
+    subject: `Введите от 5 до ${limits.subject} символов.`,
+    message: `Введите от 20 до ${limits.message.toLocaleString("ru-RU")} символов.`,
+  },
+} as const;
+
+function getContactSchema(locale: Locale) {
+  const messages = copy[locale];
+  return z.object({
+    name: z.string().trim().min(2, messages.name).max(limits.name, messages.name),
+    email: z.string().trim().max(limits.email, messages.email).email(messages.email),
+    subject: z.string().trim().min(5, messages.subject).max(limits.subject, messages.subject),
+    message: z.string().trim().min(20, messages.message).max(limits.message, messages.message),
+    website: z.string().max(0),
+  });
+}
 
 export type ContactFormState = {
   success: boolean;
@@ -70,47 +72,48 @@ export async function sendContactEmail(
   _prevState: ContactFormState,
   formData: FormData
 ): Promise<ContactFormState> {
-  // Get client IP from request headers
-  const headersList = await headers();
-  const clientIp =
-    headersList.get("x-forwarded-for")?.split(",")[0].trim() ||
-    headersList.get("x-real-ip") ||
-    "unknown";
-
-  // Check rate limit
-  if (isRateLimited(clientIp)) {
-    return {
-      success: false,
-      message: "Too many requests. Please try again later.",
-    };
-  }
-
   const rawData = {
     name: formData.get("name") as string,
     email: formData.get("email") as string,
     subject: formData.get("subject") as string,
     message: formData.get("message") as string,
-    website: formData.get("website") as string || "", // honeypot
+    website: (formData.get("website") as string) || "",
   };
 
-  const validatedFields = contactSchema.safeParse(rawData);
+  const locale: Locale = formData.get("locale") === "ru" ? "ru" : "en";
+  const messages = copy[locale];
+
+  // Give bots a generic success response without spending rate-limit or email
+  // capacity. The field is visually and semantically hidden from people.
+  if (rawData.website) {
+    return { success: true, message: messages.success };
+  }
+
+  const validatedFields = getContactSchema(locale).safeParse(rawData);
 
   if (!validatedFields.success) {
     const errors = validatedFields.error.flatten().fieldErrors;
 
-    // If honeypot triggered, return generic success to fool bots
-    if (errors.website) {
-      return {
-        success: true,
-        message: "Message sent successfully!",
-      };
-    }
-
     return {
       success: false,
-      message: "Validation failed",
+      message: messages.validation,
       errors,
     };
+  }
+
+  const headersList = await headers();
+  const clientIp =
+    headersList.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    headersList.get("x-real-ip") ||
+    "unknown";
+  const identifier = createRateLimitIdentifier(
+    clientIp,
+    headersList.get("user-agent") || "unknown"
+  );
+  const rateLimit = await checkContactRateLimit(identifier);
+
+  if (!rateLimit.success) {
+    return { success: false, message: messages.rateLimited };
   }
 
   const { name, email, subject, message } = validatedFields.data;
@@ -121,13 +124,13 @@ export async function sendContactEmail(
       console.error("RESEND_API_KEY is not set in production — email not sent");
       return {
         success: false,
-        message: "Failed to send message. Please try again.",
+        message: messages.sendFailed,
       };
     }
     console.log("Contact form submission (dev mode):", { name, email, subject, message });
     return {
       success: true,
-      message: "Message sent successfully! (Development mode)",
+      message: messages.success,
     };
   }
 
@@ -169,13 +172,13 @@ export async function sendContactEmail(
 
     return {
       success: true,
-      message: "Message sent successfully!",
+      message: messages.success,
     };
   } catch (error) {
     console.error("Email send error:", error);
     return {
       success: false,
-      message: "Failed to send message. Please try again.",
+      message: messages.sendFailed,
     };
   }
 }

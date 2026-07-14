@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
           position: "relative",
         }}
       >
-        {/* Gradient accent line at top */}
+        {/* Quiet brand accent */}
         <div
           style={{
             position: "absolute",
@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
             left: 0,
             right: 0,
             height: "6px",
-            background: "linear-gradient(90deg, #06b6d4, #8b5cf6, #ec4899)",
+            background: "#5f8797",
           }}
         />
 
@@ -59,9 +59,7 @@ export async function GET(request: NextRequest) {
             style={{
               fontSize: "80px",
               fontWeight: 700,
-              background: "linear-gradient(135deg, #06b6d4, #ec4899)",
-              backgroundClip: "text",
-              color: "transparent",
+              color: "#8fb5c2",
               fontFamily: "system-ui, sans-serif",
             }}
           >

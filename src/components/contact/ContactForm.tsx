@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { sendContactEmail, type ContactFormState } from "@/lib/actions/contact";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
@@ -14,6 +14,7 @@ const initialState: ContactFormState = {
 
 export function ContactForm() {
   const t = useTranslations("contact");
+  const locale = useLocale();
   const [state, formAction, isPending] = useActionState(
     sendContactEmail,
     initialState
@@ -21,6 +22,7 @@ export function ContactForm() {
 
   return (
     <form action={formAction} className="space-y-6">
+      <input type="hidden" name="locale" value={locale} />
       {/* Honeypot field - hidden from users, bots will fill it */}
       <div className="absolute -left-[9999px]" aria-hidden="true">
         <input
@@ -37,6 +39,8 @@ export function ContactForm() {
         placeholder={t("placeholders.name")}
         error={state.errors?.name?.[0]}
         required
+        minLength={2}
+        maxLength={80}
       />
 
       <Input
@@ -46,6 +50,7 @@ export function ContactForm() {
         placeholder={t("placeholders.email")}
         error={state.errors?.email?.[0]}
         required
+        maxLength={254}
       />
 
       <Input
@@ -54,6 +59,8 @@ export function ContactForm() {
         placeholder={t("placeholders.subject")}
         error={state.errors?.subject?.[0]}
         required
+        minLength={5}
+        maxLength={120}
       />
 
       <Textarea
@@ -63,6 +70,8 @@ export function ContactForm() {
         rows={6}
         error={state.errors?.message?.[0]}
         required
+        minLength={20}
+        maxLength={5000}
       />
 
       <Button type="submit" disabled={isPending} className="w-full">
@@ -79,7 +88,7 @@ export function ContactForm() {
               : "text-red-600 dark:text-red-400"
           }`}
         >
-          {state.success ? t("success") : state.message}
+          {state.message}
         </p>
       )}
     </form>

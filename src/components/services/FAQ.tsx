@@ -2,7 +2,7 @@
 
 import { useState, useRef, useId } from "react";
 import { useTranslations } from "next-intl";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { cn } from "@/lib/utils/cn";
 
 interface FAQItemProps {
@@ -59,24 +59,24 @@ function FAQItem({ question, answer, isOpen, onToggle, index }: FAQItemProps) {
         </span>
       </button>
 
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            id={panelId}
-            role="region"
-            aria-labelledby={buttonId}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
+      <div
+        className={cn(
+          "grid transition-[grid-template-rows,opacity] duration-300 ease-out",
+          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        )}
+      >
+        <div
+          id={panelId}
+          role="region"
+          aria-labelledby={buttonId}
+          aria-hidden={!isOpen}
+          className="overflow-hidden"
+        >
             <p className="pb-5 text-fluid-body-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
               {answer}
             </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        </div>
+      </div>
     </motion.div>
   );
 }

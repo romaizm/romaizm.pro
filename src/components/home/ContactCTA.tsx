@@ -10,9 +10,9 @@ export function ContactCTA() {
   return (
     <section className="py-fluid-section">
       <div className="container mx-auto px-fluid-container">
-        <Reveal className="max-w-3xl mx-auto text-center">
-          <div className="rounded-2xl card-line">
-            <div className="bg-neutral-50 dark:bg-neutral-950 rounded-2xl p-fluid-lg">
+        <Reveal className="border-y border-neutral-200 py-fluid-lg dark:border-neutral-800">
+          <div className="grid gap-fluid-md lg:grid-cols-[1fr_auto] lg:items-end">
+            <div className="max-w-3xl">
               <h2 className="text-fluid-h2 font-bold text-neutral-900 dark:text-white mb-fluid-xs">
                 <span className="block md:inline">{t("title")}</span>{" "}
                 <span className="block md:inline text-primary-700 dark:text-primary-400">
@@ -24,7 +24,9 @@ export function ContactCTA() {
                 {t("subtitle")}
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-fluid-xs justify-center">
+            </div>
+            <div>
+              <div className="flex flex-col sm:flex-row gap-fluid-xs">
                 <Link href="/contact" className="w-full sm:w-auto">
                   <Button asChild size="lg" className="gap-2 w-full sm:w-auto">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

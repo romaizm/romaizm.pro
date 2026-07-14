@@ -8,7 +8,7 @@ import {
   ReferralFAQ,
   ReferralCTA,
 } from "@/components/referral";
-import { getAlternates, getOgImageUrl } from "@/lib/seo/alternates";
+import { getPageMetadata } from "@/lib/seo/alternates";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
   getBreadcrumbSchema,
@@ -27,22 +27,7 @@ export async function generateMetadata({ params }: ReferralPageProps) {
   const title = t("title");
   const description = t("description");
 
-  return {
-    title,
-    description,
-    alternates: getAlternates("/referral", locale),
-    openGraph: {
-      title,
-      description,
-      images: [
-        {
-          url: getOgImageUrl(title, description, locale),
-          width: 1200,
-          height: 630,
-        },
-      ],
-    },
-  };
+  return getPageMetadata({ title, description, path: "/referral", locale });
 }
 
 export default async function ReferralPage({ params }: ReferralPageProps) {

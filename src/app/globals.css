@@ -3,34 +3,35 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* Primary colors - teal/cyan accent scale */
-  --color-primary-50: #ecfeff;
-  --color-primary-100: #cffafe;
-  --color-primary-200: #a5f3fc;
-  --color-primary-300: #67e8f9;
-  --color-primary-400: #22d3ee;
-  --color-primary-500: #06b6d4;
-  --color-primary-600: #0891b2;
-  --color-primary-700: #0e7490;
-  --color-primary-800: #155e75;
-  --color-primary-900: #164e63;
+  /* Muted blue-teal accent scale */
+  --color-primary-50: oklch(97% 0.012 225);
+  --color-primary-100: oklch(93% 0.022 225);
+  --color-primary-200: oklch(86% 0.04 225);
+  --color-primary-300: oklch(77% 0.06 225);
+  --color-primary-400: oklch(69% 0.075 225);
+  --color-primary-500: oklch(59% 0.09 225);
+  --color-primary-600: oklch(51% 0.09 225);
+  --color-primary-700: oklch(43% 0.075 225);
+  --color-primary-800: oklch(36% 0.06 225);
+  --color-primary-900: oklch(29% 0.04 225);
 
   /* Neutral colors */
-  --color-neutral-50: #fafafa;
-  --color-neutral-100: #f5f5f5;
-  --color-neutral-200: #e5e5e5;
-  --color-neutral-300: #d4d4d4;
-  --color-neutral-400: #a3a3a3;
-  --color-neutral-500: #737373;
-  --color-neutral-600: #525252;
-  --color-neutral-700: #404040;
-  --color-neutral-800: #262626;
-  --color-neutral-900: #171717;
-  --color-neutral-950: #0a0a0a;
+  --color-neutral-50: oklch(98.5% 0.004 225);
+  --color-neutral-100: oklch(96.5% 0.005 225);
+  --color-neutral-200: oklch(92% 0.006 225);
+  --color-neutral-300: oklch(85% 0.007 225);
+  --color-neutral-400: oklch(68% 0.008 225);
+  --color-neutral-500: oklch(51% 0.009 225);
+  --color-neutral-600: oklch(40% 0.01 225);
+  --color-neutral-700: oklch(32% 0.01 225);
+  --color-neutral-800: oklch(24% 0.009 225);
+  --color-neutral-900: oklch(18% 0.008 225);
+  --color-neutral-950: oklch(13% 0.007 225);
 
   /* Font families */
   --font-sans: ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", monospace;
+  --font-display: ui-serif, serif;
 
   /*
    * Fluid Typography System
@@ -158,10 +159,15 @@ html {
 }
 
 body {
-  @apply bg-white text-neutral-900 antialiased;
+  @apply bg-neutral-50 text-neutral-900 antialiased;
   @apply dark:bg-neutral-950 dark:text-neutral-100;
   font-size: var(--text-body);
   line-height: 1.6;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
 }
 
 /*

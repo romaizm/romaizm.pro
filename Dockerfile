@@ -27,8 +27,18 @@ RUN adduser --system --uid 1001 nextjs
 
 # Copy necessary files
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
+
+# Next's file tracer copies @swc/helpers into the standalone output inconsistently
+# (grabs package.json but not the interop source files), causing a runtime
+# "Cannot find module '@swc/helpers/.../_interop_require_default'" crash.
+# Copy the full package explicitly so every variant (cjs + esm) is present.
+COPY --from=builder /app/node_modules/@swc/helpers ./node_modules/@swc/helpers
+
+# Ensure the runtime cache dir exists and is writable by the nextjs user
+# (Next writes optimized images and prerender/segment cache here at runtime)
+RUN mkdir -p /app/.next/cache && chown -R nextjs:nodejs /app/.next
 
 USER nextjs
 

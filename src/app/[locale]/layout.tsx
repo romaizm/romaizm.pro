@@ -8,7 +8,7 @@ import {
 } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/lib/i18n/routing";
-import { getAlternates, getOgImageUrl } from "@/lib/seo/alternates";
+import { getPageMetadata } from "@/lib/seo/alternates";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { MotionProvider } from "@/components/providers/MotionProvider";
 import { Header } from "@/components/layout/Header";
@@ -34,34 +34,18 @@ export async function generateMetadata({
   const title = t("title");
   const description = t("description");
 
+  const pageMetadata = getPageMetadata({
+    title,
+    description,
+    path: "",
+    locale,
+  });
+
   return {
+    ...pageMetadata,
     title: {
       default: title,
       template: `%s | Roman Izmestev`,
-    },
-    description,
-    alternates: getAlternates("", locale),
-    openGraph: {
-      type: "website",
-      locale: locale === "ru" ? "ru_RU" : "en_US",
-      alternateLocale: locale === "ru" ? "en_US" : "ru_RU",
-      siteName: "Roman Izmestev",
-      title,
-      description,
-      images: [
-        {
-          url: getOgImageUrl(title, description, locale),
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [getOgImageUrl(title, description, locale)],
     },
   };
 }

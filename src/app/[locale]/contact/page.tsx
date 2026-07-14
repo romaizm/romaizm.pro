@@ -1,7 +1,7 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { ContactInfo } from "@/components/contact/ContactInfo";
-import { getAlternates, getOgImageUrl } from "@/lib/seo/alternates";
+import { getPageMetadata } from "@/lib/seo/alternates";
 
 interface ContactPageProps {
   params: Promise<{ locale: string }>;
@@ -14,22 +14,7 @@ export async function generateMetadata({ params }: ContactPageProps) {
   const title = t("pageTitle");
   const description = t("subtitle");
 
-  return {
-    title,
-    description,
-    alternates: getAlternates("/contact", locale),
-    openGraph: {
-      title,
-      description,
-      images: [
-        {
-          url: getOgImageUrl(title, description, locale),
-          width: 1200,
-          height: 630,
-        },
-      ],
-    },
-  };
+  return getPageMetadata({ title, description, path: "/contact", locale });
 }
 
 export default async function ContactPage({ params }: ContactPageProps) {

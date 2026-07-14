@@ -28,16 +28,15 @@ const serviceIcons = {
 
 const categoryKeys = ["webDev", "mobileDev", "webApps", "otherServices"] as const;
 
-function ServiceCard({ categoryKey, index }: { categoryKey: string; index: number }) {
+function ServiceCard({ categoryKey }: { categoryKey: string }) {
   const t = useTranslations("services");
 
   return (
-    <Reveal delay={index * 0.1} className="rounded-xl card-line">
-      <div className="h-full rounded-xl bg-neutral-50 dark:bg-neutral-900 p-fluid-sm">
-        <div className="text-primary-700 dark:text-primary-400 mb-fluid-xs">
+    <div className="grid grid-cols-[auto_1fr] gap-fluid-sm border-t border-neutral-200 py-fluid-sm dark:border-neutral-800">
+        <div className="text-primary-700 dark:text-primary-400">
           {serviceIcons[categoryKey as keyof typeof serviceIcons]}
         </div>
-
+        <div>
         <h3 className="text-fluid-h6 font-semibold text-neutral-900 dark:text-white mb-fluid-2xs">
           {t(`categories.${categoryKey}.title`)}
         </h3>
@@ -45,8 +44,8 @@ function ServiceCard({ categoryKey, index }: { categoryKey: string; index: numbe
         <p className="text-fluid-body-sm text-neutral-600 dark:text-neutral-400">
           {t(`categories.${categoryKey}.description`)}
         </p>
-      </div>
-    </Reveal>
+        </div>
+    </div>
   );
 }
 
@@ -56,7 +55,7 @@ export function Services() {
   return (
     <section className="py-fluid-section">
       <div className="container mx-auto px-fluid-container">
-        <Reveal className="text-center mb-fluid-xl">
+        <Reveal className="max-w-2xl mb-fluid-xl">
           <h2 className="text-fluid-h2 font-bold text-neutral-900 dark:text-white mb-fluid-xs">
             {t("title")}
             <span className="text-primary-700 dark:text-primary-400">.</span>
@@ -66,15 +65,15 @@ export function Services() {
           </p>
         </Reveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-fluid-lg">
-          {categoryKeys.map((key, index) => (
-            <ServiceCard key={key} categoryKey={key} index={index} />
+        <div className="grid md:grid-cols-2 gap-x-fluid-lg mb-fluid-lg">
+          {categoryKeys.map((key) => (
+            <ServiceCard key={key} categoryKey={key} />
           ))}
         </div>
 
         <Reveal
           delay={0.2}
-          className="flex flex-col sm:flex-row gap-fluid-xs justify-center"
+          className="flex flex-col sm:flex-row gap-fluid-xs"
         >
           <Link href="/services" className="w-full sm:w-auto">
             <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">

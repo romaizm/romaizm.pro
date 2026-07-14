@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Roman Izmestev — Team Lead & Full-Stack Developer",
-    "description": "Roman Izmestev is a Team Lead / CTO and full-stack developer. Leading a development team on Elixir & Phoenix LiveView, with 6+ years building websites, eCommerce stores, web apps, and mobile apps in React, Next.js, Flutter, and Shopify.",
+    "description": "Roman Izmestev is a Team Lead, CTO, and full-stack developer building reliable web, eCommerce, and mobile products for clients worldwide.",
     "cv": {
       "description": "Professional experience, skills and education of Roman Izmestev — Team Lead / CTO and Full-Stack Developer."
     }
@@ -12,7 +12,16 @@
     "cv": "CV",
     "services": "Services",
     "contact": "Contact",
-    "skipToContent": "Skip to content"
+    "skipToContent": "Skip to content",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "mobileMenu": "Mobile navigation"
+  },
+  "controls": {
+    "switchToLight": "Switch to light theme",
+    "switchToDark": "Switch to dark theme",
+    "previousSlide": "Previous project",
+    "nextSlide": "Next project"
   },
   "hero": {
     "greeting": "Hi, I'm",
@@ -55,7 +64,8 @@
       "Website": "Website",
       "eCommerce": "Online Store",
       "Mobile App": "Mobile App",
-      "Web Application": "Web Application"
+      "Web Application": "Web Application",
+      "Corporate Website": "Corporate Website"
     }
   },
   "services": {
@@ -627,6 +637,7 @@
       "result": "Your commission",
       "breakdown": "Breakdown",
       "currency": "Currency",
+      "inputLabel": "Project value",
       "firstTier": "First {amount} at 10%",
       "secondTier": "Remaining {amount} at 5%",
       "total": "Total commission"

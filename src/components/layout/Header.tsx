@@ -22,6 +22,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isCompact, setIsCompact] = useState(false);
   const lastScrollYRef = useRef(0);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,17 +48,31 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMobileMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [mobileMenuOpen]);
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4">
       {/* Floating centered navigation bar */}
       <nav
         aria-label="Primary"
         className={cn(
-          "mx-auto rounded-full px-4 py-2 transition-all duration-500",
-          "bg-white/90 dark:bg-neutral-900/90 backdrop-blur-md",
+          "mx-auto rounded-xl px-4 py-2 transition-all duration-300",
+          "bg-neutral-50/95 dark:bg-neutral-950/95",
           "border border-neutral-200/60 dark:border-neutral-800/60",
           isCompact
-            ? "max-w-4xl shadow-xl shadow-neutral-900/10 dark:shadow-black/40"
+            ? "max-w-4xl shadow-sm shadow-neutral-900/10"
             : "max-w-7xl"
         )}
       >
@@ -95,11 +110,13 @@ export function Header() {
           <div className="flex md:hidden items-center gap-2">
             <ThemeToggle />
             <button
+              ref={menuButtonRef}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-neutral-900 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-full transition-colors"
-              aria-label="Toggle menu"
+              aria-label={mobileMenuOpen ? t("closeMenu") : t("openMenu")}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-menu"
+              aria-haspopup="menu"
             >
               {mobileMenuOpen ? (
                 <svg
@@ -161,9 +178,9 @@ export function Header() {
             >
               <div
                 id="mobile-menu"
-                className="bg-neutral-50/95 dark:bg-neutral-900/95 backdrop-blur-md rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-xl p-4"
+                className="bg-neutral-50 dark:bg-neutral-950 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm p-4"
               >
-                <nav aria-label="Mobile" className="flex flex-col gap-1">
+                <nav aria-label={t("mobileMenu")} className="flex flex-col gap-1">
                   {navItems.map((item, index) => (
                     <motion.div
                       key={item.key}

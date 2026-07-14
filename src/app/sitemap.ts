@@ -9,6 +9,7 @@ function getLanguageAlternates(path: string) {
   routing.locales.forEach((locale) => {
     languages[locale] = `${baseUrl}/${locale}${path}`;
   });
+  languages["x-default"] = `${baseUrl}/en${path}`;
   return { languages };
 }
 
@@ -39,25 +40,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
   const entries: MetadataRoute.Sitemap = [];
 
-  // Static pages with alternates (one entry per page, not per locale)
+  // Every localized URL gets its own entry with the complete alternate set.
   staticPages.forEach((page) => {
-    entries.push({
-      url: `${baseUrl}/en${page}`,
-      lastModified: new Date(pageLastModified[page] || "2025-12-01"),
-      changeFrequency: page === "" ? "weekly" : "monthly",
-      priority: page === "" ? 1.0 : 0.8,
-      alternates: getLanguageAlternates(page),
+    routing.locales.forEach((locale) => {
+      entries.push({
+        url: `${baseUrl}/${locale}${page}`,
+        lastModified: new Date(pageLastModified[page] || "2025-12-01"),
+        changeFrequency: page === "" ? "weekly" : "monthly",
+        priority: page === "" ? 1.0 : 0.8,
+        alternates: getLanguageAlternates(page),
+      });
     });
   });
 
   // Project pages with alternates
   projectSlugs.forEach((slug) => {
-    entries.push({
-      url: `${baseUrl}/en/projects/${slug}`,
-      lastModified: new Date("2026-01-13"),
-      changeFrequency: "monthly",
-      priority: 0.6,
-      alternates: getLanguageAlternates(`/projects/${slug}`),
+    routing.locales.forEach((locale) => {
+      entries.push({
+        url: `${baseUrl}/${locale}/projects/${slug}`,
+        lastModified: new Date("2026-01-13"),
+        changeFrequency: "monthly",
+        priority: 0.6,
+        alternates: getLanguageAlternates(`/projects/${slug}`),
+      });
     });
   });
 

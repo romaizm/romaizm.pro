@@ -1,6 +1,5 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { AnimatedTooltip } from "@/components/ui/AnimatedTooltip";
 import { Reveal } from "@/components/ui/Reveal";
 
 const stats = [
@@ -156,10 +155,17 @@ function TechStackInline() {
           <p className="text-fluid-caption text-neutral-500 dark:text-neutral-400 mb-fluid-2xs font-medium">
             {category.name}
           </p>
-          <AnimatedTooltip
-            items={category.items}
-            className="flex flex-wrap gap-fluid-2xs"
-          />
+          <div className="flex flex-wrap gap-2">
+            {category.items.map((item) => (
+              <span
+                key={item.name}
+                className="inline-flex items-center gap-2 border border-neutral-200 px-3 py-2 text-fluid-caption text-neutral-700 dark:border-neutral-700 dark:text-neutral-300 [&_svg]:size-5"
+              >
+                <span aria-hidden="true">{item.icon}</span>
+                {item.name}
+              </span>
+            ))}
+          </div>
         </div>
       ))}
     </div>
