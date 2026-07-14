@@ -47,6 +47,8 @@
   },
   "overrides": {
     "postcss": "$postcss",
-    "@swc/helpers": "0.5.23"
+    "@swc/core": {
+      "@swc/helpers": "0.5.23"
+    }
   }
 }
