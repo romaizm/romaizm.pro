@@ -55,13 +55,16 @@ export function RotatingWord({ words, interval = 2800, className }: RotatingWord
     <span ref={hostRef} className={className}>
       <span className="sr-only">{words[0]}</span>
 
-      {/* Invisible ruler: measures each word at the inherited font size */}
-      <span ref={rulerRef} aria-hidden="true" className="absolute invisible whitespace-nowrap">
-        {words.map((word) => (
-          <span key={word} className="inline-block">
-            {word}
-          </span>
-        ))}
+      {/* Invisible ruler: measures each word at the inherited font size.
+          Zero-size overflow-hidden box so it can never widen the page. */}
+      <span aria-hidden="true" className="absolute left-0 top-0 block h-0 w-0 overflow-hidden">
+        <span ref={rulerRef} className="invisible block whitespace-nowrap">
+          {words.map((word) => (
+            <span key={word} className="inline-block">
+              {word}
+            </span>
+          ))}
+        </span>
       </span>
 
       {reducedMotion ? (
