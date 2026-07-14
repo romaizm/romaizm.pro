@@ -22,12 +22,9 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
-
 # Copy necessary files
 COPY --from=builder /app/public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
 # Next's file tracer copies @swc/helpers into the standalone output inconsistently
@@ -36,11 +33,11 @@ COPY --from=builder /app/.next/static ./.next/static
 # Copy the full package explicitly so every variant (cjs + esm) is present.
 COPY --from=builder /app/node_modules/@swc/helpers ./node_modules/@swc/helpers
 
-# Ensure the runtime cache dir exists and is writable by the nextjs user
-# (Next writes optimized images and prerender/segment cache here at runtime)
-RUN mkdir -p /app/.next/cache && chown -R nextjs:nodejs /app/.next
-
-USER nextjs
+# At runtime Next writes optimized-image and prerender caches under .next.
+# Timeweb runs the container under an arbitrary UID (and may mount over .next),
+# so owner-based permissions fail with EACCES → unhandled rejections → crash loop.
+# Make the cache tree writable regardless of the runtime UID.
+RUN mkdir -p /app/.next/cache && chmod -R 777 /app/.next
 
 EXPOSE 3000
 
