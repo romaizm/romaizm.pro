@@ -1,18 +1,19 @@
 "use client";
 
+import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { useTheme } from "next-themes";
-import { cn } from "@/lib/utils/cn";
+import styles from "./ThemeToggle.module.css";
 
 interface ThemeToggleProps {
   className?: string;
 }
 
 export function ThemeToggle({ className }: ThemeToggleProps) {
-  const { theme, setTheme } = useTheme();
   const t = useTranslations("controls");
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     setMounted(true); // eslint-disable-line react-hooks/set-state-in-effect -- SSR hydration guard
@@ -20,38 +21,87 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
 
   if (!mounted) {
     return (
-      <span
-        aria-hidden="true"
-        className={cn(
-          "block size-11 rounded-full border border-neutral-200 dark:border-neutral-800",
-          className
-        )}
-      />
+      <div className={className}>
+        <div className={`${styles.switch} hit-target`} aria-hidden="true">
+          <div className={styles.slider} />
+        </div>
+      </div>
     );
   }
 
   const isDark = theme === "dark";
 
+  const handleToggle = () => {
+    setIsAnimating(true);
+    setTheme(isDark ? "light" : "dark");
+    setTimeout(() => setIsAnimating(false), 600);
+  };
+
   return (
-    <button
-      type="button"
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      aria-label={isDark ? t("switchToLight") : t("switchToDark")}
-      className={cn(
-        "inline-flex size-11 items-center justify-center rounded-full border border-neutral-200 text-neutral-700 transition-colors hover:border-neutral-300 hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 dark:border-neutral-800 dark:text-neutral-200 dark:hover:border-neutral-700 dark:hover:bg-neutral-900",
-        className
-      )}
-    >
-      {isDark ? (
-        <svg aria-hidden="true" viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.7">
-          <circle cx="12" cy="12" r="4" />
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42" />
-        </svg>
-      ) : (
-        <svg aria-hidden="true" viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.7">
-          <path d="M20.5 14.3A8.5 8.5 0 0 1 9.7 3.5 8.5 8.5 0 1 0 20.5 14.3Z" />
-        </svg>
-      )}
-    </button>
+    <div className={className}>
+      <label className={`${styles.switch} hit-target`}>
+        <input
+          className={styles.input}
+          type="checkbox"
+          checked={isDark}
+          onChange={handleToggle}
+          aria-label={isDark ? t("switchToLight") : t("switchToDark")}
+        />
+        <div className={`${styles.slider} ${isDark ? styles.dark : ""}`}>
+          <div className={`${styles.sunMoon} ${isAnimating ? styles.rotating : ""}`}>
+            <svg className={`${styles.moonDot} ${styles.moonDot1}`} viewBox="0 0 100 100">
+              <circle cx={50} cy={50} r={50} />
+            </svg>
+            <svg className={`${styles.moonDot} ${styles.moonDot2}`} viewBox="0 0 100 100">
+              <circle cx={50} cy={50} r={50} />
+            </svg>
+            <svg className={`${styles.moonDot} ${styles.moonDot3}`} viewBox="0 0 100 100">
+              <circle cx={50} cy={50} r={50} />
+            </svg>
+            <svg className={`${styles.lightRay} ${styles.lightRay1}`} viewBox="0 0 100 100">
+              <circle cx={50} cy={50} r={50} />
+            </svg>
+            <svg className={`${styles.lightRay} ${styles.lightRay2}`} viewBox="0 0 100 100">
+              <circle cx={50} cy={50} r={50} />
+            </svg>
+            <svg className={`${styles.lightRay} ${styles.lightRay3}`} viewBox="0 0 100 100">
+              <circle cx={50} cy={50} r={50} />
+            </svg>
+            <svg className={`${styles.cloudDark} ${styles.cloud1}`} viewBox="0 0 100 100">
+              <circle cx={50} cy={50} r={50} />
+            </svg>
+            <svg className={`${styles.cloudDark} ${styles.cloud2}`} viewBox="0 0 100 100">
+              <circle cx={50} cy={50} r={50} />
+            </svg>
+            <svg className={`${styles.cloudDark} ${styles.cloud3}`} viewBox="0 0 100 100">
+              <circle cx={50} cy={50} r={50} />
+            </svg>
+            <svg className={`${styles.cloudLight} ${styles.cloud4}`} viewBox="0 0 100 100">
+              <circle cx={50} cy={50} r={50} />
+            </svg>
+            <svg className={`${styles.cloudLight} ${styles.cloud5}`} viewBox="0 0 100 100">
+              <circle cx={50} cy={50} r={50} />
+            </svg>
+            <svg className={`${styles.cloudLight} ${styles.cloud6}`} viewBox="0 0 100 100">
+              <circle cx={50} cy={50} r={50} />
+            </svg>
+          </div>
+          <div className={styles.stars}>
+            <svg className={`${styles.star} ${styles.star1}`} viewBox="0 0 20 20">
+              <path d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z" />
+            </svg>
+            <svg className={`${styles.star} ${styles.star2}`} viewBox="0 0 20 20">
+              <path d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z" />
+            </svg>
+            <svg className={`${styles.star} ${styles.star3}`} viewBox="0 0 20 20">
+              <path d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z" />
+            </svg>
+            <svg className={`${styles.star} ${styles.star4}`} viewBox="0 0 20 20">
+              <path d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z" />
+            </svg>
+          </div>
+        </div>
+      </label>
+    </div>
   );
 }

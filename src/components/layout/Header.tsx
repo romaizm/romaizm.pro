@@ -68,11 +68,11 @@ export function Header() {
       <nav
         aria-label="Primary"
         className={cn(
-          "mx-auto rounded-xl px-4 py-2 transition-all duration-300",
-          "bg-neutral-50/95 dark:bg-neutral-950/95",
+          "mx-auto rounded-full px-4 py-2 transition-all duration-500",
+          "bg-white/90 dark:bg-neutral-900/90 backdrop-blur-md",
           "border border-neutral-200/60 dark:border-neutral-800/60",
           isCompact
-            ? "max-w-4xl shadow-sm shadow-neutral-900/10"
+            ? "max-w-4xl shadow-xl shadow-neutral-900/10 dark:shadow-black/40"
             : "max-w-7xl"
         )}
       >
@@ -178,7 +178,7 @@ export function Header() {
             >
               <div
                 id="mobile-menu"
-                className="bg-neutral-50 dark:bg-neutral-950 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm p-4"
+                className="bg-neutral-50/95 dark:bg-neutral-900/95 backdrop-blur-md rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-xl p-4"
               >
                 <nav aria-label={t("mobileMenu")} className="flex flex-col gap-1">
                   {navItems.map((item, index) => (

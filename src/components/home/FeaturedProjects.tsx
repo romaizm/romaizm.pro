@@ -42,7 +42,7 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
 
         <Reveal delay={0.2} className="flex justify-center mt-fluid-md">
           <Link href="/projects" className="w-full sm:w-auto">
-            <Button variant="outline" size="lg" className="w-full rounded-full sm:w-auto">
+            <Button variant="outline" size="lg" className="w-full sm:w-auto">
               {t("viewAll")}
             </Button>
           </Link>

@@ -1,9 +1,10 @@
 "use client";
 
 import { forwardRef } from "react";
+import { motion, HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils/cn";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends Omit<HTMLMotionProps<"button">, "ref"> {
   variant?: "primary" | "secondary" | "ghost" | "outline";
   size?: "sm" | "md" | "lg";
   asChild?: boolean;
@@ -12,7 +13,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "primary", size = "md", children, disabled, asChild, ...props }, ref) => {
     const classes = cn(
-      "inline-flex items-center justify-center font-medium transition-colors duration-200 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none",
+      "inline-flex items-center justify-center font-medium transition-colors duration-200 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none",
       {
         // Variants
         "bg-neutral-900 text-white hover:bg-neutral-700 active:bg-neutral-600 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200 dark:active:bg-neutral-300":
@@ -33,24 +34,31 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     if (asChild) {
       return (
-        <span
+        <motion.span
           role="presentation"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: "spring", stiffness: 400, damping: 17 }}
           className={classes}
+          {...(props as Omit<HTMLMotionProps<"span">, "ref">)}
         >
           {children}
-        </span>
+        </motion.span>
       );
     }
 
     return (
-      <button
+      <motion.button
         ref={ref}
+        whileHover={disabled ? undefined : { scale: 1.02 }}
+        whileTap={disabled ? undefined : { scale: 0.98 }}
+        transition={{ type: "spring", stiffness: 400, damping: 17 }}
         className={classes}
         disabled={disabled}
         {...props}
       >
         {children}
-      </button>
+      </motion.button>
     );
   }
 );
