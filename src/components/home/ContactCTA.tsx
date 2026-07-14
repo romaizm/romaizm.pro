@@ -1,34 +1,22 @@
-"use client";
-
-import { useRef } from "react";
 import { useTranslations } from "next-intl";
-import { motion, useInView } from "framer-motion";
 import { Link } from "@/lib/i18n/navigation";
 import { Button } from "@/components/ui/Button";
-import { TypewriterText } from "@/components/ui/TypewriterText";
+import { Reveal } from "@/components/ui/Reveal";
 
 export function ContactCTA() {
   const t = useTranslations("contact");
   const titleWords = t.raw("titleWords") as string[];
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
     <section className="py-fluid-section">
       <div className="container mx-auto px-fluid-container">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-3xl mx-auto text-center"
-        >
-          <div className="rounded-2xl p-[1.5px] gradient-border-glow">
-            <div className="bg-neutral-50 dark:bg-neutral-950 rounded-[calc(1rem-1.5px)] p-fluid-lg">
+        <Reveal className="max-w-3xl mx-auto text-center">
+          <div className="rounded-2xl card-line">
+            <div className="bg-neutral-50 dark:bg-neutral-950 rounded-2xl p-fluid-lg">
               <h2 className="text-fluid-h2 font-bold text-neutral-900 dark:text-white mb-fluid-xs">
                 <span className="block md:inline">{t("title")}</span>{" "}
-                <span className="block md:inline">
-                  <TypewriterText words={titleWords} />
+                <span className="block md:inline text-primary-700 dark:text-primary-400">
+                  {titleWords[0]}
                 </span>
               </h2>
 
@@ -55,12 +43,12 @@ export function ContactCTA() {
                 </a>
               </div>
 
-              <p className="mt-fluid-sm text-fluid-body-sm text-gradient font-medium">
+              <p className="mt-fluid-sm text-fluid-body-sm text-primary-700 dark:text-primary-400 font-medium">
                 {t("available")}
               </p>
             </div>
           </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );
