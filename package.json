@@ -10,21 +10,21 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@tabler/icons-react": "^3.35.0",
+    "@tabler/icons-react": "^3.44.0",
     "@tsparticles/engine": "^3.9.1",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.9.1",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.23.25",
+    "framer-motion": "^12.42.2",
     "gray-matter": "^4.0.3",
-    "next": "^16.0.10",
-    "next-intl": "^4.5.8",
+    "next": "^16.2.10",
+    "next-intl": "^4.13.2",
     "next-themes": "^0.4.6",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
-    "resend": "^6.5.2",
-    "tailwind-merge": "^3.4.0",
-    "zod": "^4.1.13"
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "resend": "^6.17.2",
+    "tailwind-merge": "^3.6.0",
+    "zod": "^4.4.3"
   },
   "browserslist": [
     "Chrome >= 92",
@@ -33,16 +33,19 @@
     "Safari >= 15.4"
   ],
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.17",
+    "@tailwindcss/postcss": "^4.3.2",
     "@types/node": "^24.10.1",
-    "@types/react": "^19.2.7",
+    "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
-    "autoprefixer": "^10.4.22",
-    "eslint": "^9.39.1",
-    "eslint-config-next": "^16.0.6",
-    "postcss": "^8.5.6",
+    "autoprefixer": "^10.5.2",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.2.10",
+    "postcss": "^8.5.19",
     "sharp": "^0.34.5",
-    "tailwindcss": "^4.1.17",
+    "tailwindcss": "^4.3.2",
     "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "postcss": "$postcss"
   }
 }
