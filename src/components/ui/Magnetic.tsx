@@ -1,7 +1,23 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useSyncExternalStore } from "react";
 import { motion, useMotionValue, useSpring, useReducedMotion } from "framer-motion";
+
+const FINE_POINTER_QUERY = "(hover: hover) and (pointer: fine)";
+
+function subscribeFinePointer(callback: () => void) {
+  const mq = window.matchMedia(FINE_POINTER_QUERY);
+  mq.addEventListener("change", callback);
+  return () => mq.removeEventListener("change", callback);
+}
+
+function useFinePointer() {
+  return useSyncExternalStore(
+    subscribeFinePointer,
+    () => window.matchMedia(FINE_POINTER_QUERY).matches,
+    () => false,
+  );
+}
 
 interface MagneticProps {
   children: React.ReactNode;
@@ -18,20 +34,12 @@ interface MagneticProps {
 export function Magnetic({ children, className, strength = 4 }: MagneticProps) {
   const ref = useRef<HTMLDivElement>(null);
   const reducedMotion = useReducedMotion();
-  const [enabled, setEnabled] = useState(false);
+  const enabled = useFinePointer();
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const springX = useSpring(x, { stiffness: 320, damping: 22, mass: 0.6 });
   const springY = useSpring(y, { stiffness: 320, damping: 22, mass: 0.6 });
-
-  useEffect(() => {
-    const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
-    setEnabled(mq.matches);
-    const onChange = (e: MediaQueryListEvent) => setEnabled(e.matches);
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
-  }, []);
 
   if (reducedMotion || !enabled) {
     return <div className={className}>{children}</div>;
