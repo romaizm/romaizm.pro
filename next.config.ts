@@ -19,6 +19,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  poweredByHeader: false,
   experimental: {
     inlineCss: true,
     optimizePackageImports: ["framer-motion", "@tabler/icons-react"],
