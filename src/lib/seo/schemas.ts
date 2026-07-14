@@ -8,11 +8,10 @@ export function getPersonSchema(locale: string) {
     alternateName: locale === "ru" ? "Роман Изместьев" : undefined,
     url: baseUrl,
     image: `${baseUrl}/images/roman-photo.webp`,
-    jobTitle:
-      locale === "ru" ? "Full-Stack Разработчик" : "Full-Stack Developer",
+    jobTitle: locale === "ru" ? "Тимлид / CTO" : "Team Lead / CTO",
     worksFor: {
       "@type": "Organization",
-      name: "Freelance",
+      name: "IHI LLC",
     },
     address: {
       "@type": "PostalAddress",
@@ -21,6 +20,9 @@ export function getPersonSchema(locale: string) {
     },
     sameAs: ["https://github.com/romaizm", "https://t.me/romaizm"],
     knowsAbout: [
+      "Elixir",
+      "Phoenix LiveView",
+      "Team Leadership",
       "Web Development",
       "React",
       "Next.js",
@@ -33,8 +35,8 @@ export function getPersonSchema(locale: string) {
     ],
     description:
       locale === "ru"
-        ? "Full-stack разработчик с 5+ лет опыта. Создаю сайты, интернет-магазины, веб-приложения и мобильные приложения для клиентов по всему миру."
-        : "Full-stack developer with 5+ years of experience building websites, eCommerce stores, web apps, and mobile apps for clients worldwide.",
+        ? "Тимлид / CTO и full-stack разработчик с 6+ лет опыта. Руковожу командой разработки на Elixir и Phoenix LiveView, создаю сайты, интернет-магазины, веб- и мобильные приложения для клиентов по всему миру."
+        : "Team Lead / CTO and full-stack developer with 6+ years of experience. Leading a development team on Elixir & Phoenix LiveView, and building websites, eCommerce stores, web apps, and mobile apps for clients worldwide.",
   };
 }
 

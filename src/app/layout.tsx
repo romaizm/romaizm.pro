@@ -6,12 +6,16 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL || "https://romaizm.pro"
   ),
   title: {
-    default: "Roman Izmestev - Full-Stack Developer",
+    default: "Roman Izmestev — Team Lead & Full-Stack Developer",
     template: "%s | Roman Izmestev",
   },
   description:
-    "Roman Izmestev is a full-stack developer specializing in React, Next.js, Shopify, WordPress, and Flutter. 5+ years building websites, eCommerce stores, web apps, and mobile apps for clients worldwide.",
+    "Roman Izmestev is a Team Lead / CTO and full-stack developer. Leading a development team on Elixir & Phoenix LiveView, with 6+ years building websites, eCommerce stores, web apps, and mobile apps in React, Next.js, Flutter, and Shopify.",
   keywords: [
+    "team lead",
+    "CTO",
+    "Elixir developer",
+    "Phoenix LiveView",
     "web developer",
     "full-stack developer",
     "WordPress developer",
@@ -37,15 +41,15 @@ export const metadata: Metadata = {
     alternateLocale: "ru_RU",
     url: "https://romaizm.pro",
     siteName: "Roman Izmestev",
-    title: "Roman Izmestev - Full-Stack Developer",
+    title: "Roman Izmestev — Team Lead & Full-Stack Developer",
     description:
-      "Roman Izmestev is a full-stack developer specializing in React, Next.js, Shopify, WordPress, and Flutter. 5+ years building websites, eCommerce stores, web apps, and mobile apps for clients worldwide.",
+      "Roman Izmestev is a Team Lead / CTO and full-stack developer. Leading a development team on Elixir & Phoenix LiveView, with 6+ years building websites, eCommerce stores, web apps, and mobile apps in React, Next.js, Flutter, and Shopify.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Roman Izmestev - Full-Stack Developer",
+    title: "Roman Izmestev — Team Lead & Full-Stack Developer",
     description:
-      "Roman Izmestev is a full-stack developer specializing in React, Next.js, Shopify, WordPress, and Flutter. 5+ years building websites, eCommerce stores, web apps, and mobile apps for clients worldwide.",
+      "Roman Izmestev is a Team Lead / CTO and full-stack developer. Leading a development team on Elixir & Phoenix LiveView, with 6+ years building websites, eCommerce stores, web apps, and mobile apps in React, Next.js, Flutter, and Shopify.",
   },
   robots: {
     index: true,

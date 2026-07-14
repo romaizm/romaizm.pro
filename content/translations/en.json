@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "title": "Roman Izmestev - Full-Stack Developer",
-    "description": "Roman Izmestev is a full-stack developer specializing in React, Next.js, Shopify, WordPress, and Flutter. 5+ years building websites, eCommerce stores, web apps, and mobile apps for clients worldwide.",
+    "title": "Roman Izmestev — Team Lead & Full-Stack Developer",
+    "description": "Roman Izmestev is a Team Lead / CTO and full-stack developer. Leading a development team on Elixir & Phoenix LiveView, with 6+ years building websites, eCommerce stores, web apps, and mobile apps in React, Next.js, Flutter, and Shopify.",
     "cv": {
-      "description": "Professional experience, skills and education of Roman Izmestev, Full-Stack Developer."
+      "description": "Professional experience, skills and education of Roman Izmestev — Team Lead / CTO and Full-Stack Developer."
     }
   },
   "navigation": {
@@ -17,19 +17,19 @@
   "hero": {
     "greeting": "Hi, I'm",
     "name": "Roman Izmestev",
-    "title": "Full-Stack Developer & eCommerce Expert",
-    "subtitle": "Building digital solutions that drive results. Specializing in website development, eCommerce, mobile and web applications.",
+    "title": "Team Lead & Full-Stack Developer",
+    "subtitle": "Leading a development team on Elixir & Phoenix LiveView, and building digital products end to end — web, eCommerce, and mobile apps.",
     "status": "Available for new projects",
     "cta": "View My Work",
     "contact": "Get in Touch"
   },
   "about": {
     "title": "About Me",
-    "description": "Hey! I'm Roman, a web developer from Vladivostok, Russia.\n\nI build fullstack apps with React and Next.js, mobile apps with Flutter, and websites of any scale — from simple landing pages to complex e-commerce projects on Shopify and WooCommerce.\n\nI'm big on AI-driven development — it helps me ship faster, write cleaner code, and tackle projects that used to be too big for a solo dev.\n\nI work with clients around the globe. I like clear briefs, honest deadlines, and stuff that just works.",
+    "description": "Hey! I'm Roman, a developer and team lead from Vladivostok, Russia.\n\nThese days I lead a development team as Team Lead / CTO, working primarily in Elixir and Phoenix LiveView. Alongside that I build fullstack apps with React and Next.js, mobile apps with Flutter, and websites of any scale — from simple landing pages to complex e-commerce projects on Shopify and WooCommerce.\n\nI'm big on AI-driven development — it helps me ship faster, write cleaner code, and tackle projects that used to be too big for a solo dev.\n\nI work with clients around the globe. I like clear briefs, honest deadlines, and stuff that just works.",
     "stack": "Tech Stack",
     "photoCaption": "Me and my beloved co-worker, French Bulldog named Lulu.",
     "experience": "Years Experience",
-    "experienceValue": "5+",
+    "experienceValue": "6+",
     "projects": "Projects Launched",
     "projectsValue": "15+",
     "clients": "Clients Worldwide",
@@ -111,6 +111,8 @@
           "Internal Business Tools"
         ],
         "technologies": [
+          "Elixir",
+          "Phoenix LiveView",
           "React",
           "Next.js",
           "Various CMS",
@@ -173,10 +175,10 @@
     "contactMe": "Contact Me",
     "hero": {
       "name": "Roman Izmestev",
-      "title": "Full-Stack Developer",
-      "subtitle": "Product Manager",
-      "stack": "React / Next.js • Flutter • E-commerce",
-      "description": "5+ years building digital products for clients worldwide. I specialize in web development, mobile apps, and eCommerce solutions. Based in Vladivostok, Russia — working with teams across the globe.",
+      "title": "Team Lead / CTO",
+      "subtitle": "Full-Stack Developer",
+      "stack": "Elixir / Phoenix LiveView • React / Next.js • Flutter",
+      "description": "6+ years building digital products for clients worldwide. Currently leading a development team on Elixir & Phoenix LiveView, with deep experience in web development, mobile apps, and eCommerce. Based in Vladivostok, Russia — working with teams across the globe.",
       "location": "Vladivostok, Russia (UTC+10)"
     },
     "techStack": {
@@ -220,9 +222,13 @@
           "Figma"
         ],
         "backend": [
+          "Elixir",
+          "Phoenix",
+          "LiveView",
+          "Ecto",
+          "PostgreSQL",
           "Node.js",
           "REST API",
-          "PostgreSQL",
           "Firebase"
         ],
         "ai": [
@@ -237,6 +243,25 @@
       "present": "Present",
       "mainSkills": "Key Skills",
       "positions": [
+        {
+          "id": "ihi",
+          "company": "IHI LLC",
+          "companySlug": "ihi",
+          "title": "Team Lead / CTO",
+          "period": "Feb 2026 — Present",
+          "description": [
+            "Lead the development team — technical direction, architecture, and engineering standards",
+            "Core stack: Elixir & Phoenix LiveView for real-time, fault-tolerant web apps",
+            "Own code quality, delivery, and technical processes across the product",
+            "Mentor engineers and drive engineering best practices"
+          ],
+          "mainSkills": [
+            "Elixir",
+            "Phoenix LiveView",
+            "Team Leadership",
+            "PostgreSQL"
+          ]
+        },
         {
           "id": "freelancer",
           "company": "Freelancer",
@@ -426,7 +451,7 @@
     "available": "Open to new projects"
   },
   "footer": {
-    "description": "Full-Stack Developer based in Vladivostok, Russia. Building digital solutions that drive results.",
+    "description": "Team Lead & Full-Stack Developer based in Vladivostok, Russia. Building digital solutions that drive results.",
     "copyright": "All rights reserved",
     "madeWith": "Made with",
     "builtWith": "Built with Next.js & Tailwind CSS",

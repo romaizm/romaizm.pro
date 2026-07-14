@@ -44,17 +44,12 @@ export default async function CVPage({ params }: CVPageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const pdfUrl =
-    locale === "ru"
-      ? "/cv/Resume_Roman_Izmestev_RU.pdf"
-      : "/cv/Resume_Roman_Izmestev_EN.pdf";
-
   const featuredProjects = await getFeaturedProjects(locale);
 
   return (
     <>
       <JsonLd data={getPersonSchema(locale)} />
-      <CVHero pdfUrl={pdfUrl} />
+      <CVHero />
       <TechStack />
       <ExperienceTabs />
       <Education />

@@ -40,13 +40,13 @@ const categoryIcons: Record<string, React.ReactNode> = {
   ),
 };
 
-// Bento grid layout: web and tools span 2 columns
+// Bento grid layout: backend (primary stack) leads and spans 2 columns
 const bentoConfig: { key: string; colSpan: string }[] = [
+  { key: "backend", colSpan: "col-span-2 md:col-span-2" },
   { key: "frontend", colSpan: "col-span-1" },
   { key: "mobile", colSpan: "col-span-1" },
   { key: "web", colSpan: "col-span-1 md:col-span-2" },
   { key: "tools", colSpan: "col-span-1 md:col-span-2" },
-  { key: "backend", colSpan: "col-span-1" },
   { key: "ai", colSpan: "col-span-1" },
 ];
 

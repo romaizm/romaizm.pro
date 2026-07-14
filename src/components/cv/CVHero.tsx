@@ -5,11 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Link } from "@/lib/i18n/navigation";
 
-interface CVHeroProps {
-  pdfUrl: string;
-}
-
-export function CVHero({ pdfUrl }: CVHeroProps) {
+export function CVHero() {
   const t = useTranslations("cv");
 
   return (
@@ -106,26 +102,6 @@ export function CVHero({ pdfUrl }: CVHeroProps) {
                 transition={{ duration: 0.5, delay: 0.5 }}
                 className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3 mt-6"
               >
-                <a
-                  href={pdfUrl}
-                  download
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-medium transition-all duration-300 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 border border-neutral-300 text-neutral-700 hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 text-sm px-5 py-2.5"
-                >
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                    />
-                  </svg>
-                  {t("downloadPdf")}
-                </a>
                 <Link
                   href="/contact"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 font-medium transition-all duration-300 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 bg-neutral-900 text-white hover:bg-neutral-700 active:bg-neutral-600 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200 dark:active:bg-neutral-300 text-sm px-5 py-2.5"

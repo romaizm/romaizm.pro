@@ -19,6 +19,7 @@ interface Position {
 
 const logoExtensions: Record<string, string> = {
   freelancer: "text",
+  ihi: "webp",
   yuwab: "png",
   oloaa: "png",
   ecwid: "svg",
@@ -26,10 +27,16 @@ const logoExtensions: Record<string, string> = {
   jti: "svg",
 };
 
+// Logos that are white/light and need a dark box to be visible
+const darkBgLogos = new Set(["ihi"]);
+
 function CompanyLogo({ slug, company }: { slug: string; company: string }) {
   const ext = logoExtensions[slug];
   const [imgError, setImgError] = useState(false);
   const handleError = useCallback(() => setImgError(true), []);
+  const boxBg = darkBgLogos.has(slug)
+    ? "bg-neutral-900 dark:bg-neutral-800"
+    : "bg-white dark:bg-white/90";
 
   if (ext === "text") {
     return (
@@ -50,7 +57,7 @@ function CompanyLogo({ slug, company }: { slug: string; company: string }) {
   }
 
   return (
-    <div className="relative w-10 h-10 rounded-lg overflow-hidden bg-white dark:bg-white/90 flex-shrink-0 shadow-sm">
+    <div className={cn("relative w-10 h-10 rounded-lg overflow-hidden flex-shrink-0 shadow-sm", boxBg)}>
       <Image
         src={`/images/companies/${slug}.${ext || "png"}`}
         alt={company}
