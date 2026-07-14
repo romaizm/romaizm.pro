@@ -38,7 +38,7 @@ export function SocialLinks({ className }: SocialLinksProps) {
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 transition-colors"
+          className="hit-target inline-flex text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 transition-colors"
           aria-label={link.name}
         >
           {link.icon}

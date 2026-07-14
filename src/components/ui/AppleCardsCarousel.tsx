@@ -126,7 +126,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800 disabled:opacity-50 transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-700"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800 disabled:opacity-50 transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-700"
           onClick={scrollLeft}
           disabled={!canScrollLeft}
           aria-label="Previous slide"
@@ -136,7 +136,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="flex h-10 w-10 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800 disabled:opacity-50 transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-700"
+          className="flex h-11 w-11 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800 disabled:opacity-50 transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-700"
           onClick={scrollRight}
           disabled={!canScrollRight}
           aria-label="Next slide"

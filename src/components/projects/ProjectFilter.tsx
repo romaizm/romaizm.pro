@@ -22,9 +22,9 @@ export function ProjectFilter({
         <button
           onClick={() => onFilterChange(null)}
           className={cn(
-            "px-4 py-2 text-sm font-medium rounded-full transition-colors",
+            "hit-target px-4 py-2 text-sm font-medium rounded-full transition-colors",
             activeFilter === null
-              ? "bg-primary-600 text-white"
+              ? "bg-primary-700 text-white"
               : "bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700"
           )}
         >
@@ -35,9 +35,9 @@ export function ProjectFilter({
             key={category}
             onClick={() => onFilterChange(category)}
             className={cn(
-              "px-4 py-2 text-sm font-medium rounded-full transition-colors",
+              "hit-target px-4 py-2 text-sm font-medium rounded-full transition-colors",
               activeFilter === category
-                ? "bg-primary-600 text-white"
+                ? "bg-primary-700 text-white"
                 : "bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700"
             )}
           >
