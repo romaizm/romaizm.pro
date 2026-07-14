@@ -5,9 +5,10 @@ export const runtime = "edge";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const title = searchParams.get("title") || "Roman Izmestev";
-  const description =
-    searchParams.get("description") || "Full-Stack Developer";
+  const title = (searchParams.get("title") || "Roman Izmestev").slice(0, 100);
+  const description = (
+    searchParams.get("description") || "Full-Stack Developer"
+  ).slice(0, 200);
 
   return new ImageResponse(
     (

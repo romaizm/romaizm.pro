@@ -10,9 +10,23 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
 const RATE_LIMIT = 3; // max requests
 const RATE_LIMIT_WINDOW = 60 * 60 * 1000; // 1 hour in ms
+const RATE_LIMIT_MAX_ENTRIES = 10_000; // bound memory against spoofed-IP floods
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
+
+  if (rateLimitMap.size >= RATE_LIMIT_MAX_ENTRIES) {
+    for (const [key, value] of rateLimitMap) {
+      if (now > value.resetTime) {
+        rateLimitMap.delete(key);
+      }
+    }
+    // Still full after evicting expired entries: fail closed for new IPs
+    if (rateLimitMap.size >= RATE_LIMIT_MAX_ENTRIES && !rateLimitMap.has(ip)) {
+      return true;
+    }
+  }
+
   const record = rateLimitMap.get(ip);
 
   if (!record || now > record.resetTime) {
