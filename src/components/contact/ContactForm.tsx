@@ -71,6 +71,8 @@ export function ContactForm() {
 
       {state.message && (
         <p
+          role="status"
+          aria-live="polite"
           className={`text-sm text-center ${
             state.success
               ? "text-green-600 dark:text-green-400"

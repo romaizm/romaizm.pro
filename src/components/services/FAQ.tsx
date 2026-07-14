@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useId } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { cn } from "@/lib/utils/cn";
@@ -16,6 +16,8 @@ interface FAQItemProps {
 function FAQItem({ question, answer, isOpen, onToggle, index }: FAQItemProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const buttonId = useId();
+  const panelId = useId();
 
   return (
     <motion.div
@@ -26,11 +28,13 @@ function FAQItem({ question, answer, isOpen, onToggle, index }: FAQItemProps) {
       className="border-b border-neutral-200 dark:border-neutral-700 last:border-b-0"
     >
       <button
+        id={buttonId}
         onClick={onToggle}
         className="w-full py-5 flex items-center justify-between text-left gap-4 group"
         aria-expanded={isOpen}
+        aria-controls={panelId}
       >
-        <span className="text-fluid-body font-medium text-neutral-900 dark:text-white group-hover:text-gradient-cyan transition-colors">
+        <span className="text-fluid-body font-medium text-neutral-900 dark:text-white group-hover:text-primary-700 dark:group-hover:text-primary-400 transition-colors">
           {question}
         </span>
         <span
@@ -58,6 +62,9 @@ function FAQItem({ question, answer, isOpen, onToggle, index }: FAQItemProps) {
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
+            id={panelId}
+            role="region"
+            aria-labelledby={buttonId}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -105,7 +112,7 @@ export function FAQ() {
         </motion.div>
 
         <div className="max-w-3xl mx-auto">
-          <div className="rounded-xl gradient-border-hover transition-shadow duration-300 hover:shadow-lg">
+          <div className="rounded-xl card-line">
             <div className="rounded-xl bg-neutral-50 dark:bg-neutral-900 p-6 md:p-8">
               {faqItems.map((item, index) => (
                 <FAQItem

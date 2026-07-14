@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
@@ -35,7 +35,7 @@ function CompanyLogo({ slug, company }: { slug: string; company: string }) {
     return (
       <div className="w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-700 flex items-center justify-center flex-shrink-0">
         <span className="text-sm font-bold text-neutral-900 dark:text-white">
-          R<span className="text-gradient">.</span>
+          R<span className="text-primary-700 dark:text-primary-400">.</span>
         </span>
       </div>
     );
@@ -44,7 +44,7 @@ function CompanyLogo({ slug, company }: { slug: string; company: string }) {
   if (imgError) {
     return (
       <div className="w-10 h-10 rounded-lg overflow-hidden bg-white dark:bg-white/90 flex-shrink-0 shadow-sm flex items-center justify-center">
-        <span className="text-lg font-bold text-neutral-400">{company[0]}</span>
+        <span className="text-lg font-bold text-neutral-500 dark:text-neutral-400">{company[0]}</span>
       </div>
     );
   }
@@ -70,16 +70,57 @@ export function ExperienceTabsDesktop({ positions }: ExperienceTabsDesktopProps)
   const t = useTranslations("cv.experience");
   const [activeIndex, setActiveIndex] = useState(0);
   const activePosition = positions[activeIndex];
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const handleTablistKeyDown = (event: React.KeyboardEvent) => {
+    const count = positions.length;
+    let next: number | null = null;
+    switch (event.key) {
+      case "ArrowDown":
+      case "ArrowRight":
+        next = (activeIndex + 1) % count;
+        break;
+      case "ArrowUp":
+      case "ArrowLeft":
+        next = (activeIndex - 1 + count) % count;
+        break;
+      case "Home":
+        next = 0;
+        break;
+      case "End":
+        next = count - 1;
+        break;
+    }
+    if (next !== null) {
+      event.preventDefault();
+      setActiveIndex(next);
+      tabRefs.current[next]?.focus();
+    }
+  };
 
   return (
     <div className="flex gap-6 items-stretch">
       {/* Tabs - Left side */}
       <div className="w-72 flex-shrink-0">
-        <div className="rounded-xl gradient-border-hover transition-shadow duration-300 hover:shadow-lg h-full">
-          <div className="rounded-xl bg-neutral-50 dark:bg-neutral-900 p-2 space-y-1 h-full">
+        <div className="rounded-xl card-line h-full">
+          <div
+            role="tablist"
+            aria-orientation="vertical"
+            aria-label={t("title")}
+            onKeyDown={handleTablistKeyDown}
+            className="rounded-xl bg-neutral-50 dark:bg-neutral-900 p-2 space-y-1 h-full"
+          >
           {positions.map((position, index) => (
             <button
               key={position.id}
+              ref={(el) => {
+                tabRefs.current[index] = el;
+              }}
+              role="tab"
+              id={`experience-tab-${position.id}`}
+              aria-selected={activeIndex === index}
+              aria-controls="experience-tabpanel"
+              tabIndex={activeIndex === index ? 0 : -1}
               onClick={() => setActiveIndex(index)}
               className={cn(
                 "w-full flex items-center gap-3 p-3 rounded-xl text-left transition-all duration-200",
@@ -100,7 +141,7 @@ export function ExperienceTabsDesktop({ positions }: ExperienceTabsDesktopProps)
                 >
                   {position.company}
                 </p>
-                <p className="text-xs text-neutral-500 dark:text-neutral-500 truncate">
+                <p className="text-xs text-neutral-500 dark:text-neutral-400 truncate">
                   {position.period}
                 </p>
               </div>
@@ -119,10 +160,13 @@ export function ExperienceTabsDesktop({ positions }: ExperienceTabsDesktopProps)
 
       {/* Content - Right side */}
       <div className="flex-1 min-w-0">
-        <div className="rounded-xl gradient-border-hover transition-shadow duration-300 hover:shadow-lg h-full">
+        <div className="rounded-xl card-line h-full">
           <AnimatePresence mode="wait">
             <motion.div
               key={activePosition.id}
+              role="tabpanel"
+              id="experience-tabpanel"
+              aria-labelledby={`experience-tab-${activePosition.id}`}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
@@ -133,7 +177,7 @@ export function ExperienceTabsDesktop({ positions }: ExperienceTabsDesktopProps)
               <h3 className="text-fluid-h4 font-bold text-neutral-900 dark:text-white">
                 {activePosition.title}
               </h3>
-              <p className="text-fluid-body text-primary-600 dark:text-primary-400 font-medium">
+              <p className="text-fluid-body text-primary-700 dark:text-primary-400 font-medium">
                 {activePosition.company}
               </p>
               <p className="text-fluid-body-sm text-neutral-500 dark:text-neutral-400 mt-1">

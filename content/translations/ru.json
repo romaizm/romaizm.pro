@@ -11,7 +11,8 @@
     "projects": "Проекты",
     "cv": "Резюме",
     "services": "Услуги",
-    "contact": "Контакты"
+    "contact": "Контакты",
+    "skipToContent": "Перейти к содержимому"
   },
   "hero": {
     "greeting": "Привет, я",
@@ -73,25 +74,62 @@
       "webDev": {
         "title": "Веб-разработка",
         "description": "Современные высокопроизводительные сайты на передовых технологиях",
-        "items": ["Разработка сайтов", "Разработка интернет-магазинов"],
-        "technologies": ["Next.js", "React", "WordPress", "WooCommerce", "Shopify", "Webflow", "Bitrix"]
+        "items": [
+          "Разработка сайтов",
+          "Разработка интернет-магазинов"
+        ],
+        "technologies": [
+          "Next.js",
+          "React",
+          "WordPress",
+          "WooCommerce",
+          "Shopify",
+          "Webflow",
+          "Bitrix"
+        ]
       },
       "mobileDev": {
         "title": "Мобильная разработка",
         "description": "Нативные и кроссплатформенные мобильные приложения для iOS и Android",
-        "items": ["Flutter кроссплатформа (iOS / Android)", "Нативная разработка (Swift / Kotlin)"],
-        "technologies": ["Flutter", "Firebase", "Supabase", "RevenueCat", "Sentry", "CodeMagic", "Swift", "Kotlin"]
+        "items": [
+          "Flutter кроссплатформа (iOS / Android)",
+          "Нативная разработка (Swift / Kotlin)"
+        ],
+        "technologies": [
+          "Flutter",
+          "Firebase",
+          "Supabase",
+          "RevenueCat",
+          "Sentry",
+          "CodeMagic",
+          "Swift",
+          "Kotlin"
+        ]
       },
       "webApps": {
         "title": "Веб-приложения",
         "description": "Комплексные системы и дашборды для вашего бизнеса",
-        "items": ["Кастомные системы", "Дашборды и админ-панели", "Внутренние бизнес-инструменты"],
-        "technologies": ["React", "Next.js", "Различные CMS", "SQL базы данных"]
+        "items": [
+          "Кастомные системы",
+          "Дашборды и админ-панели",
+          "Внутренние бизнес-инструменты"
+        ],
+        "technologies": [
+          "React",
+          "Next.js",
+          "Различные CMS",
+          "SQL базы данных"
+        ]
       },
       "otherServices": {
         "title": "Цифровые услуги",
         "description": "Усильте онлайн-присутствие и оптимизируйте бизнес-процессы",
-        "items": ["SEO-оптимизация", "Развитие бренда", "Управление интернет-магазином", "Автоматизация email-маркетинга"],
+        "items": [
+          "SEO-оптимизация",
+          "Развитие бренда",
+          "Управление интернет-магазином",
+          "Автоматизация email-маркетинга"
+        ],
         "technologies": []
       }
     },
@@ -156,12 +194,46 @@
         "ai": "AI"
       },
       "items": {
-        "frontend": ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-        "mobile": ["Flutter", "Dart"],
-        "web": ["Shopify", "Liquid", "WordPress", "WooCommerce"],
-        "tools": ["Git", "VS Code", "Vercel", "Zendesk", "Helpdesk", "YouTrack", "Jira", "Linux", "Photoshop", "Illustrator", "Figma"],
-        "backend": ["Node.js", "REST API", "PostgreSQL", "Firebase"],
-        "ai": ["Claude", "Cursor.ai", "ChatGPT"]
+        "frontend": [
+          "React",
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS"
+        ],
+        "mobile": [
+          "Flutter",
+          "Dart"
+        ],
+        "web": [
+          "Shopify",
+          "Liquid",
+          "WordPress",
+          "WooCommerce"
+        ],
+        "tools": [
+          "Git",
+          "VS Code",
+          "Vercel",
+          "Zendesk",
+          "Helpdesk",
+          "YouTrack",
+          "Jira",
+          "Linux",
+          "Photoshop",
+          "Illustrator",
+          "Figma"
+        ],
+        "backend": [
+          "Node.js",
+          "REST API",
+          "PostgreSQL",
+          "Firebase"
+        ],
+        "ai": [
+          "Claude",
+          "Cursor.ai",
+          "ChatGPT"
+        ]
       }
     },
     "experience": {
@@ -180,7 +252,13 @@
             "Клиенты из России, ОАЭ, Южной Кореи, США",
             "Специализация на создании сайтов, интернет-магазинов, веб- и мобильных приложений"
           ],
-          "mainSkills": ["Next.js", "React", "Flutter", "Shopify", "WordPress"]
+          "mainSkills": [
+            "Next.js",
+            "React",
+            "Flutter",
+            "Shopify",
+            "WordPress"
+          ]
         },
         {
           "id": "yuwab",
@@ -194,7 +272,12 @@
             "Взаимодействовал со сторонними провайдерами",
             "Организовал внутренние технические процессы"
           ],
-          "mainSkills": ["Flutter", "Проектирование БД", "REST API", "Продуктовый менеджмент"]
+          "mainSkills": [
+            "Flutter",
+            "Проектирование БД",
+            "REST API",
+            "Продуктовый менеджмент"
+          ]
         },
         {
           "id": "oloaa",
@@ -208,7 +291,12 @@
             "Реорганизовал каталог для более удобной навигации",
             "Запустил автоматизированный email-маркетинг и увеличил вовлечённость постоянных клиентов на 80%"
           ],
-          "mainSkills": ["Shopify", "Liquid", "Маркетинговые кампании", "Email-автоматизация"]
+          "mainSkills": [
+            "Shopify",
+            "Liquid",
+            "Маркетинговые кампании",
+            "Email-автоматизация"
+          ]
         },
         {
           "id": "ecwid",
@@ -222,7 +310,12 @@
             "Обучал и адаптировал новых сотрудников",
             "Писал внутреннюю документацию и руководства для команды"
           ],
-          "mainSkills": ["SaaS-поддержка", "ZenDesk", "YouTrack / Jira", "Командная коммуникация"]
+          "mainSkills": [
+            "SaaS-поддержка",
+            "ZenDesk",
+            "YouTrack / Jira",
+            "Командная коммуникация"
+          ]
         },
         {
           "id": "koreanair",
@@ -235,7 +328,11 @@
             "Управлял партнёрствами и медиа-отношениями",
             "Анализировал эффективность рекламы и готовил отчёты"
           ],
-          "mainSkills": ["Маркетинг", "Управление партнёрствами", "Аналитика"]
+          "mainSkills": [
+            "Маркетинг",
+            "Управление партнёрствами",
+            "Аналитика"
+          ]
         },
         {
           "id": "jti",
@@ -248,7 +345,12 @@
             "Поддерживал полевых торговых представителей",
             "Использовал SAP и Excel для отслеживания запасов и отгрузок"
           ],
-          "mainSkills": ["B2B-продажи", "SAP", "Excel", "ERP"]
+          "mainSkills": [
+            "B2B-продажи",
+            "SAP",
+            "Excel",
+            "ERP"
+          ]
         }
       ]
     },
@@ -296,7 +398,12 @@
   "contact": {
     "title": "Давайте обсудим",
     "pageTitle": "Свяжитесь со мной",
-    "titleWords": ["ваш проект", "вашу идею", "ваш стартап", "ваш бизнес"],
+    "titleWords": [
+      "ваш проект",
+      "вашу идею",
+      "ваш стартап",
+      "ваш бизнес"
+    ],
     "subtitle": "Есть проект? Давайте обсудим.",
     "name": "Имя",
     "email": "Email",
@@ -511,11 +618,31 @@
         "commission": "Ваша комиссия"
       },
       "rows": [
-        { "project": "150 000 ₽", "calculation": "150 000 × 10%", "commission": "15 000 ₽" },
-        { "project": "300 000 ₽", "calculation": "300 000 × 10%", "commission": "30 000 ₽" },
-        { "project": "500 000 ₽", "calculation": "500 000 × 10%", "commission": "50 000 ₽" },
-        { "project": "800 000 ₽", "calculation": "500 000 × 10% + 300 000 × 5%", "commission": "65 000 ₽" },
-        { "project": "1 000 000 ₽", "calculation": "500 000 × 10% + 500 000 × 5%", "commission": "75 000 ₽" }
+        {
+          "project": "150 000 ₽",
+          "calculation": "150 000 × 10%",
+          "commission": "15 000 ₽"
+        },
+        {
+          "project": "300 000 ₽",
+          "calculation": "300 000 × 10%",
+          "commission": "30 000 ₽"
+        },
+        {
+          "project": "500 000 ₽",
+          "calculation": "500 000 × 10%",
+          "commission": "50 000 ₽"
+        },
+        {
+          "project": "800 000 ₽",
+          "calculation": "500 000 × 10% + 300 000 × 5%",
+          "commission": "65 000 ₽"
+        },
+        {
+          "project": "1 000 000 ₽",
+          "calculation": "500 000 × 10% + 500 000 × 5%",
+          "commission": "75 000 ₽"
+        }
       ]
     },
     "faq": {
