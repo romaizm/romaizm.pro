@@ -4,8 +4,8 @@
   "description": "Team Lead, CTO, and full-stack developer building web, eCommerce, and mobile products.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a0a0a",
-  "theme_color": "#06b6d4",
+  "background_color": "#020617",
+  "theme_color": "#aff33e",
   "icons": [
     {
       "src": "/favicon.svg",

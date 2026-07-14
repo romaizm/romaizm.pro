@@ -45,7 +45,7 @@ function StepCard({ step, index }: { step: (typeof steps)[number]; index: number
       <div className="h-full rounded-xl bg-neutral-50 dark:bg-neutral-900 p-fluid-sm flex flex-col">
         {/* Step number badge */}
         <div className="flex items-center gap-3 mb-fluid-xs">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 text-white flex items-center justify-center font-bold text-sm flex-shrink-0">
+          <div className="w-8 h-8 rounded-full bg-primary-400 text-black flex items-center justify-center font-bold text-sm flex-shrink-0">
             {index + 1}
           </div>
           <div className="text-primary-700 dark:text-primary-400">
@@ -69,7 +69,7 @@ function Arrow() {
   return (
     <div className="hidden lg:flex items-center justify-center">
       <svg
-        className="w-6 h-6 text-cyan-500"
+        className="w-6 h-6 text-primary-600 dark:text-primary-400"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"

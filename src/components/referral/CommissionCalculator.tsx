@@ -156,7 +156,7 @@ export function CommissionCalculator() {
                   onChange={handleInputChange}
                   placeholder={t("calculator.placeholder")}
                   aria-describedby="commission-minimum"
-                  className="w-full pl-10 pr-4 py-4 text-lg rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-4 text-lg rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-primary-600 dark:focus:ring-primary-400 focus:border-transparent"
                 />
               </div>
 
@@ -188,7 +188,7 @@ export function CommissionCalculator() {
                     className="space-y-3"
                   >
                     {/* Total Commission */}
-                    <div className="p-4 rounded-xl bg-gradient-to-br from-cyan-500/10 to-teal-500/10 dark:from-cyan-500/20 dark:to-teal-500/20 border border-cyan-500/20">
+                    <div className="p-4 rounded-xl bg-primary-400/10 dark:bg-primary-400/15 border border-primary-500/25">
                       <p className="text-fluid-body-sm text-neutral-600 dark:text-neutral-400 mb-1">
                         {t("calculator.result")}
                       </p>

@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "center",
-          backgroundColor: "#0a0a0a",
+          backgroundColor: "#020617",
           padding: "80px",
           position: "relative",
         }}
@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
             left: 0,
             right: 0,
             height: "6px",
-            background: "linear-gradient(90deg, #06b6d4, #8b5cf6, #ec4899)",
+            background: "linear-gradient(90deg, #aff33e, #22c55e)",
           }}
         />
 
@@ -59,9 +59,7 @@ export async function GET(request: NextRequest) {
             style={{
               fontSize: "80px",
               fontWeight: 700,
-              background: "linear-gradient(135deg, #06b6d4, #ec4899)",
-              backgroundClip: "text",
-              color: "transparent",
+              color: "#aff33e",
               fontFamily: "system-ui, sans-serif",
             }}
           >
@@ -88,7 +86,7 @@ export async function GET(request: NextRequest) {
         <div
           style={{
             fontSize: "28px",
-            color: "#a3a3a3",
+            color: "#94a3b8",
             maxWidth: "800px",
             lineHeight: 1.4,
             fontFamily: "system-ui, sans-serif",
@@ -104,7 +102,7 @@ export async function GET(request: NextRequest) {
             bottom: "60px",
             left: "80px",
             fontSize: "24px",
-            color: "#525252",
+            color: "#64748b",
             fontFamily: "system-ui, sans-serif",
           }}
         >

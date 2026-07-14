@@ -8,15 +8,9 @@ const publicDir = join(__dirname, '..', 'public');
 
 // PNG version for apple-touch-icon (180x180)
 const svg180 = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
-  <defs>
-    <linearGradient id="dotGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#06b6d4"/>
-      <stop offset="100%" style="stop-color:#ec4899"/>
-    </linearGradient>
-  </defs>
-  <rect width="180" height="180" rx="36" fill="#0a0a0a"/>
+  <rect width="180" height="180" rx="36" fill="#020617"/>
   <text x="24" y="130" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="112" font-weight="700" fill="#ffffff">R</text>
-  <circle cx="135" cy="112" r="22" fill="url(#dotGradient)"/>
+  <circle cx="135" cy="112" r="22" fill="#aff33e"/>
 </svg>`;
 
 // Generate apple-touch-icon.png (180x180)
@@ -29,15 +23,9 @@ console.log('Created apple-touch-icon.png');
 
 // PNG version for favicon.ico (48x48)
 const svg48 = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-  <defs>
-    <linearGradient id="dotGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#06b6d4"/>
-      <stop offset="100%" style="stop-color:#ec4899"/>
-    </linearGradient>
-  </defs>
-  <rect width="48" height="48" rx="8" fill="#0a0a0a"/>
+  <rect width="48" height="48" rx="8" fill="#020617"/>
   <text x="6" y="35" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="30" font-weight="700" fill="#ffffff">R</text>
-  <circle cx="36" cy="30" r="6" fill="url(#dotGradient)"/>
+  <circle cx="36" cy="30" r="6" fill="#aff33e"/>
 </svg>`;
 
 // Generate favicon as PNG first, then we'll use it as ico
@@ -54,15 +42,9 @@ const buffers = [];
 
 for (const size of sizes) {
   const svgScaled = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}">
-    <defs>
-      <linearGradient id="dotGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#06b6d4"/>
-        <stop offset="100%" style="stop-color:#ec4899"/>
-      </linearGradient>
-    </defs>
-    <rect width="${size}" height="${size}" rx="${Math.round(size/5)}" fill="#0a0a0a"/>
+    <rect width="${size}" height="${size}" rx="${Math.round(size/5)}" fill="#020617"/>
     <text x="${Math.round(size*0.125)}" y="${Math.round(size*0.73)}" font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="${Math.round(size*0.625)}" font-weight="700" fill="#ffffff">R</text>
-    <circle cx="${Math.round(size*0.75)}" cy="${Math.round(size*0.625)}" r="${Math.round(size*0.125)}" fill="url(#dotGradient)"/>
+    <circle cx="${Math.round(size*0.75)}" cy="${Math.round(size*0.625)}" r="${Math.round(size*0.125)}" fill="#aff33e"/>
   </svg>`;
 
   const buffer = await sharp(Buffer.from(svgScaled))

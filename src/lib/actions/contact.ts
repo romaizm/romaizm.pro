@@ -142,28 +142,28 @@ export async function sendContactEmail(
       subject: `[Portfolio] ${escapeHtml(subject)}`,
       html: `
         <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #171717; border-bottom: 2px solid #06b6d4; padding-bottom: 10px;">
+          <h2 style="color: #0f172a; border-bottom: 2px solid #aff33e; padding-bottom: 10px;">
             New Contact Form Submission
           </h2>
           <table style="width: 100%; border-collapse: collapse;">
             <tr>
-              <td style="padding: 8px 0; color: #525252; width: 100px;"><strong>Name:</strong></td>
-              <td style="padding: 8px 0; color: #171717;">${escapeHtml(name)}</td>
+              <td style="padding: 8px 0; color: #475569; width: 100px;"><strong>Name:</strong></td>
+              <td style="padding: 8px 0; color: #0f172a;">${escapeHtml(name)}</td>
             </tr>
             <tr>
-              <td style="padding: 8px 0; color: #525252;"><strong>Email:</strong></td>
-              <td style="padding: 8px 0; color: #171717;"><a href="mailto:${escapeHtml(email)}" style="color: #06b6d4;">${escapeHtml(email)}</a></td>
+              <td style="padding: 8px 0; color: #475569;"><strong>Email:</strong></td>
+              <td style="padding: 8px 0; color: #0f172a;"><a href="mailto:${escapeHtml(email)}" style="color: #4d7c0f;">${escapeHtml(email)}</a></td>
             </tr>
             <tr>
-              <td style="padding: 8px 0; color: #525252;"><strong>Subject:</strong></td>
-              <td style="padding: 8px 0; color: #171717;">${escapeHtml(subject)}</td>
+              <td style="padding: 8px 0; color: #475569;"><strong>Subject:</strong></td>
+              <td style="padding: 8px 0; color: #0f172a;">${escapeHtml(subject)}</td>
             </tr>
           </table>
-          <div style="margin-top: 20px; padding: 16px; background: #f5f5f5; border-radius: 8px;">
-            <p style="margin: 0 0 8px 0; color: #525252;"><strong>Message:</strong></p>
-            <p style="margin: 0; color: #171717; white-space: pre-wrap;">${escapeHtml(message)}</p>
+          <div style="margin-top: 20px; padding: 16px; background: #f1f5f9; border-radius: 8px;">
+            <p style="margin: 0 0 8px 0; color: #475569;"><strong>Message:</strong></p>
+            <p style="margin: 0; color: #0f172a; white-space: pre-wrap;">${escapeHtml(message)}</p>
           </div>
-          <p style="margin-top: 20px; font-size: 12px; color: #a3a3a3;">
+          <p style="margin-top: 20px; font-size: 12px; color: #94a3b8;">
             Sent from romaizm.pro contact form
           </p>
         </div>

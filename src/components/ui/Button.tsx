@@ -13,10 +13,10 @@ interface ButtonProps extends Omit<HTMLMotionProps<"button">, "ref"> {
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "primary", size = "md", children, disabled, asChild, ...props }, ref) => {
     const classes = cn(
-      "inline-flex items-center justify-center font-medium transition-colors duration-200 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none",
+      "inline-flex items-center justify-center font-medium transition-colors duration-200 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 dark:focus-visible:ring-primary-400 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none",
       {
         // Variants
-        "bg-neutral-900 text-white hover:bg-neutral-700 active:bg-neutral-600 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200 dark:active:bg-neutral-300":
+        "bg-primary-400 text-black hover:bg-primary-300 active:bg-primary-500":
           variant === "primary",
         "bg-neutral-100 text-neutral-900 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-100 dark:hover:bg-neutral-700":
           variant === "secondary",
