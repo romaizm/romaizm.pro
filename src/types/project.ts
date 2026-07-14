@@ -11,6 +11,7 @@ export interface Project {
   thumbnail: string;
   images: string[];
   url?: string;
+  urlNote?: string;
   featured: boolean;
   services: string[];
   content: string;
@@ -29,6 +30,7 @@ export interface ProjectFrontmatter {
   thumbnail: string;
   images: string[];
   url?: string;
+  urlNote?: string;
   featured: boolean;
   services: string[];
   description?: string;

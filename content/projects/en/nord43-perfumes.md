@@ -11,8 +11,8 @@ thumbnail: "/images/projects/nord43-perfumes/thumbnail.webp"
 images:
   - "/images/projects/nord43-perfumes/hero.webp"
   - "/images/projects/nord43-perfumes/screenshot.webp"
-url: "https://nord43.com"
-featured: true
+urlNote: "The site is no longer available."
+featured: false
 services: ["Web Development", "UI/UX Design", "SEO"]
 description: "Complete redesign of a perfume e-commerce store with custom modules"
 ---

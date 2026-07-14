@@ -100,6 +100,12 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                   </Button>
                 </a>
               )}
+
+              {!project.url && project.urlNote && (
+                <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400">
+                  {project.urlNote}
+                </p>
+              )}
             </motion.div>
 
             {/* Main Content */}

@@ -11,8 +11,8 @@ thumbnail: "/images/projects/nord43-perfumes/thumbnail.webp"
 images:
   - "/images/projects/nord43-perfumes/hero.webp"
   - "/images/projects/nord43-perfumes/screenshot.webp"
-url: "https://nord43.com"
-featured: true
+urlNote: "Сайт больше не работает."
+featured: false
 services: ["Веб-разработка", "UI/UX Дизайн", "SEO"]
 description: "Редизайн интернет-магазина парфюмерии с кастомными модулями"
 ---
