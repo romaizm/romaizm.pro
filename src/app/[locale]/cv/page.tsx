@@ -4,7 +4,7 @@ import { TechStack } from "@/components/cv/TechStack";
 import { ExperienceTabs } from "@/components/cv/ExperienceTabs";
 import { CVFeaturedProjects } from "@/components/cv/CVFeaturedProjects";
 import { Education } from "@/components/cv/Education";
-import { CVContact } from "@/components/cv/CVContact";
+import { ContactCTA } from "@/components/home/ContactCTA";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getPersonSchema } from "@/lib/seo/schemas";
 import { getFeaturedProjects } from "@/lib/mdx/projects";
@@ -39,7 +39,7 @@ export default async function CVPage({ params }: CVPageProps) {
       <ExperienceTabs />
       <Education />
       <CVFeaturedProjects projects={featuredProjects} />
-      <CVContact />
+      <ContactCTA />
     </>
   );
 }
