@@ -117,7 +117,7 @@ export function ServicesBento() {
   const t = useTranslations("services");
 
   return (
-    <section className="py-fluid-section">
+    <section className="pt-fluid-section-sm pb-fluid-section">
       <div className="container mx-auto px-fluid-container">
         {/* Bento Grid Layout - 3 columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
@@ -131,7 +131,7 @@ export function ServicesBento() {
           <ServiceCard categoryKey="webApps" index={2} />
 
           {/* Digital Services - spans full width */}
-          <ServiceCard categoryKey="otherServices" index={3} className="md:col-span-2 lg:col-span-3" />
+          <ServiceCard categoryKey="otherServices" index={3} className="lg:col-span-3" />
         </div>
       </div>
     </section>

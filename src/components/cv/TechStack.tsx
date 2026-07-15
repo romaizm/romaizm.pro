@@ -42,10 +42,10 @@ const categoryIcons: Record<string, React.ReactNode> = {
 
 // Bento grid layout: backend (primary stack) leads and spans 2 columns
 const bentoConfig: { key: string; colSpan: string }[] = [
-  { key: "backend", colSpan: "col-span-2 md:col-span-2" },
+  { key: "backend", colSpan: "col-span-1 md:col-span-2" },
   { key: "frontend", colSpan: "col-span-1" },
   { key: "mobile", colSpan: "col-span-1" },
-  { key: "web", colSpan: "col-span-1 md:col-span-2" },
+  { key: "web", colSpan: "col-span-1 md:col-span-1" },
   { key: "tools", colSpan: "col-span-1 md:col-span-2" },
   { key: "ai", colSpan: "col-span-1" },
 ];
@@ -63,7 +63,7 @@ function TechCard({ techKey, colSpan, index }: { techKey: string; colSpan: strin
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
       className={cn(
-        "rounded-xl card-line",
+        "rounded-xl card-line break-inside-avoid mb-3 md:mb-0",
         colSpan
       )}
     >
@@ -109,7 +109,7 @@ export function TechStack() {
         </motion.div>
 
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="columns-2 gap-3 md:columns-1 md:grid md:grid-cols-4">
             {bentoConfig.map(({ key, colSpan }, index) => (
               <TechCard key={key} techKey={key} colSpan={colSpan} index={index} />
             ))}
