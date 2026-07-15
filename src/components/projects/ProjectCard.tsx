@@ -15,9 +15,9 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         <div className="relative h-full rounded-2xl overflow-hidden bg-neutral-50 dark:bg-neutral-900 flex flex-col">
           {/* Thumbnail */}
           <div className="aspect-[16/10] bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900 relative overflow-hidden">
-            {project.thumbnail || (project.images && project.images.length > 0) ? (
+            {project.images && project.images.length > 0 ? (
               <BlurImage
-                src={project.thumbnail || project.images[0]}
+                src={project.images[0]}
                 alt={project.title}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
