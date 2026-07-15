@@ -1,25 +1,27 @@
-import Image from "next/image";
 import { Link } from "@/lib/i18n/navigation";
 import { Badge } from "@/components/ui/Badge";
+import { BlurImage } from "@/components/ui/BlurImage";
 import type { Project } from "@/types";
 
 interface ProjectCardProps {
   project: Project;
+  index?: number;
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   return (
     <Link href={`/projects/${project.slug}`} className="block h-full">
       <article className="group relative h-full rounded-2xl card-line transition-all duration-300 hover:shadow-xl hover:shadow-neutral-900/5 dark:hover:shadow-neutral-900/20">
         <div className="relative h-full rounded-2xl overflow-hidden bg-neutral-50 dark:bg-neutral-900 flex flex-col">
           {/* Thumbnail */}
           <div className="aspect-[16/10] bg-gradient-to-br from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900 relative overflow-hidden">
-            {project.images && project.images.length > 0 ? (
-              <Image
-                src={project.images[0]}
+            {project.thumbnail || (project.images && project.images.length > 0) ? (
+              <BlurImage
+                src={project.thumbnail || project.images[0]}
                 alt={project.title}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                priority={index < 6}
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
             ) : (

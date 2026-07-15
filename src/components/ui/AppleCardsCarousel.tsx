@@ -2,9 +2,7 @@
 import React, {
   useEffect,
   useRef,
-  useState,
 } from "react";
-import Image from "next/image";
 import {
   IconArrowNarrowLeft,
   IconArrowNarrowRight,
@@ -13,6 +11,7 @@ import { cn } from "@/lib/utils/cn";
 import { motion, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Link } from "@/lib/i18n/navigation";
+import { BlurImage } from "@/components/ui/BlurImage";
 
 interface CarouselProps {
   items: React.ReactElement[];
@@ -227,35 +226,11 @@ export const Card = ({
       <BlurImage
         src={card.src}
         alt={card.title}
+        fill
+        sizes="(max-width: 768px) 224px, 384px"
+        priority={index < 3}
         className="absolute inset-0 z-10 object-cover transition-transform duration-300 group-hover:scale-105"
       />
     </Link>
-  );
-};
-
-export const BlurImage = ({
-  src,
-  className,
-  alt,
-}: {
-  src: string;
-  className?: string;
-  alt: string;
-}) => {
-  const [isLoading, setLoading] = useState(true);
-
-  return (
-    <Image
-      className={cn(
-        "transition duration-300",
-        isLoading ? "blur-sm" : "blur-0",
-        className
-      )}
-      onLoad={() => setLoading(false)}
-      src={src}
-      alt={alt}
-      fill
-      sizes="(max-width: 768px) 100vw, 33vw"
-    />
   );
 };

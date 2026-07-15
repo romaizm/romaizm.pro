@@ -37,7 +37,9 @@ const nextConfig: NextConfig = {
   output: "standalone",
   poweredByHeader: false,
   images: {
-    formats: ["image/avif", "image/webp"],
+    // Assets in public/images are pre-optimized webp (<110 KB each); serving
+    // them as-is avoids on-demand sharp re-encoding on the production container.
+    unoptimized: true,
   },
   experimental: {
     inlineCss: true,
@@ -48,6 +50,15 @@ const nextConfig: NextConfig = {
       {
         source: "/:path*",
         headers: securityHeaders,
+      },
+      {
+        source: "/images/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
       },
     ];
   },

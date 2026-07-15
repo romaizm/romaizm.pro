@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { Link } from "@/lib/i18n/navigation";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+import { BlurImage } from "@/components/ui/BlurImage";
 import type { Project } from "@/types";
 
 interface ProjectDetailProps {
@@ -172,11 +172,12 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             >
               {project.images && project.images.length > 0 ? (
                 <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
-                  <Image
+                  <BlurImage
                     src={project.images[0]}
                     alt={project.title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority
                     className="object-cover"
                   />
                 </div>
