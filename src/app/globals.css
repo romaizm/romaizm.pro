@@ -383,6 +383,10 @@ body {
   padding-top: var(--space-section-sm);
 }
 
+.pt-fluid-xl {
+  padding-top: var(--space-xl);
+}
+
 /* Container padding (horizontal) */
 .px-fluid-container {
   padding-left: var(--space-container);

@@ -59,7 +59,7 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
       <JsonLd data={getFAQPageSchema(faqItems)} />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-fluid-md">
+      <section className="pt-32">
         <div className="container mx-auto px-fluid-container text-center">
           <h1 className="text-fluid-h1 font-bold text-neutral-900 dark:text-white mb-fluid-xs">
             {t("title")}
