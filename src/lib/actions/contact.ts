@@ -137,7 +137,7 @@ export async function sendContactEmail(
   try {
     await resend.emails.send({
       from: "Roman Izmestev <hello@romaizm.pro>",
-      to: "romikizm@gmail.com",
+      to: "r@romaizm.pro",
       replyTo: email,
       subject: `[Portfolio] ${escapeHtml(subject)}`,
       html: `

@@ -18,7 +18,7 @@ export function getPersonSchema(locale: string) {
       addressLocality: "Vladivostok",
       addressCountry: locale === "ru" ? "RU" : "Russia",
     },
-    sameAs: ["https://github.com/romaizm", "https://t.me/romaizm"],
+    sameAs: ["https://github.com/romaizm"],
     knowsAbout: [
       "Elixir",
       "Phoenix LiveView",
