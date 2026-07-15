@@ -455,9 +455,13 @@
       "email": "Email",
       "location": "Location",
       "timezone": "Timezone",
-      "availability": "Availability"
+      "availability": "Availability",
+      "localTime": "Local time",
+      "copyEmail": "Copy email address",
+      "copied": "Copied"
     },
-    "available": "Open to new projects"
+    "available": "Open to new projects",
+    "formTitle": "Send a message"
   },
   "footer": {
     "description": "Team Lead & Full-Stack Developer based in Vladivostok, Russia. Building digital solutions that drive results.",

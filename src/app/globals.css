@@ -537,6 +537,22 @@ body {
   }
 }
 
+/* Live clock: the colon breathes once per second like a real display */
+.clock-colon {
+  animation: clock-blink 1s steps(1, end) infinite;
+}
+
+@keyframes clock-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0.25;
+  }
+}
+
 /* Selection */
 ::selection {
   @apply bg-primary-500/20;

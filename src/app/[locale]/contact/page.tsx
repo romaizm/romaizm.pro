@@ -36,7 +36,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-fluid-grid-md">
+          <div className="grid lg:grid-cols-2 gap-4 md:gap-6">
             <ContactForm />
             <ContactInfo />
           </div>
