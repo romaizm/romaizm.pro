@@ -40,7 +40,7 @@ export function CVFeaturedProjects({ projects }: CVFeaturedProjectsProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={isTitleInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-fluid-md"
+          className="text-center mb-fluid-lg"
         >
           <h2 className="text-fluid-h2 font-bold text-neutral-900 dark:text-white mb-fluid-xs">
             {t("title")}

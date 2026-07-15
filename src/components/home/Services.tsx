@@ -56,7 +56,7 @@ export function Services() {
   return (
     <section className="py-fluid-section">
       <div className="container mx-auto px-fluid-container">
-        <Reveal className="text-center mb-fluid-xl">
+        <Reveal className="text-center mb-fluid-lg">
           <h2 className="text-fluid-h2 font-bold text-neutral-900 dark:text-white mb-fluid-xs">
             {t("title")}
             <span className="text-primary-700 dark:text-primary-400">.</span>
